@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MinhaGrade</string>
+    <string name="course_prompt">Escolha um curso</string>
+</resources>

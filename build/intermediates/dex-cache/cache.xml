@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_77a019935ac48a7182df25068882c1c371341f2d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_33a477fcb97d2030bfe791f62d5ab28143a922e2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_9fa4aa92b6d9c0f336a7cceb4788a366e0daafdf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_ca363165a40ceaad148f7d807d2ab6a5e1d7f042/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_5ebb2d317c55671d4afddc149e3a340d98e353d6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_9076b68fde1760c9e7df7160a7082cd387342966/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_959fce61c75c73f87cd96f567f4ee251f7d8a5c5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="ebbaa0c6120e39d1d29ef763529d633a067c8e9f">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_5158f70d32f227682c6541e1e209ad6d3e20fc63/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_971e06ddc35aa3ab8f6c156f9bb877854e760774/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_82fda1fc39a215bda5abd92faa46cefa52897818/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_21cc188a986dea7589d65a002f2978b3627ee5f5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_426f354d86d8fb0415773e8a53bb2cfc632d6523/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_2d6c51c23ff8e0251083af5df4b403b9333c7448/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_f38f0b51c18e73ff25e241020e434094ce4567a1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="f4227059b782cb680f10224c66b1b2b906d6deb2">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_639867249768fdbc6b83dccbdd7e16e7f1cebc67/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_c3cbb9a03282256f25a70349d50e978d6ffcb1b5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/murilo/AndroidStudioProjects/MinhaGrade/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_2b314c7336ece78a1266eb3e236e9ab62c99ac26/classes.dex" />
+    </item>
+
+</items>

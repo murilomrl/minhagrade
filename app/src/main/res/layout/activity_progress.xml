@@ -23,11 +23,11 @@
         <!--style="?android:attr/progressBarStyleHorizontal"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content" />-->
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="1º periodo"
-        android:id="@+id/periodo" />
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:text="1º periodo"-->
+        <!--android:id="@+id/periodo" />-->
 
 
 </LinearLayout>

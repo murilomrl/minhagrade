@@ -34,12 +34,12 @@ public class CourseActivity extends AppCompatActivity {
 
     // add items into spinner dynamically
     public void addItemsOnSpinner() {
+        ArrayText courses = new ArrayText();
+        courses.createCourses();
 
         spinner2 = (Spinner) findViewById(R.id.spinner);
-        List<String> list = new ArrayList<String>();
-        list.add("Ciencia da computacao");
-        list.add("Fisica");
-        list.add("Matematica");
+        List<String> list = courses.getCourses();
+
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, list){
 

@@ -1,6 +1,7 @@
 package com.devmob.minhagrade;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
  */
 
 public class ArrayText {
-    // Listas de Strings pré-definidas para o aplicativo
+    // Listas de Strings pré-definidas para o aplicativo pode melhorar para entrar num MVC
     private List<String> courses = new ArrayList<>();
     private List<String> periodos = new ArrayList<>();
 
@@ -17,6 +18,8 @@ public class ArrayText {
         courses.add("Ciencia da Computação");
         courses.add("Fisica");
         courses.add("Matematica Aplicada");
+        courses.add("Arquitetura");
+        Collections.sort(courses);
     }
 
     public void createPeriodo(int n){

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\8cdab1c0bb2df7a0fdb3b55d3e30a4f01e3397d3\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_05d6ff6db2f9adab7f632742e2e2cdc8cd40894c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\5404246b4c53247e5ae1be17718a21c902d4fd10\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6c2291407a325fb3c87214b4d85f5c82eb63de5c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\5404246b4c53247e5ae1be17718a21c902d4fd10\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_0e02d14539cabafc14d046c6df9130a021f5c058\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\924c67b2c28cb29eef21b60bf4f177deba72d188\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a1d75d3a483067bd8bc32173dd51272a2e474b68\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\2eface37f686e05cf20cc2da0636e90b9f10d556\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_591b70f014794c0aead029517d839845ad540b65\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\8273c2fc1102b3732de5f036fcf3b64d6bbdf4cf\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d2f381659714eef24fea2c669730102c44b1c47f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\924c67b2c28cb29eef21b60bf4f177deba72d188\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_07b326d93b9cb5de48985e7eebad0c893a2158cf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_5d2250cda7410f30ed070bf3c58a2ee455e2692c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\59b03086866a3b46929ed587adc4f8a5446cba27\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_790d6410c9117eac1f6d663de02bb3be1a757a3a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\321b6d1ed3f51d88528a6cbdb70e7df43a212f5b\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_7a46fd3332da23a28bf33d4f88011d17cb0dc424\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\48c0cdc429bc1761a58d2b966bc9ee22028768e6\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_87ebb4d5dd7d0b77d05ab8c3728933ce0d4a554a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_cc575dc6babb46b88f9232b23cbbc1efb8fc8a79\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\61948f0c8447bc67e9403631a3eb70fe850d9e79\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_956524f1f13efae104044e25d6b5a39c049de5da\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\8cdab1c0bb2df7a0fdb3b55d3e30a4f01e3397d3\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_38b6dbbe8273b96eeb853cd8a1f34e1a546fd5c9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\321b6d1ed3f51d88528a6cbdb70e7df43a212f5b\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_71cddcce12ba7a9156a8ecbdc21dc9fb7f5abc76\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\.android\build-cache\61948f0c8447bc67e9403631a3eb70fe850d9e79\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d9cbf244f44ebf94caf94a3865320ef033b11ae2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="609517ad560f6d7255fc07296a2ae3726f420bfd">
+        <dex dex="C:\Users\DevMob\Documents\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_022b1f54372686470f65114c6f36668060269a31\classes.dex" />
+    </item>
+
+</items>

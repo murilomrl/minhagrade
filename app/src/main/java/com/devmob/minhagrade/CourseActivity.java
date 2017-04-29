@@ -9,13 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.attr.data;
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class CourseActivity extends AppCompatActivity {
 
@@ -34,7 +29,7 @@ public class CourseActivity extends AppCompatActivity {
 
     // add items into spinner dynamically
     public void addItemsOnSpinner() {
-        ArrayText courses = new ArrayText();
+        ListaDeCursos courses = new ListaDeCursos();
         courses.createCourses();
 
         spinner2 = (Spinner) findViewById(R.id.spinner);

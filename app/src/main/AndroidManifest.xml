@@ -20,8 +20,13 @@
         <activity
             android:name=".ProgressActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".CourseActivity"/>
+            android:parentActivityName=".CourseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PeriodoActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".ProgressActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

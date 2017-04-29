@@ -43,7 +43,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="8d262ffa969929b8911d7dbe72d1184fa68ffc17">
+        sha1="3848547e029dbda7674e16c68e27311034028be6">
         <dex dex="C:\Users\Nelson\projetos\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_5abd822b067d0cbb332316b869bb26932e44a83b\classes.dex" />
     </item>
     <item
@@ -54,6 +54,15 @@
         revision="25.0.0"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
         <dex dex="C:\Users\Nelson\projetos\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_13cd31abb4a336a6138a581122c311ad2f27e5ce\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nelson\AppData\Local\Android\android-sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Nelson\projetos\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_145d1eba3f9e20c7805f56b5fdfb0ffe728c179a\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -72,6 +81,15 @@
         revision="25.0.0"
         sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
         <dex dex="C:\Users\Nelson\projetos\minhagrade\app\build\intermediates\pre-dexed\debug\classes_dbb6a81177c16b733d1beeca3869b77fcafd3147.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nelson\AppData\Local\Android\android-sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Nelson\projetos\minhagrade\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_145d1eba3f9e20c7805f56b5fdfb0ffe728c179a.jar" />
     </item>
     <item
         is-multidex="false"
@@ -110,6 +128,15 @@
         <dex dex="C:\Users\Nelson\projetos\minhagrade\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_6c62b4aa7b9746ac1a729abd61181a2d128041b1.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="C:\Users\Nelson\.android\build-cache\2f0b462340e57d8988001cb99c85554b7f47ac54\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Nelson\projetos\minhagrade\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fdee1d8e5e0e1de54e11a56ed399e30050a669c8\classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="C:\Users\Nelson\.android\build-cache\5b4c66e8e66cc536b2a9c2c7afacd7b21545f245\output\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="false"
@@ -117,6 +144,15 @@
         revision="25.0.0"
         sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
         <dex dex="C:\Users\Nelson\projetos\minhagrade\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_0cecec89f47655522c969b59f9f5b29a7def6d34.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nelson\.android\build-cache\2f0b462340e57d8988001cb99c85554b7f47ac54\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Nelson\projetos\minhagrade\app\build\intermediates\pre-dexed\debug\classes_fdee1d8e5e0e1de54e11a56ed399e30050a669c8.jar" />
     </item>
     <item
         is-multidex="false"

@@ -26,7 +26,7 @@ public class ProgressActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
-        ListaDePeriodos periodos = new ListaDePeriodos();
+        final ListaDePeriodos periodos = new ListaDePeriodos();
 
         Intent intent = getIntent();
         String value =  intent.getStringExtra("MESSAGE");
@@ -49,6 +49,10 @@ public class ProgressActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String periodoSelecionado = (String) adapter.getItem(position);
                 Toast.makeText(ProgressActivity.this,periodoSelecionado,Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ProgressActivity.this, PeriodoActivity.class);
+                String message = String.valueOf(periodoSelecionado);
+                intent.putExtra("MESSAGE", message);
+                ProgressActivity.this.startActivity(intent);
             }
         });
 

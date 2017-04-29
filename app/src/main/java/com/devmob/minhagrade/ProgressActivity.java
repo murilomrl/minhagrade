@@ -2,8 +2,10 @@ package com.devmob.minhagrade;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -31,9 +33,10 @@ public class ProgressActivity extends AppCompatActivity {
         TextView course = (TextView) findViewById(R.id.course);
         course.setText(value);
 
-        //      Editar essa parte para o numero de periodos de acordo com o curso
         periodos.createPeriodo(value);
 
+        //Teste de back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ListView listasDePeriodos = (ListView) findViewById(R.id.listaPeriodo);
 

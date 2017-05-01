@@ -14,11 +14,10 @@ public class Cursos {
 
     //Retorna as Listas
     public List<String> getCourses() {
-        courses.add("Ciencia da Computação");
+        courses.add("Ciência da Computação");
         courses.add("Fisica");
         courses.add("Matematica Aplicada");
         courses.add("Arquitetura");
-        courses.add("Medicina");
         courses.add("BCMT");
         Collections.sort(courses);
         return courses;

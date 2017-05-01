@@ -19,6 +19,7 @@ public class Cursos {
         courses.add("Matematica Aplicada");
         courses.add("Arquitetura");
         courses.add("Medicina");
+        courses.add("BCMT");
         Collections.sort(courses);
         return courses;
     }

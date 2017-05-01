@@ -8,19 +8,29 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class PeriodoActivity extends AppCompatActivity {
-    private Periodo periodo;
+
+    private ListView listasDeDisciplinas;
+    private Disciplina disciplina = new Disciplina();
+    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_periodo);
-        periodo = new Periodo();
 
         Intent intent = getIntent();
-        String value =  intent.getStringExtra("MESSAGE");
+        ArrayList<String> value =  intent.getStringArrayListExtra("MESSAGE");
         TextView periodo = (TextView) findViewById(R.id.periodo);
-        periodo.setText(value);
+        periodo.setText(value.get(1));
+
+        listasDeDisciplinas = (ListView) findViewById(R.id.listaDisciplinas);
+
+        adapter = new ArrayAdapter<String>(this, R.layout.listperiodo, disciplina.getDisciplinas(value.get(0),value.get(1)));
+
+        listasDeDisciplinas.setAdapter(adapter);
 
     }
 

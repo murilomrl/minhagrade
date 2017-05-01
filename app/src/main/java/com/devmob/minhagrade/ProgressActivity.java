@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -30,31 +31,31 @@ public class ProgressActivity extends AppCompatActivity {
         periodo = new Periodo();
 
         Intent intent = getIntent();
-        String value =  intent.getStringExtra("MESSAGE");
-        curso = intent.getStringExtra("MESSAGE");
+        curso =  intent.getStringExtra("MESSAGE");
         TextView course = (TextView) findViewById(R.id.course);
-        course.setText(value);
+        course.setText(curso);
 
         //Teste de back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         listasDePeriodos = (ListView) findViewById(R.id.listaPeriodo);
 
-        adapter = new ArrayAdapter<String>(this,R.layout.listperiodo, periodo.getPeriodos(value));
+        adapter = new ArrayAdapter<String>(this,R.layout.listperiodo, periodo.getPeriodos(curso));
 
         listasDePeriodos.setAdapter(adapter);
 
         listasDePeriodos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 String periodoSelecionado = (String) adapter.getItem(position);
-
                 Toast.makeText(ProgressActivity.this,periodoSelecionado,Toast.LENGTH_SHORT).show();
-
                 Intent intent = new Intent(ProgressActivity.this, PeriodoActivity.class);
+                String periodo = String.valueOf(periodoSelecionado);
+                ArrayList<String> message = new ArrayList<String>();
 
-                String message = String.valueOf(periodoSelecionado);
+                message.add(curso);
+                message.add(periodo);
+
                 intent.putExtra("MESSAGE", message);
                 ProgressActivity.this.startActivity(intent);
             }

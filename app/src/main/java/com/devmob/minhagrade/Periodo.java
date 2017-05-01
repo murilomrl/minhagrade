@@ -23,14 +23,6 @@ public class Periodo {
         return periodos;
     }
 
-    public List<String> getPeriodoComDisciplinas(String curso,String periodo) {
-        //criaPeriodosPeloCurso(curso);
-        getPeriodos(curso);
-        int numero = periodos.indexOf(periodo);
-        List<String> periodoComDisciplinas = Arrays.asList(disciplinas[numero]);
-        return periodoComDisciplinas;
-    }
-
     private void criaPeriodosPeloCurso(String curso){
 
         if (curso.equals("Ciencia da Computação")){
@@ -50,27 +42,18 @@ public class Periodo {
         }
         if (curso.equals("Fisica")){
             this.numero = 9;
-            disciplinas = new String[][]{
-
-            };
         }
         if (curso.equals("Matematica Aplicada")){
             this.numero = 10;
-            disciplinas = new String[][]{
-
-            };
         }
         if (curso.equals("Arquitetura")){
             this.numero = 7;
-            disciplinas = new String[][]{
-
-            };
         }
         if (curso.equals("Medicina")){
             this.numero = 10;
-            disciplinas = new String[][]{
-
-            };
+        }
+        if (curso.equals("BCMT")){
+            this.numero = 9;
         }
     }
 }

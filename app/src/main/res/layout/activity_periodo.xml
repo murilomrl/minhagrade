@@ -19,7 +19,8 @@
         android:textSize="25dp"
         android:paddingBottom="10dp"
         android:textStyle="bold"
-        android:text="Periodo Selecionado"/>
+        android:text="Periodo Selecionado"
+        android:textAlignment="center"/>
 
     <ListView
         android:id="@+id/listaDisciplinas"

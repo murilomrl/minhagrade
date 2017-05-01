@@ -4,19 +4,24 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class PeriodoActivity extends AppCompatActivity {
+    private Periodo periodo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_periodo);
+        periodo = new Periodo();
 
         Intent intent = getIntent();
         String value =  intent.getStringExtra("MESSAGE");
         TextView periodo = (TextView) findViewById(R.id.periodo);
         periodo.setText(value);
+
     }
 
     //Volta para a activity anterior

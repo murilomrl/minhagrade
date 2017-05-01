@@ -21,4 +21,13 @@
         android:textStyle="bold"
         android:text="Periodo Selecionado"/>
 
+    <ListView
+        android:id="@+id/listaDisciplinas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true">
+
+    </ListView>
+
+
 </LinearLayout>

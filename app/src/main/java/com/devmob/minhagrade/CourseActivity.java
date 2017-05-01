@@ -29,8 +29,7 @@ public class CourseActivity extends AppCompatActivity {
 
     // add items into spinner dynamically
     public void addItemsOnSpinner() {
-        ListaDeCursos courses = new ListaDeCursos();
-        courses.createCourses();
+        Cursos courses = new Cursos();
 
         spinner2 = (Spinner) findViewById(R.id.spinner);
         List<String> list = courses.getCourses();

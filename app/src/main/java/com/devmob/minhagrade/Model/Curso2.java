@@ -11,13 +11,7 @@ public class Curso2 {
     private String nome;
     List<Periodo2> periodos = new ArrayList<Periodo2>();
 
-
-    public Curso2(String nome, ) {
+    public Curso2(String nome) {
         this.nome = nome;
-        String[] teste = getResources().getStr
-        periodos.add(new Periodo2());
     }
-
-
-
 }

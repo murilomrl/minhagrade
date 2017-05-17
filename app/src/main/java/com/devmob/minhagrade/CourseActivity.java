@@ -14,9 +14,14 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.devmob.minhagrade.Lixo.Cursos;
+
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-public class CourseActivity extends AppCompatActivity {
+public class
+CourseActivity extends AppCompatActivity {
 
     private Spinner spinner1, spinner2;
     private Button btnSubmit;
@@ -44,8 +49,11 @@ public class CourseActivity extends AppCompatActivity {
     public void addItemsOnSpinner() {
         Cursos courses = new Cursos();
 
+        String[] arrayCourse = getResources().getStringArray(R.array.cursos_array);
+
         spinner2 = (Spinner) findViewById(R.id.spinner);
-        List<String> list = courses.getCourses();
+        List<String> list = Arrays.asList(arrayCourse);  //courses.getCourses();
+        Collections.sort(list);
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, list){

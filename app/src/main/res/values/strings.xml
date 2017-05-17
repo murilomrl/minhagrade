@@ -3,4 +3,12 @@
     <string name="course_prompt">Escolha um curso</string>
     <string name="loading">Carregando</string>
     <string name="progress_course_name">Seu Curso</string>
+
+    <string-array name="cursos_array">
+        <item>Ciência da Computação</item>
+        <item>Física</item>
+        <item>Matemática Aplicada</item>
+        <item>Arquitetura</item>
+        <item>BCMT</item>
+    </string-array>
 </resources>

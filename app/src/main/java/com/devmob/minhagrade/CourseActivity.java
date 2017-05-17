@@ -1,6 +1,8 @@
 package com.devmob.minhagrade;
 
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -80,7 +82,12 @@ public class CourseActivity extends AppCompatActivity {
                 Intent intent = new Intent(CourseActivity.this, ProgressActivity.class);
                 String message = String.valueOf(spinner1.getSelectedItem());
                 intent.putExtra("MESSAGE", message);
-                CourseActivity.this.startActivity(intent);
+                /**
+                 * Animação de transição entre activitys
+                 */
+                ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(CourseActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
+                ActivityCompat.startActivity(CourseActivity.this,intent,opts.toBundle());
+                //CourseActivity.this.startActivity(intent);
                 /*Toast.makeText(CourseActivity.this,
                         "OnClickListener : " +
                                 "\nSpinner : "+ String.valueOf(spinner1.getSelectedItem()),

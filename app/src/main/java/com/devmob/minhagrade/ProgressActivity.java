@@ -2,7 +2,10 @@ package com.devmob.minhagrade;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -57,9 +60,35 @@ public class ProgressActivity extends AppCompatActivity {
                 message.add(periodo);
 
                 intent.putExtra("MESSAGE", message);
-                ProgressActivity.this.startActivity(intent);
+                /**
+                 * Animação de transição entre activitys
+                 */
+                ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(ProgressActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
+                ActivityCompat.startActivity(ProgressActivity.this,intent,opts.toBundle());
+                //ProgressActivity.this.startActivity(intent);
             }
         });
+
+    }
+
+    //Volta para a activity anterior
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; goto parent activity.
+                this.finish();
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
 
     }
 

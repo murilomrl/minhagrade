@@ -1,10 +1,12 @@
 package com.devmob.minhagrade;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -18,6 +20,7 @@ public class CourseActivity extends AppCompatActivity {
 
     private Spinner spinner1, spinner2;
     private Button btnSubmit;
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,14 @@ public class CourseActivity extends AppCompatActivity {
         addItemsOnSpinner();
         addListenerOnButton();
         addListenerOnSpinnerItemSelection();
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        String course = prefs.getString("course", "No course defined");//"No name defined" is the default value.
+        Log.d("PREF_COURSE", course);
+        if(!course.equals("No course defined")){
+            Intent intent = new Intent(CourseActivity.this, ProgressActivity.class);
+            intent.putExtra("MESSAGE", course);
+            startActivity(intent);
+        }
     }
 
     // add items into spinner dynamically
@@ -81,6 +92,10 @@ public class CourseActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CourseActivity.this, ProgressActivity.class);
                 String message = String.valueOf(spinner1.getSelectedItem());
+                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                editor.putString("course", message);
+                editor.apply();
+                //Log.d("PREF_COURSE", message);
                 intent.putExtra("MESSAGE", message);
                 /**
                  * Animação de transição entre activitys

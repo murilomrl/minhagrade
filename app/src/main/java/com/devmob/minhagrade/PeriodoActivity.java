@@ -1,9 +1,12 @@
 package com.devmob.minhagrade;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,7 +35,22 @@ public class PeriodoActivity extends AppCompatActivity {
 
         listasDeDisciplinas = (ListView) findViewById(R.id.listaDisciplinas);
 
-        adapter = new ArrayAdapter<String>(this, R.layout.listdisciplina, disciplina.getDisciplinas(value.get(0),value.get(1)));
+        Resources res = getResources();
+        TypedArray ta = res.obtainTypedArray(R.array.cc);
+        int n = ta.length();
+        String[][] array = new String[n][];
+        for (int i = 0; i < n; ++i) {
+            int id = ta.getResourceId(i, 0);
+            if (id > 0) {
+                array[i] = res.getStringArray(id);
+            } else {
+                // something wrong with the XML
+            }
+        }
+        ta.recycle(); // Important!
+        String indice = value.get(1);
+        Log.i("array", array[Integer.parseInt(String.valueOf(indice.charAt(0)))][0]);
+        adapter = new ArrayAdapter<String>(this, R.layout.listdisciplina, array[Integer.parseInt(String.valueOf(indice.charAt(0)))]);
 
         listasDeDisciplinas.setAdapter(adapter);
         listasDeDisciplinas.setOnItemClickListener(new AdapterView.OnItemClickListener() {

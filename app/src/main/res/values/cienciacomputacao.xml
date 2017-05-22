@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="cc_periodo1" periodo="1">
+        <item>Cálculo Infinitesimal I</item>
+        <item>Computação I</item>
+        <item>Fund da Computacao Digital</item>
+        <item>Números Inteiros Criptografia</item>
+        <item>Sistemas de Informação</item>
+    </string-array>
+
+    <string-array name="cc_periodo2" periodo="2">
+        <item>Cálculo Integ e Diferencial II</item>
+        <item>Circuitos Lógicos</item>
+        <item>Computação II</item>
+        <item>Matemática Combinatória</item>
+        <item>Organização da Informação</item>
+    </string-array>
+
+    <string-array name="cc_periodo3">
+        <item>Álgebra Linear Algorítima</item>
+        <item>Cálculo Int e Diferencial III</item>
+        <item>Computação e Programação</item>
+        <item>Estrutura de Dados</item>
+        <item>Linguagens Formais</item>
+        <item>Mecânica, Oscilações e Ondas</item>
+    </string-array>
+
+    <string-array name="cc_periodo4">
+        <item>Algoritmos e Grafos</item>
+        <item>Cálculo Integ e Diferencial IV</item>
+        <item>Cálculo Númerico</item>
+        <item>Computação Concorrente</item>
+        <item>Eletromagnetismo e Ótica</item>
+    </string-array>
+
+    <string-array name="cc_periodo5">
+        <item>Arquitetura de Computadores I</item>
+        <item>Banco de Dados I</item>
+        <item>Compiladores I</item>
+        <item>Computadores e Sociedade</item>
+        <item>Fund da Engenharia de Software</item>
+        <item>Lógica</item>
+    </string-array>
+
+    <string-array name="cc_periodo6">
+        <item>Computação Gráfica I</item>
+        <item>Estatística e Probabilidade</item>
+        <item>Inteligência Artificial</item>
+        <item>Programação Linear I</item>
+        <item>ELETIVA</item>
+    </string-array>
+
+    <string-array name="cc_periodo7">
+        <item>Avaliação de Desempenho</item>
+        <item>Sistemas Operacionais I</item>
+        <item>ELETIVA</item>
+        <item>ELETIVA</item>
+    </string-array>
+
+    <string-array name="cc_periodo8">
+        <item>Teleprocessamento e Redes</item>
+        <item>ELETIVA</item>
+        <item>ELETIVA</item>
+        <item>ELETIVA</item>
+        <item>ELETIVA</item>
+    </string-array>
+
+    <string-array name="cc_periodo9">
+        <item>ELETIVA</item>
+        <item>ELETIVA</item>
+        <item>ELETIVA</item>
+    </string-array>
+
+    <string-array name="cc">
+        <item>@array/cc_periodo1</item>
+        <item>@array/cc_periodo2</item>
+        <item>@array/cc_periodo3</item>
+        <item>@array/cc_periodo4</item>
+        <item>@array/cc_periodo5</item>
+        <item>@array/cc_periodo6</item>
+        <item>@array/cc_periodo7</item>
+        <item>@array/cc_periodo8</item>
+        <item>@array/cc_periodo9</item>
+    </string-array>
+
+</resources>

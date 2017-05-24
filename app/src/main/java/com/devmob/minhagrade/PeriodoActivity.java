@@ -50,7 +50,7 @@ public class PeriodoActivity extends AppCompatActivity {
         ta.recycle(); // Important!
         String indice = value.get(1);
         Log.i("array", array[Integer.parseInt(String.valueOf(indice.charAt(0)))][0]);
-        adapter = new ArrayAdapter<String>(this, R.layout.listdisciplina, array[Integer.parseInt(String.valueOf(indice.charAt(0)))]);
+        adapter = new ArrayAdapter<String>(this, R.layout.listdisciplina, array[Integer.parseInt(String.valueOf(indice.charAt(0)))-1]);
 
         listasDeDisciplinas.setAdapter(adapter);
         listasDeDisciplinas.setOnItemClickListener(new AdapterView.OnItemClickListener() {

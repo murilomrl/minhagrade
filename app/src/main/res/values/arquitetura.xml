@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="fau_periodo1">
+        <item>Concepção da Forma Arq I</item>
+        <item>Des. de Arquitetura</item>
+        <item>Des. de Observação</item>
+        <item>Geometria Descritiva</item>
+        <item>História Arquitetura e Arte</item>
+        <item>História das Teorias do Urbanismo</item>
+        <item>Modelagem dos Sistemas</item>
+    </string-array>
+
+    <string-array name="fau_periodo2">
+        <item>Concepção da Forma Arq II</item>
+        <item>Desenho de Observação II</item>
+        <item>Estudos Sociais</item>
+        <item>Geometria Descritiva II</item>
+        <item>História Arquitetura e Arte II</item>
+        <item>História das Teorias do Urbanismo II</item>
+        <item>Isostática</item>
+        <item>Topografia Básica</item>
+    </string-array>
+
+    <string-array name="fau_periodo3">
+        <item>Análise da Forma Urb e da Paisagem</item>
+        <item>Conforto Ambiental I</item>
+        <item>História Arquitetura e Arte III</item>
+        <item>História das Teorias do Urbanismo III</item>
+        <item>Perspectiva</item>
+        <item>Projeto Arquitetônico I</item>
+        <item>Resistência dos Materiais</item>
+    </string-array>
+
+    <string-array name="fau_periodo4">
+        <item>Ateliê Integrado I</item>
+        <item>Concepção Estrutural</item>
+        <item>Gráfica Digital</item>
+        <item>Processos Construtivos I</item>
+        <item>Projeto Arquitetônico II</item>
+        <item>Projeto Paisagístico I</item>
+        <item>Saneamento Predial</item>
+        <item>Teoria Arquitetura I</item>
+    </string-array>
+
+    <string-array name="fau_periodo5">
+        <item>Arquitetura no Brasil I</item>
+        <item>Conforto Ambiental II</item>
+        <item>Estruturas de Concreto Armado I</item>
+        <item>Historia Arquitetura e Arte IV</item>
+        <item>Processos Construtivos II</item>
+        <item>Projeto Arquitetônico III</item>
+    </string-array>
+
+    <string-array name="fau_periodo6">
+        <item>Análise da Forma Urb e da Paisagem II</item>
+        <item>Arquitetura no Brasil II</item>
+        <item>Estrutura de Concreto Armado II</item>
+        <item>História Arquitetura e Arte V</item>
+        <item>Planejamento Urbano e Regional</item>
+        <item>Processos Construtivos III</item>
+        <item>Projeto Arquitetônico IV</item>
+        <item>Projeto de Interiores</item>
+    </string-array>
+
+    <string-array name="fau_periodo7">
+        <item>Arquitetura no Brasil III</item>
+        <item>Estruturas de Aço e de Madeira</item>
+        <item>Projeto Urbano I</item>
+        <item>Saneamento Urbano</item>
+        <item>Teoria Arquitetura II</item>
+        <item>Urbanismo e Meio Ambiente</item>
+    </string-array>
+
+    <string-array name="fau_periodo8">
+        <item>Ateliê Integrado II</item>
+        <item>Conserv Rest Patrim Cultural</item>
+        <item>Projeto Paisagístico II</item>
+        <item>Sistemas Estruturais</item>
+        <item>Téc Apres Projetos</item>
+        <item>Teoria da Arquitetura III</item>
+    </string-array>
+
+    <string-array name="fau_periodo9">
+        <item>Ética e Exercício Profissional</item>
+        <item>Gestão do Processo de Projeto</item>
+        <item>Orçamento e Gerenciamento de Obra</item>
+        <item>Trabalho Final de Graduação I</item>
+    </string-array>
+
+    <string-array name="fau_periodo10">
+        <item>Trabalho Final de Graduação II</item>
+    </string-array>
+
+
+    <string-array name="fau">
+        <item>@array/fau_periodo1</item>
+        <item>@array/fau_periodo2</item>
+        <item>@array/fau_periodo3</item>
+        <item>@array/fau_periodo4</item>
+        <item>@array/fau_periodo5</item>
+        <item>@array/fau_periodo6</item>
+        <item>@array/fau_periodo7</item>
+        <item>@array/fau_periodo8</item>
+        <item>@array/fau_periodo9</item>
+        <item>@array/fau_periodo10</item>
+    </string-array>
+
+</resources>

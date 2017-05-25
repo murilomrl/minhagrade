@@ -5,7 +5,7 @@
     <string name="progress_course_name">Seu Curso</string>
 
     <string-array name="cursos_array">
-        <item name="cc">Ciência da Computação</item>
+        <item>Ciência da Computação</item>
         <item>Física</item>
         <item>Matemática Aplicada</item>
         <item>Arquitetura</item>

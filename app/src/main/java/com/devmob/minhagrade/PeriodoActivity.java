@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class PeriodoActivity extends AppCompatActivity {
@@ -36,20 +37,29 @@ public class PeriodoActivity extends AppCompatActivity {
         listasDeDisciplinas = (ListView) findViewById(R.id.listaDisciplinas);
 
         Resources res = getResources();
-        TypedArray ta = res.obtainTypedArray(R.array.cc);
-        int n = ta.length();
-        String[][] array = new String[n][];
-        for (int i = 0; i < n; ++i) {
-            int id = ta.getResourceId(i, 0);
-            if (id > 0) {
-                array[i] = res.getStringArray(id);
-            } else {
-                // something wrong with the XML
+        String[][] array = new String[0][];
+        try {
+            Field field = R.array.class.getField(value.get(0));
+            TypedArray ta = res.obtainTypedArray(field.getInt(null));
+            int n = ta.length();
+            array = new String[n][];
+            for (int i = 0; i < n; ++i) {
+                int id = ta.getResourceId(i, 0);
+                if (id > 0) {
+                    array[i] = res.getStringArray(id);
+                } else {
+                    // something wrong with the XML
+                }
             }
+            ta.recycle(); // Important!
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
-        ta.recycle(); // Important!
+
         String indice = value.get(1);
-        Log.i("array", array[Integer.parseInt(String.valueOf(indice.charAt(0)))][0]);
+        //Log.i("array", array[Integer.parseInt(String.valueOf(indice.charAt(0)))][0]);
         adapter = new ArrayAdapter<String>(this, R.layout.listdisciplina, array[Integer.parseInt(String.valueOf(indice.charAt(0)))-1]);
 
         listasDeDisciplinas.setAdapter(adapter);

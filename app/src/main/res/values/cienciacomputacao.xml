@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="cc_periodo1" periodo="1">
+    <string-array name="cc_periodo1">
         <item>Cálculo Infinitesimal I</item>
         <item>Computação I</item>
         <item>Fund da Computacao Digital</item>
@@ -9,7 +9,7 @@
         <item>Sistemas de Informação</item>
     </string-array>
 
-    <string-array name="cc_periodo2" periodo="2">
+    <string-array name="cc_periodo2">
         <item>Cálculo Integ e Diferencial II</item>
         <item>Circuitos Lógicos</item>
         <item>Computação II</item>

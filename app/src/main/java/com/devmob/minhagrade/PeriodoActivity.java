@@ -1,9 +1,9 @@
 package com.devmob.minhagrade;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,22 +15,28 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.devmob.minhagrade.Model.LviewAdapter;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
+import static com.devmob.minhagrade.CourseActivity.MY_PREFS_NAME;
 
 public class PeriodoActivity extends AppCompatActivity {
 
     private ListView listasDeDisciplinas;
-    private Disciplina disciplina = new Disciplina();
-    private ArrayAdapter<String> adapter;
-
+    private LviewAdapter adapter;
+    String[] disciplinas = new String[0];
+    Set<String> setDisc = new HashSet<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_periodo);
 
         Intent intent = getIntent();
-        ArrayList<String> value =  intent.getStringArrayListExtra("MESSAGE");
+        final ArrayList<String> value =  intent.getStringArrayListExtra("MESSAGE");
         TextView periodo = (TextView) findViewById(R.id.periodo);
         periodo.setText(value.get(1));
 
@@ -60,14 +66,22 @@ public class PeriodoActivity extends AppCompatActivity {
 
         String indice = value.get(1);
         //Log.i("array", array[Integer.parseInt(String.valueOf(indice.charAt(0)))][0]);
-        adapter = new ArrayAdapter<String>(this, R.layout.listdisciplina, array[Integer.parseInt(String.valueOf(indice.charAt(0)))-1]);
-
+        disciplinas = array[Integer.parseInt(String.valueOf(indice.charAt(0)))-1];
+        adapter = new LviewAdapter(this, R.layout.listdisciplina, disciplinas);
+        adapter.setSetDisc(setDisc,disciplinas);
         listasDeDisciplinas.setAdapter(adapter);
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        setDisc = prefs.getStringSet(value.get(2).toString()+"periodo"+value.get(1).toString(), new HashSet<String>());//"No name defined" is the default value.
+        //Log.d("PREF_COURSE",);
         listasDeDisciplinas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 view.setBackgroundResource(R.color.colorFeito);
-
+                Log.i("clicado", String.valueOf(position));
+                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                setDisc.add(disciplinas[position]);
+                editor.putStringSet(value.get(2).toString()+"periodo"+value.get(1).toString(), setDisc);
+                editor.apply();
                 //adapter.getItem(position);
                 Toast.makeText(PeriodoActivity.this,"Fazendo",Toast.LENGTH_SHORT).show();
             }

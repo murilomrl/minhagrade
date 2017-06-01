@@ -91,7 +91,7 @@ public class ProgressActivity extends AppCompatActivity {
 
                 message.add(mapa_curso.get(curso).get(1));
                 message.add(periodo);
-
+                message.add(curso);
                 intent.putExtra("MESSAGE", message);
                 /**
                  * Animação de transição entre activitys

@@ -72,15 +72,18 @@ public class PeriodoActivity extends AppCompatActivity {
         listasDeDisciplinas.setAdapter(adapter);
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         setDisc = prefs.getStringSet(value.get(2).toString()+"periodo"+value.get(1).toString(), new HashSet<String>());//"No name defined" is the default value.
+        Log.i("setDisc", String.valueOf(setDisc.isEmpty()));
         //Log.d("PREF_COURSE",);
         listasDeDisciplinas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 view.setBackgroundResource(R.color.colorFeito);
-                Log.i("clicado", String.valueOf(position));
                 SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-                setDisc.add(disciplinas[position]);
+                if(!setDisc.contains(disciplinas[position]))
+                    setDisc.add(disciplinas[position]);
+                Log.i("clicado", String.valueOf(setDisc.isEmpty()));
                 editor.putStringSet(value.get(2).toString()+"periodo"+value.get(1).toString(), setDisc);
+                Log.i("periodoact",value.get(2).toString()+"periodo"+value.get(1).toString());
                 editor.apply();
                 //adapter.getItem(position);
                 Toast.makeText(PeriodoActivity.this,"Fazendo",Toast.LENGTH_SHORT).show();

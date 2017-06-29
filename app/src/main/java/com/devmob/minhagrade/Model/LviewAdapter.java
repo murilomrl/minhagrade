@@ -20,27 +20,17 @@ import java.util.Set;
 
 public class LviewAdapter extends ArrayAdapter<String>{
     Set<String> setDisc= new HashSet<>();
-    String[] disciplinas;
     public LviewAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull String[] objects) {
         super(context, resource, objects);
     }
 
     public void setSetDisc(Set<String> setDisc, String[] disciplinas){
-        this.disciplinas=disciplinas;
         this.setDisc=setDisc;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = super.getView(position, convertView, parent);
-        if(setDisc!=null) {
-            if (setDisc.size() > 0) {
-                if (setDisc.contains(disciplinas[position].toString())) {
-                    Log.i("To no get view", disciplinas[position].toString());
-                    view.setBackgroundResource(R.color.colorFeito);
-                }
-            }
-        }
         return view;
     }
 }

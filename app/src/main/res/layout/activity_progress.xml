@@ -28,6 +28,12 @@
         android:layout_weight="10dp"
         android:layout_height="wrap_content" />-->
 
+    <Button
+        android:id="@+id/grade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Visualizar Grade" />
+
     <ListView
         android:id="@+id/listaPeriodo"
         android:layout_width="match_parent"

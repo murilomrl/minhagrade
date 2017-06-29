@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +38,7 @@ public class ProgressActivity extends AppCompatActivity {
         setContentView(R.layout.activity_progress);
         periodo = new Periodo();
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         curso =  intent.getStringExtra("MESSAGE");
         TextView course = (TextView) findViewById(R.id.course);
         course.setText(curso);
@@ -70,11 +71,29 @@ public class ProgressActivity extends AppCompatActivity {
 
         //Log.i("Curso ", String.valueOf(mapa_curso.get(curso).get(1)));
 
-        List<String> periodos = new ArrayList<>();
+        final List<String> periodos = new ArrayList<>();
         //Log.i("periodos ", String.valueOf(mapa_cursos.get("Arquitetura").get(0)));
         for (int i = 1; i<=Integer.parseInt(String.valueOf(mapa_curso.get(curso).get(0))); i++) {
             periodos.add(i + "º periodo");
         }
+
+        Button grade = (Button) findViewById(R.id.grade);
+        grade.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProgressActivity.this, GradeActivity.class);
+                ArrayList<String> message = new ArrayList<>();
+                message.add(curso);
+                message.addAll(periodos);
+                intent.putExtra("MESSAGE", message);
+                Log.i("koe",curso);
+                /**
+                 * Animação de transição entre activitys
+                 */
+                ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(ProgressActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
+                ActivityCompat.startActivity(ProgressActivity.this,intent,opts.toBundle());
+            }
+        });
 
         adapter = new ArrayAdapter<String>(this,R.layout.listperiodo, periodos);
 

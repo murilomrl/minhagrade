@@ -39,7 +39,7 @@ public class GradeActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         int i,k;
         int j = 0;
-        for (i = 1; i < 11; i++) {
+        for (i = 1; i < value.size(); i++) {
             Log.i("gradeAct", value.get(0).toString() + "periodo" + value.get(i).toString());
             if (prefs.contains(value.get(0).toString() + "periodo" + value.get(i).toString())) {
                 setDisc = prefs.getStringSet(value.get(0).toString() + "periodo" + value.get(i).toString(), new HashSet<String>());

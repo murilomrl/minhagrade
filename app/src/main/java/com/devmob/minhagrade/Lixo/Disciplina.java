@@ -1,4 +1,4 @@
-package com.devmob.minhagrade;
+package com.devmob.minhagrade.Lixo;
 
 import java.util.ArrayList;
 import java.util.Arrays;

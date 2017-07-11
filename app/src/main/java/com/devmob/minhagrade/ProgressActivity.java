@@ -17,6 +17,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.devmob.minhagrade.Lixo.Periodo;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -85,6 +87,7 @@ public class ProgressActivity extends AppCompatActivity {
                 ArrayList<String> message = new ArrayList<>();
                 message.add(curso);
                 message.addAll(periodos);
+
                 intent.putExtra("MESSAGE", message);
                 Log.i("koe",curso);
                 /**

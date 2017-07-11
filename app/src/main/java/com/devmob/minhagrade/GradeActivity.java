@@ -2,11 +2,14 @@ package com.devmob.minhagrade;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 
 import com.devmob.minhagrade.Model.LviewAdapter;
 
@@ -23,7 +26,9 @@ import static com.devmob.minhagrade.CourseActivity.MY_PREFS_NAME;
 
 public class GradeActivity extends AppCompatActivity {
     private ListView listasDeDisciplinas;
+    private TableLayout[] tabelaDeDisciplinas;
     private LviewAdapter adapter;
+    private String[] arrayLV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,15 +60,21 @@ public class GradeActivity extends AppCompatActivity {
             }
         }
         Object[] gradeArray = setGrade.toArray();
-        String[] arrayLV= new String[gradeArray.length];
+        arrayLV= new String[gradeArray.length];
         for(i=0;i<gradeArray.length;i++){
             arrayLV[i]= gradeArray[i].toString();
             Log.i("disc", arrayLV[i]);
         }
         Log.i("size", String.valueOf(gradeArray.length));
-        adapter = new LviewAdapter(this, R.layout.listdisciplina, arrayLV);
-        listasDeDisciplinas = (ListView) findViewById(R.id.gradeSem);
-        listasDeDisciplinas.setAdapter(adapter);
+        int orientacao = this.getResources().getConfiguration().orientation;
+        if(orientacao == Configuration.ORIENTATION_LANDSCAPE) {
+
+        }else{
+            adapter = new LviewAdapter(this, R.layout.listdisciplina, arrayLV);
+            listasDeDisciplinas = (ListView) findViewById(R.id.gradeSem);
+            listasDeDisciplinas.setSaveEnabled(false);
+            listasDeDisciplinas.setAdapter(adapter);
+        }
     }
 
     //Volta para a activity anterior
@@ -85,5 +96,19 @@ public class GradeActivity extends AppCompatActivity {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
 
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        int orientacao = this.getResources().getConfiguration().orientation;
+        if(orientacao == Configuration.ORIENTATION_LANDSCAPE) {
+
+        }else{
+            adapter = new LviewAdapter(this, R.layout.listdisciplina, arrayLV);
+            listasDeDisciplinas = (ListView) findViewById(R.id.gradeSem);
+            listasDeDisciplinas.setSaveEnabled(false);
+            listasDeDisciplinas.setAdapter(adapter);
+        }
     }
 }

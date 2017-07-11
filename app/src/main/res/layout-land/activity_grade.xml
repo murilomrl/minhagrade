@@ -22,12 +22,11 @@
                 android:text="Grade do Semestre"
                 android:textAlignment="center"/>
 
-        <ListView
+        <TableLayout
                 android:id="@+id/gradeSem"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clickable="true"
                 android:background="@color/colorNaoFeito">
-        </ListView>
+        </TableLayout>
 
 </LinearLayout>

@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.devmob.minhagrade.Lixo.Cursos;
+//import com.devmob.minhagrade.Lixo.Cursos;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -47,7 +47,7 @@ CourseActivity extends AppCompatActivity {
 
     // add items into spinner dynamically
     public void addItemsOnSpinner() {
-        Cursos courses = new Cursos();
+        //Cursos courses = new Cursos();
 
         String[] arrayCourse = getResources().getStringArray(R.array.cursos_array);
 

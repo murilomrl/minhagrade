@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Periodo2 {
     private String nome;
-    List<Disciplina2> disciplinas =new ArrayList<Disciplina2>();
+    List<Disciplina> disciplinas =new ArrayList<Disciplina>();
 
     public Periodo2(String nome) {
         this.nome = nome;

@@ -17,8 +17,10 @@ import android.widget.Toast;
 
 import com.devmob.minhagrade.Model.LviewAdapter;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -66,7 +68,10 @@ public class PeriodoActivity extends AppCompatActivity {
 
         String indice = value.get(1);
         //Log.i("array", array[Integer.parseInt(String.valueOf(indice.charAt(0)))][0]);
+
+        // Lista de Disciplinas que é exibido
         disciplinas = array[Integer.parseInt(String.valueOf(indice.charAt(0)))-1];
+        Log.d("Disciplinas","Dis: "+ Arrays.toString(disciplinas));
         adapter = new LviewAdapter(this, R.layout.listdisciplina, disciplinas);
         adapter.setSetDisc(setDisc,disciplinas);
         listasDeDisciplinas.setAdapter(adapter);

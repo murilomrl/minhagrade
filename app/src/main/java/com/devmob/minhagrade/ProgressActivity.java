@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.devmob.minhagrade.Lixo.Periodo;
+//import com.devmob.minhagrade.Lixo.Periodo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,7 +30,7 @@ import java.util.List;
 public class ProgressActivity extends AppCompatActivity {
 
     private ListView listasDePeriodos;
-    private Periodo periodo;
+    //private Periodo periodo;
     private ArrayAdapter<String> adapter;
     private String curso;
 
@@ -38,7 +38,7 @@ public class ProgressActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
-        periodo = new Periodo();
+        //periodo = new Periodo();
 
         final Intent intent = getIntent();
         curso =  intent.getStringExtra("MESSAGE");

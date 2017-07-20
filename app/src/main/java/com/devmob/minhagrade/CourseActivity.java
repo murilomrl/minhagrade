@@ -102,6 +102,8 @@ CourseActivity extends AppCompatActivity {
                 String message = String.valueOf(spinner1.getSelectedItem());
                 SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
                 editor.putString("course", message);
+                editor.putInt("Concluido",0);
+                editor.putInt("QuantidadeDisciplinas",100);
                 editor.apply();
                 //Log.d("PREF_COURSE", message);
                 intent.putExtra("MESSAGE", message);

@@ -40,4 +40,6 @@ public class Prefs {
         int valor = pref.getInt(chave,0);
         return valor;
     }
+
+
 }

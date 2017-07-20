@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,11 +15,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 //import com.devmob.minhagrade.Lixo.Periodo;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +38,12 @@ public class ProgressActivity extends AppCompatActivity {
     private String curso;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        calculaPorcentagem();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
@@ -44,6 +53,10 @@ public class ProgressActivity extends AppCompatActivity {
         curso =  intent.getStringExtra("MESSAGE");
         TextView course = (TextView) findViewById(R.id.course);
         course.setText(curso);
+
+        // Porcentagem
+        calculaPorcentagem();
+
 
         //Teste de back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -124,6 +137,18 @@ public class ProgressActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void calculaPorcentagem(){
+        int concluido = Prefs.getInt(this,"Concluido");
+        int numeroDeDisciplinas = Prefs.getInt(this,"QuantidadeDisciplinas");
+        double result = ((double) concluido/(double) numeroDeDisciplinas)*100;
+        DecimalFormat df = new DecimalFormat("#.##");
+        Log.i("Porcento", String.valueOf(result));
+        Log.i("Concluido", String.valueOf(concluido));
+        Log.i("QuantidadeDisciplinas", String.valueOf(numeroDeDisciplinas));
+        TextView porcentos= (TextView) findViewById(R.id.porcentagem);
+        porcentos.setText(df.format(result)+"%");
     }
 
     //Volta para a activity anterior

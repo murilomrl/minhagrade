@@ -25,9 +25,27 @@
         android:id="@+id/myProgress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_weight="10dp"
-        android:layout_height="wrap_content" />-->
+        android:layout_height="wrap_content"
+        android:minHeight="30dp"
+        android:maxHeight="30dp"/>-->
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <TextView
+                android:layout_weight="1"
+                android:text="Concluido :"
+                android:textSize="25dp"
+                android:textAlignment="center"/>
+            <TextView
+                android:id="@+id/porcentagem"
+                android:layout_weight="1"
+                android:text="100%"
+                android:textSize="25dp"
+                android:textAlignment="center"/>
+        </TableRow>
+    </TableLayout>
     <Button
         android:id="@+id/grade"
         android:layout_width="match_parent"

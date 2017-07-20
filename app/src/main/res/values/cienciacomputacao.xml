@@ -48,28 +48,28 @@
         <item>Estatística e Probabilidade</item>
         <item>Inteligência Artificial</item>
         <item>Programação Linear I</item>
-        <item>ELETIVA</item>
+        <item>ELETIVA 1</item>
     </string-array>
 
     <string-array name="cc_periodo7">
         <item>Avaliação de Desempenho</item>
         <item>Sistemas Operacionais I</item>
-        <item>ELETIVA</item>
-        <item>ELETIVA</item>
+        <item>ELETIVA 2</item>
+        <item>ELETIVA 3</item>
     </string-array>
 
     <string-array name="cc_periodo8">
         <item>Teleprocessamento e Redes</item>
-        <item>ELETIVA</item>
-        <item>ELETIVA</item>
-        <item>ELETIVA</item>
-        <item>ELETIVA</item>
+        <item>ELETIVA 4</item>
+        <item>ELETIVA 5</item>
+        <item>ELETIVA 6</item>
+        <item>ELETIVA 7</item>
     </string-array>
 
     <string-array name="cc_periodo9">
-        <item>ELETIVA</item>
-        <item>ELETIVA</item>
-        <item>ELETIVA</item>
+        <item>ELETIVA 8</item>
+        <item>ELETIVA 9</item>
+        <item>ELETIVA 10</item>
     </string-array>
 
     <string-array name="cc">

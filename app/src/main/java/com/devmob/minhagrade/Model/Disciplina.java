@@ -7,12 +7,11 @@ import android.util.Log;
 
 import com.devmob.minhagrade.Prefs;
 import com.devmob.minhagrade.R;
-import com.google.gson.Gson;
+
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 /**
  * Created by DevMob on 17/05/2017.
@@ -75,6 +74,14 @@ public class Disciplina {
 
         String indice = value.get(1);
         int status;
+        int quantidade = 0;
+        for (int i = 0; i<n; i++){
+            quantidade = quantidade+array[i].length;
+        }
+
+        Log.i("Quantidade:", String.valueOf(quantidade));
+        Prefs.setInteger(context,"QuantidadeDisciplinas",quantidade);
+
         disciplinasVetor = array[Integer.parseInt(String.valueOf(indice.charAt(0)))-1];
         for (int i = 0;i<disciplinasVetor.length;i++){
             status = Prefs.getInt(context,disciplinasVetor[i]);

@@ -1,6 +1,7 @@
 package com.devmob.minhagrade;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -13,9 +14,12 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.devmob.minhagrade.Adapter.DisciplinasAdapter;
 import com.devmob.minhagrade.Model.Disciplina;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.devmob.minhagrade.CourseActivity.MY_PREFS_NAME;
 
 public class PeriodoActivity extends AppCompatActivity implements OnItemClickListener{
 
@@ -63,19 +67,24 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
         // Atualiza o status da disciplina
         disciplina.setStatus(status);
 
+        //Salva dados
+        Prefs.setInteger(this,disciplina.getNome(),status);
+
         // Pinta o ITEM da ListView de acordo com o status
         if (status == 2){
             view.setBackgroundColor(this.getResources().getColor(R.color.colorFeito));
+            Toast.makeText(PeriodoActivity.this, disciplina.getNome()+" concluido",Toast.LENGTH_SHORT).show();
         }
         else if (status == 1){
             view.setBackgroundColor(this.getResources().getColor(R.color.colorFazendo));
+            Toast.makeText(PeriodoActivity.this, "Fazendo "+disciplina.getNome(),Toast.LENGTH_SHORT).show();
         }
         else{
             view.setBackgroundColor(this.getResources().getColor(R.color.colorNaoFeito));
+            Toast.makeText(PeriodoActivity.this, disciplina.getNome()+" ainda não feito",Toast.LENGTH_SHORT).show();
         }
-
-        Toast.makeText(PeriodoActivity.this, "Disciplina: "+disciplina.getNome(),Toast.LENGTH_SHORT).show();
     }
+
 
     //Private Resources
 

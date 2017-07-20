@@ -5,7 +5,9 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.Log;
 
+import com.devmob.minhagrade.Prefs;
 import com.devmob.minhagrade.R;
+import com.google.gson.Gson;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -72,12 +74,19 @@ public class Disciplina {
         }
 
         String indice = value.get(1);
-
+        int status;
         disciplinasVetor = array[Integer.parseInt(String.valueOf(indice.charAt(0)))-1];
         for (int i = 0;i<disciplinasVetor.length;i++){
-            disciplinas.add(new Disciplina(disciplinasVetor[i]));
+            status = Prefs.getInt(context,disciplinasVetor[i]);
+            if (status == 0) {
+                disciplinas.add(new Disciplina(disciplinasVetor[i]));
+            }
+            else {
+                disciplinas.add(new Disciplina(disciplinasVetor[i], status));
+            }
         }
         //Log.i("Disciplina",disciplinas.getClass().toString());
         return disciplinas;
     }
+
 }

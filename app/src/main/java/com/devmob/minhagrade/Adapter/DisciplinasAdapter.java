@@ -58,8 +58,20 @@ public class DisciplinasAdapter extends BaseAdapter {
 
         // Atualiza os valores das views
         Disciplina disciplina = disciplinaArrayList.get(position);
+
         // Coloca valor na TextView do listdisciplina.xml
         textView.setText(disciplina.getNome());
+
+        // Colorir Item pelo status
+        if (disciplina.getStatus() == 2){
+            view.setBackgroundColor(context.getResources().getColor(R.color.colorFeito));
+        }
+        else if (disciplina.getStatus() == 1){
+            view.setBackgroundColor(context.getResources().getColor(R.color.colorFazendo));
+        }
+        else{
+            view.setBackgroundColor(context.getResources().getColor(R.color.colorNaoFeito));
+        }
 
         // Retorna view
         return view;

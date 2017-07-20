@@ -1,37 +1,28 @@
 package com.devmob.minhagrade;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
-import com.devmob.minhagrade.Model.LviewAdapter;
+import com.devmob.minhagrade.Adapter.DisciplinasAdapter;
+import com.devmob.minhagrade.Model.Disciplina;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
-import static com.devmob.minhagrade.CourseActivity.MY_PREFS_NAME;
+public class PeriodoActivity extends AppCompatActivity implements OnItemClickListener{
 
-public class PeriodoActivity extends AppCompatActivity {
+    private ListView listViewDeDisciplinas;
+    private List<Disciplina> disciplinas;
 
-    private ListView listasDeDisciplinas;
-    private LviewAdapter adapter;
-    String[] disciplinas = new String[0];
-    Set<String> setDisc = new HashSet<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,61 +31,50 @@ public class PeriodoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final ArrayList<String> value =  intent.getStringArrayListExtra("MESSAGE");
         TextView periodo = (TextView) findViewById(R.id.periodo);
+
+        // Coloca o numero do periodo no TextView do Periodo
         periodo.setText(value.get(1));
 
-        listasDeDisciplinas = (ListView) findViewById(R.id.listaDisciplinas);
+        // Instancia a ListView
+        listViewDeDisciplinas = (ListView) findViewById(R.id.listaDisciplinas);
 
-        Resources res = getResources();
-        String[][] array = new String[0][];
-        try {
-            Field field = R.array.class.getField(value.get(0));
-            TypedArray ta = res.obtainTypedArray(field.getInt(null));
-            int n = ta.length();
-            array = new String[n][];
-            for (int i = 0; i < n; ++i) {
-                int id = ta.getResourceId(i, 0);
-                if (id > 0) {
-                    array[i] = res.getStringArray(id);
-                } else {
-                    // something wrong with the XML
-                }
-            }
-            ta.recycle(); // Important!
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+        // Popula a Lista de disciplinas apartir do Model de Disciplinas
+        disciplinas = Disciplina.getDisciplinas(value,this);
+
+        // Usa DisciplinasAdapter para carregar as disciplinas
+        listViewDeDisciplinas.setAdapter(new DisciplinasAdapter(disciplinas,this));
+
+        // Set OnItemClickListener para cada item da ListView
+        listViewDeDisciplinas.setOnItemClickListener(this);
+    }
+
+    // Metodo de OnItemClick, para fazer dessa forma a classe tem que ter Implements OnItemClickListener de AdapterView
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        //Instancia a disciplina de acordo com a posição
+        Disciplina disciplina = disciplinas.get(position);
+
+        //Instancia o status da disciplina que foi clicada
+        int status = disciplina.getStatus();
+
+        // Cria um ciclo de cliques para apenas 3 status possivel, ver os status no model Disciplina
+        status = (status+1)%3;
+
+        // Atualiza o status da disciplina
+        disciplina.setStatus(status);
+
+        // Pinta o ITEM da ListView de acordo com o status
+        if (status == 2){
+            view.setBackgroundColor(this.getResources().getColor(R.color.colorFeito));
+        }
+        else if (status == 1){
+            view.setBackgroundColor(this.getResources().getColor(R.color.colorFazendo));
+        }
+        else{
+            view.setBackgroundColor(this.getResources().getColor(R.color.colorNaoFeito));
         }
 
-        String indice = value.get(1);
-        //Log.i("array", array[Integer.parseInt(String.valueOf(indice.charAt(0)))][0]);
-
-        // Lista de Disciplinas que é exibido
-        disciplinas = array[Integer.parseInt(String.valueOf(indice.charAt(0)))-1];
-        Log.d("Disciplinas","Dis: "+ Arrays.toString(disciplinas));
-        adapter = new LviewAdapter(this, R.layout.listdisciplina, disciplinas);
-        adapter.setSetDisc(setDisc,disciplinas);
-        listasDeDisciplinas.setAdapter(adapter);
-        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        setDisc = prefs.getStringSet(value.get(2).toString()+"periodo"+value.get(1).toString(), new HashSet<String>());//"No name defined" is the default value.
-        Log.i("setDisc", String.valueOf(setDisc.isEmpty()));
-        //Log.d("PREF_COURSE",);
-        listasDeDisciplinas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                view.setBackgroundResource(R.color.colorFeito);
-                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-                if(!setDisc.contains(disciplinas[position]))
-                    setDisc.add(disciplinas[position]);
-                Log.i("clicado", String.valueOf(setDisc.isEmpty()));
-                editor.putStringSet(value.get(2).toString()+"periodo"+value.get(1).toString(), setDisc);
-                Log.i("periodoact",value.get(2).toString()+"periodo"+value.get(1).toString());
-                editor.apply();
-                //adapter.getItem(position);
-                Toast.makeText(PeriodoActivity.this,"Fazendo",Toast.LENGTH_SHORT).show();
-            }
-        });
-
+        Toast.makeText(PeriodoActivity.this, "Disciplina: "+disciplina.getNome(),Toast.LENGTH_SHORT).show();
     }
 
     //Private Resources
@@ -119,4 +99,5 @@ public class PeriodoActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
 
     }
+
 }

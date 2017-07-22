@@ -59,7 +59,7 @@ public class ProgressActivity extends AppCompatActivity {
 
 
         //Teste de back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         listasDePeriodos = (ListView) findViewById(R.id.listaPeriodo);
 
@@ -96,7 +96,7 @@ public class ProgressActivity extends AppCompatActivity {
         grade.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProgressActivity.this, GradeActivity.class);
+                //Intent intent = new Intent(ProgressActivity.this, GradeActivity.class);
                 ArrayList<String> message = new ArrayList<>();
                 message.add(curso);
                 message.addAll(periodos);
@@ -152,24 +152,24 @@ public class ProgressActivity extends AppCompatActivity {
     }
 
     //Volta para a activity anterior
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                // app icon in action bar clicked; goto parent activity.
-                this.finish();
-                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
-    public void onBackPressed(){
-        super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
-
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                // app icon in action bar clicked; goto parent activity.
+//                this.finish();
+//                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
+//
+//    @Override
+//    public void onBackPressed(){
+//        super.onBackPressed();
+//        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+//
+//    }
 
 }

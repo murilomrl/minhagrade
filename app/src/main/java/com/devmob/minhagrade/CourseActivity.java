@@ -20,12 +20,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class
-CourseActivity extends AppCompatActivity {
+public class CourseActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Spinner spinner1, spinner2;
     private Button btnSubmit;
-    public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,10 +33,9 @@ CourseActivity extends AppCompatActivity {
         addItemsOnSpinner();
         addListenerOnButton();
         addListenerOnSpinnerItemSelection();
-        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        String course = prefs.getString("course", "No course defined");//"No name defined" is the default value.
-        Log.d("PREF_COURSE", course);
-        if(!course.equals("No course defined")){
+        String course = Prefs.getString(this,"course");//"No name defined" is the default value.
+        Log.d("CURSO", course);
+        if(!course.isEmpty()){
             Intent intent = new Intent(CourseActivity.this, ProgressActivity.class);
             intent.putExtra("MESSAGE", course);
             startActivity(intent);
@@ -94,31 +91,27 @@ CourseActivity extends AppCompatActivity {
         spinner1 = (Spinner) findViewById(R.id.spinner);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
 
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+        btnSubmit.setOnClickListener(this);
+    }
 
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CourseActivity.this, ProgressActivity.class);
-                String message = String.valueOf(spinner1.getSelectedItem());
-                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-                editor.putString("course", message);
-                editor.putInt("Concluido",0);
-                editor.putInt("QuantidadeDisciplinas",100);
-                editor.apply();
-                //Log.d("PREF_COURSE", message);
-                intent.putExtra("MESSAGE", message);
-                /**
-                 * Animação de transição entre activitys
-                 */
-                ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(CourseActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
-                ActivityCompat.startActivity(CourseActivity.this,intent,opts.toBundle());
-                //CourseActivity.this.startActivity(intent);
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(CourseActivity.this, ProgressActivity.class);
+        String message = String.valueOf(spinner1.getSelectedItem());
+        Prefs.setString(this,"course", message);
+        Prefs.setInteger(this,"Concluido",0);
+        Prefs.setInteger(this,"QuantidadeDisciplinas",100);
+        //Log.d("PREF_COURSE", message);
+        intent.putExtra("MESSAGE", message);
+        /**
+         * Animação de transição entre activitys
+         */
+        ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(CourseActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
+        ActivityCompat.startActivity(CourseActivity.this,intent,opts.toBundle());
+        //CourseActivity.this.startActivity(intent);
                 /*Toast.makeText(CourseActivity.this,
                         "OnClickListener : " +
                                 "\nSpinner : "+ String.valueOf(spinner1.getSelectedItem()),
                         Toast.LENGTH_SHORT).show();*/
-            }
-
-        });
     }
 }

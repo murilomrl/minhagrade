@@ -3,13 +3,14 @@ package com.devmob.minhagrade;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import static com.devmob.minhagrade.CourseActivity.MY_PREFS_NAME;
 
 /**
  * Created by Kobayashi on 20/07/2017.
  */
 
 public class Prefs {
+
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     // Metodo para salvar String
     public static void setString(Context context, String chave, String valor){
@@ -39,6 +40,14 @@ public class Prefs {
         SharedPreferences pref = context.getSharedPreferences(MY_PREFS_NAME,context.MODE_PRIVATE);
         int valor = pref.getInt(chave,0);
         return valor;
+    }
+
+    //Metodo para limpar o cache
+    public static void clear(Context context){
+        SharedPreferences pref = context.getSharedPreferences(MY_PREFS_NAME,context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.clear();
+        editor.apply();
     }
 
 

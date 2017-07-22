@@ -20,8 +20,6 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.devmob.minhagrade.CourseActivity.MY_PREFS_NAME;
-
 public class PeriodoActivity extends AppCompatActivity implements OnItemClickListener{
 
     private ListView listViewDeDisciplinas;

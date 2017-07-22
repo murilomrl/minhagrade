@@ -1,5 +1,7 @@
 package com.devmob.minhagrade;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -7,15 +9,14 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -151,25 +152,49 @@ public class ProgressActivity extends AppCompatActivity {
         porcentos.setText(df.format(result)+"%");
     }
 
+
     //Volta para a activity anterior
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case android.R.id.home:
-//                // app icon in action bar clicked; goto parent activity.
-//                this.finish();
-//                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
-//
-//    @Override
-//    public void onBackPressed(){
-//        super.onBackPressed();
-//        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
-//
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.apagarDados:
+                // app icon in action bar clicked; goto parent activity.
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setCancelable(true);
+                builder.setTitle("Confirmação");
+                builder.setMessage("Você tem certeza que quer apagar os dados da sua grade?");
+                builder.setPositiveButton("Sim",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Prefs.clear(ProgressActivity.this);
+                                ProgressActivity.this.finish();
+                                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+                            }
+                        });
+                builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed(){
+        System.exit(0);
+    }
 
 }

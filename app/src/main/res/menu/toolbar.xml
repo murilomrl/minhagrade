@@ -10,6 +10,6 @@
     <item
         android:id="@+id/apagarDados"
         android:orderInCategory="1"
-        android:title="Apagar Dados"
+        android:title="Apagar grade"
         app:showAsAction="never"/>
 </menu>

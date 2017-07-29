@@ -76,6 +76,7 @@ public class ProgressActivity extends AppCompatActivity {
                 // something wrong with the XML
             }
         }
+        Log.i("Lista ", String.valueOf(array[1][0]));
         ta.recycle(); // Important!
         final HashMap<String,List<String>> mapa_curso = new HashMap<>();
         for (int i = 0; i < array[0].length; i++){
@@ -85,10 +86,11 @@ public class ProgressActivity extends AppCompatActivity {
             mapa_curso.put(array[0][i],lista);
         }
 
-        //Log.i("Curso ", String.valueOf(mapa_curso.get(curso).get(1)));
+
+        Log.i("Curso ", String.valueOf(mapa_curso.get(curso).get(1)));
 
         final List<String> periodos = new ArrayList<>();
-        //Log.i("periodos ", String.valueOf(mapa_cursos.get("Arquitetura").get(0)));
+        Log.i("periodos ", String.valueOf(mapa_curso.get(curso).get(0)));
         for (int i = 1; i<=Integer.parseInt(String.valueOf(mapa_curso.get(curso).get(0))); i++) {
             periodos.add(i + "º periodo");
         }

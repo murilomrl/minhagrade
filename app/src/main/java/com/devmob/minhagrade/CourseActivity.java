@@ -70,7 +70,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
                 View v = super.getDropDownView(position, convertView,parent);
 
                 ((TextView) v).setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-                ((TextView) v).setTextSize(26);
+                ((TextView) v).setTextSize(25);
                 return v;
 
             }

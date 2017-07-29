@@ -21,13 +21,6 @@
         android:textStyle="bold"
         android:text="@string/progress_course_name"/>
 
-    <!--<ProgressBar
-        android:id="@+id/myProgress"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="30dp"
-        android:maxHeight="30dp"/>-->
 
     <TableLayout
         android:layout_width="match_parent"
@@ -59,19 +52,6 @@
         android:clickable="true">
 
     </ListView>
-
-
-
-    <!--<ProgressBar-->
-        <!--android:id="@+id/progressBar"-->
-        <!--style="?android:attr/progressBarStyleHorizontal"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content" />-->
-    <!--<Button-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="60dp"-->
-        <!--android:text="1º periodo"-->
-        <!--android:id="@+id/periodo" />-->
 
 
 </LinearLayout>

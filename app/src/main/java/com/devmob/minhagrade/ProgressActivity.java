@@ -87,10 +87,7 @@ public class ProgressActivity extends AppCompatActivity {
         }
 
 
-        Log.i("Curso ", String.valueOf(mapa_curso.get(curso).get(1)));
-
         final List<String> periodos = new ArrayList<>();
-        Log.i("periodos ", String.valueOf(mapa_curso.get(curso).get(0)));
         for (int i = 1; i<=Integer.parseInt(String.valueOf(mapa_curso.get(curso).get(0))); i++) {
             periodos.add(i + "º periodo");
         }
@@ -99,9 +96,9 @@ public class ProgressActivity extends AppCompatActivity {
         grade.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(ProgressActivity.this, GradeActivity.class);
+                Intent intent = new Intent(ProgressActivity.this, GradeActivity.class);
                 ArrayList<String> message = new ArrayList<>();
-                message.add(curso);
+                message.add(mapa_curso.get(curso).get(1));
                 message.addAll(periodos);
 
                 intent.putExtra("MESSAGE", message);

@@ -96,4 +96,53 @@ public class Disciplina {
         return disciplinas;
     }
 
+    // Metodo que pega as disciplinas do Resource para a Activity
+    public static ArrayList<Disciplina> getDisciplinasGrade(ArrayList<String> value, Context context){
+        ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
+        String[] disciplinasVetor = new String[0];
+        int n = 0;
+        Resources res = context.getResources();
+        String[][] array = new String[0][];
+        try {
+            Field field = R.array.class.getField(value.get(0));
+            TypedArray ta = res.obtainTypedArray(field.getInt(null));
+            n = ta.length();
+            array = new String[n][];
+            for (int i = 0; i < n; ++i) {
+                int id = ta.getResourceId(i, 0);
+                if (id > 0) {
+                    array[i] = res.getStringArray(id);
+                } else {
+                    // something wrong with the XML
+                }
+            }
+            ta.recycle(); // Important!
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        int status;
+        int quantidade = 0;
+        for (int i = 0; i<n; i++){
+            quantidade = quantidade+array[i].length;
+        }
+
+        Log.i("Quantidade:", String.valueOf(quantidade));
+        Prefs.setInteger(context,"QuantidadeDisciplinas",quantidade);
+        int indice;
+        for(indice=0;indice<value.size()-1;indice++) {
+            disciplinasVetor = array[indice];
+            for (int i = 0; i < disciplinasVetor.length; i++) {
+                status = Prefs.getInt(context, disciplinasVetor[i]);
+                if (status == 1) {
+                    disciplinas.add(new Disciplina(disciplinasVetor[i]));
+                    Log.i("d",disciplinasVetor[i]);
+                }
+            }
+        }
+        //Log.i("Disciplina",disciplinas.getClass().toString());
+        return disciplinas;
+    }
 }

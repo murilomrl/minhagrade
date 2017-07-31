@@ -69,20 +69,22 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
         //Salva dados
         Prefs.setInteger(this,disciplina.getNome(),status);
 
+        TextView statusDisciplina = (TextView) view.findViewById(R.id.statusDisciplina);
+
         // Pinta o ITEM da ListView de acordo com o status
         if (status == 2){
             Prefs.setInteger(this,"Concluido",Prefs.getInt(this,"Concluido")+1);
             view.setBackgroundColor(this.getResources().getColor(R.color.colorFeito));
-            Toast.makeText(PeriodoActivity.this, disciplina.getNome()+" concluido",Toast.LENGTH_SHORT).show();
+            statusDisciplina.setText("Concluido");
         }
         else if (status == 1){
             view.setBackgroundColor(this.getResources().getColor(R.color.colorFazendo));
-            Toast.makeText(PeriodoActivity.this, "Fazendo "+disciplina.getNome(),Toast.LENGTH_SHORT).show();
+            statusDisciplina.setText("Cursando");
         }
         else{
             Prefs.setInteger(this,"Concluido",Prefs.getInt(this,"Concluido")-1);
+            statusDisciplina.setText("Pendente");
             view.setBackgroundColor(this.getResources().getColor(R.color.colorNaoFeito));
-            Toast.makeText(PeriodoActivity.this, disciplina.getNome()+" ainda não feito",Toast.LENGTH_SHORT).show();
         }
         Log.i("Concluido", String.valueOf(Prefs.getInt(this,"Concluido")));
     }

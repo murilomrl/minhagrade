@@ -119,7 +119,6 @@ public class ProgressActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String periodoSelecionado = (String) adapter.getItem(position);
-                Toast.makeText(ProgressActivity.this,periodoSelecionado,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ProgressActivity.this, PeriodoActivity.class);
                 String periodo = String.valueOf(periodoSelecionado);
                 ArrayList<String> message = new ArrayList<>();

@@ -93,6 +93,7 @@ public class DisciplinasAdapter extends BaseAdapter {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     Prefs.setInteger(context,disciplina.getNome(),2);
+                                    Prefs.setInteger(context,"Concluido",Prefs.getInt(context,"Concluido")+1);
                                     ((Activity) context).finish();
                                     ((Activity) context).startActivity(((Activity) context).getIntent());
                                 }
@@ -143,23 +144,31 @@ public class DisciplinasAdapter extends BaseAdapter {
             // Faz ViewById das views que precisa atualizar
             TextView textView = (TextView) view.findViewById(R.id.nomeDisciplina);
 
+            // FindViewById de status
+            TextView status = (TextView)view.findViewById(R.id.statusDisciplina);
+
             // Atualiza os valores das views
             disciplina = disciplinaArrayList.get(position);
 
             // Coloca valor na TextView do listdisciplina.xml
             textView.setText(disciplina.getNome());
+
+            // Colorir Item pelo status
+            if (disciplina.getStatus() == 2){
+                status.setText("Concluido");
+                view.setBackgroundColor(context.getResources().getColor(R.color.colorFeito));
+            }
+            else if (disciplina.getStatus() == 1){
+                status.setText("Cursando");
+                view.setBackgroundColor(context.getResources().getColor(R.color.colorFazendo));
+            }
+            else{
+                status.setText("Pendente");
+                view.setBackgroundColor(context.getResources().getColor(R.color.colorNaoFeito));
+            }
         }
 
-        // Colorir Item pelo status
-        if (disciplina.getStatus() == 2){
-            view.setBackgroundColor(context.getResources().getColor(R.color.colorFeito));
-        }
-        else if (disciplina.getStatus() == 1){
-            view.setBackgroundColor(context.getResources().getColor(R.color.colorFazendo));
-        }
-        else{
-            view.setBackgroundColor(context.getResources().getColor(R.color.colorNaoFeito));
-        }
+
 
         // Retorna view
         return view;

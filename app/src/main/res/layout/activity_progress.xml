@@ -29,13 +29,13 @@
             <TextView
                 android:layout_weight="1"
                 android:text="Concluido :"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textAlignment="center"/>
             <TextView
                 android:id="@+id/porcentagem"
                 android:layout_weight="1"
                 android:text="0%"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textAlignment="center"/>
         </TableRow>
     </TableLayout>
@@ -43,7 +43,7 @@
         android:id="@+id/grade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Visualizar Grade" />
+        android:text="Grade do período" />
 
     <ListView
         android:id="@+id/listaPeriodo"

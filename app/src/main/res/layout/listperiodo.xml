@@ -5,7 +5,7 @@
     android:paddingBottom="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:textSize="20dp"
+    android:textSize="16sp"
     android:paddingLeft="10dp">
 
 </TextView>

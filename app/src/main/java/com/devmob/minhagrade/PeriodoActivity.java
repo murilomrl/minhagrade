@@ -45,7 +45,7 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
         disciplinas = Disciplina.getDisciplinas(value,this);
 
         // Usa DisciplinasAdapter para carregar as disciplinas
-        listViewDeDisciplinas.setAdapter(new DisciplinasAdapter(disciplinas,this));
+        listViewDeDisciplinas.setAdapter(new DisciplinasAdapter(disciplinas,this,0));
 
         // Set OnItemClickListener para cada item da ListView
         listViewDeDisciplinas.setOnItemClickListener(this);

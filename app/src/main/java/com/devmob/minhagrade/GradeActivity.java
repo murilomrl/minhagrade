@@ -70,7 +70,7 @@ public class GradeActivity extends AppCompatActivity {
             else {
                 Log.i("oi", disciplinas.get(0).getNome());
                 // Usa DisciplinasAdapter para carregar as disciplinas
-                listViewDeDisciplinas.setAdapter(new DisciplinasAdapter(disciplinas, this));
+                listViewDeDisciplinas.setAdapter(new DisciplinasAdapter(disciplinas, this, 1));
                 Log.i("oi", "c");
             }
         }

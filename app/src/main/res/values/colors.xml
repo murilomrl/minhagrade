@@ -3,7 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorFazendo">#FFFF00</color>
-    <color name="colorFeito">#00FF00</color>
-    <color name="colorNaoFeito">#FFFFFF</color>
+    <color name="colorFazendo">#FFFA81</color>
+    <color name="colorFeito">#85ca5d</color>
+    <color name="colorNaoFeito">#FAFAFA</color>
 </resources>

@@ -1,6 +1,9 @@
 package com.devmob.minhagrade.Adapter;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -15,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.devmob.minhagrade.GradeActivity;
 import com.devmob.minhagrade.Model.Disciplina;
 import com.devmob.minhagrade.PeriodoActivity;
 import com.devmob.minhagrade.Prefs;
@@ -80,7 +84,27 @@ public class DisciplinasAdapter extends BaseAdapter {
             check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Prefs.setInteger(context,disciplina.getNome(),2);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setCancelable(true);
+                    builder.setTitle("Confirmação");
+                    builder.setMessage("Você tem certeza que quer colocar disciplina como concluída?");
+                    builder.setPositiveButton("Sim",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Prefs.setInteger(context,disciplina.getNome(),2);
+                                    ((Activity) context).finish();
+                                    ((Activity) context).startActivity(((Activity) context).getIntent());
+                                }
+                            });
+                    builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             });
 
@@ -88,8 +112,27 @@ public class DisciplinasAdapter extends BaseAdapter {
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Prefs.setInteger(context,disciplina.getNome(),0);
-                    Toast.makeText(context,"12",Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setCancelable(true);
+                    builder.setTitle("Confirmação");
+                    builder.setMessage("Você tem certeza que quer remover a disciplina da sua grade?");
+                    builder.setPositiveButton("Sim",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Prefs.setInteger(context,disciplina.getNome(),0);
+                                    ((Activity) context).finish();
+                                    ((Activity) context).startActivity(((Activity) context).getIntent());
+                                }
+                            });
+                    builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             });
 

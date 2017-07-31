@@ -46,12 +46,11 @@ public class GradeActivity extends AppCompatActivity {
         if(orientacao == Configuration.ORIENTATION_LANDSCAPE) {
 
         }else{
-            Log.i("oi","0");
             // Instancia a ListView
             listViewDeDisciplinas = (ListView) findViewById(R.id.gradeSem);
-            Log.i("oi","a");
             // Popula a Lista de disciplinas apartir do Model de Disciplinas
             disciplinas = Disciplina.getDisciplinasGrade(value,this);
+            // Trata o erro da grade vazia
             if(disciplinas.isEmpty()){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setCancelable(true);

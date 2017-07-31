@@ -34,6 +34,7 @@ public class DisciplinasAdapter extends BaseAdapter {
     private final Context context;
     private final int act;
 
+    // Variável act criada simplesmente para não precisar de dois adapters...
     public DisciplinasAdapter(List<Disciplina> disciplinaArrayList, Context context, int act) {
         this.disciplinaArrayList = disciplinaArrayList;
         this.context = context;
@@ -60,6 +61,7 @@ public class DisciplinasAdapter extends BaseAdapter {
     public View getView(int position, final View convertView, ViewGroup parent) {
         View view;
         final Disciplina disciplina;
+
         if(this.act==1) {
             //Infla a View
             view = LayoutInflater.from(context).inflate(R.layout.gradedisciplina, parent, false);
@@ -72,6 +74,7 @@ public class DisciplinasAdapter extends BaseAdapter {
             // Coloca valor na TextView do listdisciplina.xml
             textView.setText(disciplina.getNome());
 
+            // Parte dos icones clicáveis
             ImageButton check = (ImageButton) view.findViewById(R.id.checkIcon);
 
             check.setOnClickListener(new View.OnClickListener() {

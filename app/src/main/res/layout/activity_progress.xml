@@ -43,7 +43,7 @@
         android:id="@+id/grade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Grade do período" />
+        android:text="Grade do Semestre" />
 
     <ListView
         android:id="@+id/listaPeriodo"

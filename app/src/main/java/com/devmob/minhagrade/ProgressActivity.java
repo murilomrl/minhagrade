@@ -99,6 +99,7 @@ public class ProgressActivity extends AppCompatActivity {
                 Intent intent = new Intent(ProgressActivity.this, GradeActivity.class);
                 ArrayList<String> message = new ArrayList<>();
                 message.add(mapa_curso.get(curso).get(1));
+                message.add(curso);
                 message.addAll(periodos);
 
                 intent.putExtra("MESSAGE", message);

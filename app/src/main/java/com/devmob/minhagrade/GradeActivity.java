@@ -1,9 +1,13 @@
 package com.devmob.minhagrade;
 //
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -48,10 +52,34 @@ public class GradeActivity extends AppCompatActivity {
             Log.i("oi","a");
             // Popula a Lista de disciplinas apartir do Model de Disciplinas
             disciplinas = Disciplina.getDisciplinasGrade(value,this);
-            Log.i("oi",disciplinas.get(0).getNome());
-            // Usa DisciplinasAdapter para carregar as disciplinas
-            listViewDeDisciplinas.setAdapter(new DisciplinasAdapter(disciplinas,this));
-            Log.i("oi","c");
+            if(disciplinas.isEmpty()){
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setCancelable(true);
+                builder.setTitle("Sem disciplinas");
+                builder.setMessage("Não há disciplinas em sua grade no momento.");
+                builder.setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(GradeActivity.this, ProgressActivity.class);
+                                intent.putExtra("MESSAGE", value.get(1));
+                                Log.i("alllala", value.get(1));
+                                /**
+                                 * Animação de transição entre activitys
+                                 */
+                                ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(GradeActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
+                                ActivityCompat.startActivity(GradeActivity.this,intent,opts.toBundle());
+                            }
+                        });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+            else {
+                Log.i("oi", disciplinas.get(0).getNome());
+                // Usa DisciplinasAdapter para carregar as disciplinas
+                listViewDeDisciplinas.setAdapter(new DisciplinasAdapter(disciplinas, this));
+                Log.i("oi", "c");
+            }
         }
     }
 

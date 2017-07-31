@@ -61,14 +61,7 @@ public class GradeActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(GradeActivity.this, ProgressActivity.class);
-                                intent.putExtra("MESSAGE", value.get(1));
-                                Log.i("alllala", value.get(1));
-                                /**
-                                 * Animação de transição entre activitys
-                                 */
-                                ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(GradeActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
-                                ActivityCompat.startActivity(GradeActivity.this,intent,opts.toBundle());
+                                GradeActivity.this.finish();
                             }
                         });
                 AlertDialog dialog = builder.create();

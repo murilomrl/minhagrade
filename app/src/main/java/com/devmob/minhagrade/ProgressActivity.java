@@ -192,7 +192,7 @@ public class ProgressActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        System.exit(0);
+        this.finishAffinity();
     }
 
 }

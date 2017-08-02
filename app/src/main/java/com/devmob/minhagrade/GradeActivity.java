@@ -11,7 +11,9 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -42,6 +44,15 @@ public class GradeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final ArrayList<String> value = intent.getStringArrayListExtra("MESSAGE");
 
+        Button grade = (Button) findViewById(R.id.addDisc);
+        grade.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                GradeActivity.this.finish();
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+            }
+        });
+
         int orientacao = this.getResources().getConfiguration().orientation;
         if(orientacao == Configuration.ORIENTATION_LANDSCAPE) {
 
@@ -61,7 +72,8 @@ public class GradeActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 GradeActivity.this.finish();
-                            }
+                                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+                                }
                         });
                 AlertDialog dialog = builder.create();
                 dialog.show();

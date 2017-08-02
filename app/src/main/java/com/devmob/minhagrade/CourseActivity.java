@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.widget.CursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,13 +17,16 @@ import android.widget.TextView;
 
 //import com.devmob.minhagrade.Lixo.Cursos;
 
+import com.devmob.minhagrade.Adapter.CursoAdapter;
+import com.devmob.minhagrade.Model.Curso;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class CourseActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Spinner spinner1, spinner2;
+    private Spinner spinner;
     private Button btnSubmit;
 
     @Override
@@ -32,7 +36,6 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 
         addItemsOnSpinner();
         addListenerOnButton();
-        addListenerOnSpinnerItemSelection();
         String course = Prefs.getString(this,"course");//"No name defined" is the default value.
         Log.d("CURSO", course);
         if(!course.isEmpty()){
@@ -46,49 +49,16 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
     public void addItemsOnSpinner() {
         //Cursos courses = new Cursos();
 
-        String[] arrayCourse = getResources().getStringArray(R.array.cursos_array);
+        spinner = (Spinner) findViewById(R.id.spinner);
+        CursoAdapter cursoAdapter = new CursoAdapter(getApplicationContext(),Curso.getCursos(getApplicationContext()));
 
-        spinner2 = (Spinner) findViewById(R.id.spinner);
-        List<String> list = Arrays.asList(arrayCourse);  //courses.getCourses();
-        Collections.sort(list);
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, list){
-
-            public View getView(int position, View convertView,ViewGroup parent) {
-
-                View v = super.getView(position, convertView, parent);
-
-                ((TextView) v).setTextSize(26);
-
-                return v;
-
-            }
-
-            public View getDropDownView(int position, View convertView,ViewGroup parent) {
-
-                View v = super.getDropDownView(position, convertView,parent);
-
-                ((TextView) v).setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-                ((TextView) v).setTextSize(25);
-                return v;
-
-            }
-        };
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(dataAdapter);
-    }
-
-
-    public void addListenerOnSpinnerItemSelection() {
-        spinner1 = (Spinner) findViewById(R.id.spinner);
-        spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+        spinner.setAdapter(cursoAdapter);
     }
 
     // get the selected dropdown list value
     public void addListenerOnButton() {
 
-        spinner1 = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.spinner);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
 
         btnSubmit.setOnClickListener(this);
@@ -97,7 +67,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(CourseActivity.this, ProgressActivity.class);
-        String message = String.valueOf(spinner1.getSelectedItem());
+        String message = String.valueOf(spinner.getSelectedItem());
         Prefs.setString(this,"course", message);
         Prefs.setInteger(this,"Concluido",0);
         Prefs.setInteger(this,"QuantidadeDisciplinas",100);

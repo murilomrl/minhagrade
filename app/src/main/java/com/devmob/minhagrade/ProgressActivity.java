@@ -33,6 +33,7 @@ import java.util.List;
 
 public class ProgressActivity extends AppCompatActivity {
 
+
     private ListView listasDePeriodos;
     //private Periodo periodo;
     private ArrayAdapter<String> adapter;

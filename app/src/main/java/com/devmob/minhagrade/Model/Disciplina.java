@@ -97,7 +97,7 @@ public class Disciplina {
     }
 
     // Metodo que pega as disciplinas do Resource para a Activity
-    public static ArrayList<Disciplina> getDisciplinasGrade(ArrayList<String> value, Context context){
+    public static ArrayList<Disciplina> getDisciplinasPorStatus(ArrayList<String> value, Context context,int st){
         ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
         String[] disciplinasVetor = new String[0];
         int n = 0;
@@ -136,7 +136,7 @@ public class Disciplina {
             disciplinasVetor = array[indice];
             for (int i = 0; i < disciplinasVetor.length; i++) {
                 status = Prefs.getInt(context, disciplinasVetor[i]);
-                if (status == 1) {
+                if (status == st) {
                     disciplinas.add(new Disciplina(disciplinasVetor[i]));
                     Log.i("d",disciplinasVetor[i]);
                 }

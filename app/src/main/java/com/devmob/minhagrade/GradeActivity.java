@@ -1,9 +1,6 @@
 package com.devmob.minhagrade;
-//
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -12,21 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-//
 import com.devmob.minhagrade.Adapter.DisciplinasAdapter;
 import com.devmob.minhagrade.Model.Disciplina;
-import com.devmob.minhagrade.Model.LviewAdapter;
-//
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import static com.devmob.minhagrade.Prefs.MY_PREFS_NAME;
 
 ///**
 // * Created by murilo on 29/06/17.
@@ -34,6 +21,7 @@ import static com.devmob.minhagrade.Prefs.MY_PREFS_NAME;
 
 public class GradeActivity extends AppCompatActivity {
 
+    static final int REQUEST_CODE = 41324;
     private ListView listViewDeDisciplinas;
     private ArrayList<Disciplina> disciplinas;
 
@@ -44,11 +32,17 @@ public class GradeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final ArrayList<String> value = intent.getStringArrayListExtra("MESSAGE");
 
-        Button grade = (Button) findViewById(R.id.addDisc);
-        grade.setOnClickListener(new View.OnClickListener(){
+        Button add = (Button) findViewById(R.id.addDisc);
+        add.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                GradeActivity.this.finish();
+                Intent intent = new Intent(GradeActivity.this, AddDiscActivity.class);
+                ArrayList<String> message = new ArrayList<>();
+                message.addAll(value);
+                intent.putExtra("MESSAGE", message);
+
+                ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(GradeActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
+                ActivityCompat.startActivityForResult(GradeActivity.this,intent,REQUEST_CODE,opts.toBundle());
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
             }
         });
@@ -60,10 +54,10 @@ public class GradeActivity extends AppCompatActivity {
             // Instancia a ListView
             listViewDeDisciplinas = (ListView) findViewById(R.id.gradeSem);
             // Popula a Lista de disciplinas apartir do Model de Disciplinas
-            disciplinas = Disciplina.getDisciplinasGrade(value,this);
+            disciplinas = Disciplina.getDisciplinasPorStatus(value,this,1);
             // Trata o erro da grade vazia
             if(disciplinas.isEmpty()){
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setCancelable(true);
                 builder.setTitle("Sem disciplinas");
                 builder.setMessage("Não há disciplinas em sua grade no momento.");
@@ -76,7 +70,7 @@ public class GradeActivity extends AppCompatActivity {
                                 }
                         });
                 AlertDialog dialog = builder.create();
-                dialog.show();
+                dialog.show();*/
             }
             else {
                 Log.i("oi", disciplinas.get(0).getNome());
@@ -84,6 +78,17 @@ public class GradeActivity extends AppCompatActivity {
                 listViewDeDisciplinas.setAdapter(new DisciplinasAdapter(disciplinas, this, 1));
                 Log.i("oi", "c");
             }
+        }
+    }
+
+    // Metodo pra atualizar a grade assim que a activity que adiciona disciplinas terminar
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if (requestCode == REQUEST_CODE) {
+            finish();
+            startActivity(getIntent());
         }
     }
 

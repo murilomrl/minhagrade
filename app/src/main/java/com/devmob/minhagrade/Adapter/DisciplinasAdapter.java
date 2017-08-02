@@ -13,8 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -138,33 +141,54 @@ public class DisciplinasAdapter extends BaseAdapter {
             });
 
         }else {
-            //Infla a View
-            view = LayoutInflater.from(context).inflate(R.layout.listdisciplina, parent, false);
+            if(act==0) {
+                //Infla a View
+                view = LayoutInflater.from(context).inflate(R.layout.listdisciplina, parent, false);
 
-            // Faz ViewById das views que precisa atualizar
-            TextView textView = (TextView) view.findViewById(R.id.nomeDisciplina);
+                // Faz ViewById das views que precisa atualizar
+                TextView textView = (TextView) view.findViewById(R.id.nomeDisciplina);
 
-            // FindViewById de status
-            TextView status = (TextView)view.findViewById(R.id.statusDisciplina);
+                // FindViewById de status
+                TextView status = (TextView) view.findViewById(R.id.statusDisciplina);
 
-            // Atualiza os valores das views
-            disciplina = disciplinaArrayList.get(position);
+                // Atualiza os valores das views
+                disciplina = disciplinaArrayList.get(position);
 
-            // Coloca valor na TextView do listdisciplina.xml
-            textView.setText(disciplina.getNome());
+                // Coloca valor na TextView do listdisciplina.xml
+                textView.setText(disciplina.getNome());
 
-            // Colorir Item pelo status
-            if (disciplina.getStatus() == 2){
-                status.setText("Concluido");
-                view.setBackgroundColor(context.getResources().getColor(R.color.colorFeito));
-            }
-            else if (disciplina.getStatus() == 1){
-                status.setText("Cursando");
-                view.setBackgroundColor(context.getResources().getColor(R.color.colorFazendo));
-            }
-            else{
-                status.setText("Pendente");
-                view.setBackgroundColor(context.getResources().getColor(R.color.colorNaoFeito));
+                // Colorir Item pelo status
+                if (disciplina.getStatus() == 2) {
+                    status.setText("Concluido");
+                    view.setBackgroundColor(context.getResources().getColor(R.color.colorFeito));
+                } else if (disciplina.getStatus() == 1) {
+                    status.setText("Cursando");
+                    view.setBackgroundColor(context.getResources().getColor(R.color.colorFazendo));
+                } else {
+                    status.setText("Pendente");
+                    view.setBackgroundColor(context.getResources().getColor(R.color.colorNaoFeito));
+                }
+            }else{
+                //Infla a View
+                view = LayoutInflater.from(context).inflate(R.layout.adicionardisciplina, parent, false);
+                // Atualiza os valores das views
+                disciplina = disciplinaArrayList.get(position);
+                // Botoes de Radio
+                RadioButton btdisc = (RadioButton) view.findViewById(R.id.radiobtDisc);
+                btdisc.setText(disciplina.getNome());
+                // Modifica prefs ao mudar o check
+                btdisc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if(isChecked) {
+                            Prefs.setInteger(context, disciplina.getNome(), 1);
+                        }
+                        else{
+                            Prefs.setInteger(context, disciplina.getNome(), 0);
+                        }
+                    }
+                });
+
             }
         }
 

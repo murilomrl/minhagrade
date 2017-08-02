@@ -58,7 +58,6 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
     // get the selected dropdown list value
     public void addListenerOnButton() {
 
-        spinner = (Spinner) findViewById(R.id.spinner);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
 
         btnSubmit.setOnClickListener(this);
@@ -69,6 +68,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
         Intent intent = new Intent(CourseActivity.this, ProgressActivity.class);
         String message = String.valueOf(spinner.getSelectedItem());
         Prefs.setString(this,"course", message);
+        //Log.i("curso",spinner.getSelectedItem().toString());
         Prefs.setInteger(this,"Concluido",0);
         Prefs.setInteger(this,"QuantidadeDisciplinas",100);
         //Log.d("PREF_COURSE", message);

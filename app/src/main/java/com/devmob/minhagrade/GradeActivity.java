@@ -3,6 +3,7 @@ package com.devmob.minhagrade;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -32,7 +33,7 @@ public class GradeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final ArrayList<String> value = intent.getStringArrayListExtra("MESSAGE");
 
-        Button add = (Button) findViewById(R.id.addDisc);
+        FloatingActionButton add = (FloatingActionButton) findViewById(R.id.addDisc);
         add.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

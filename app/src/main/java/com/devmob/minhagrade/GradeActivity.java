@@ -1,5 +1,6 @@
 package com.devmob.minhagrade;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ListView;
 import com.devmob.minhagrade.Adapter.DisciplinasAdapter;
@@ -25,6 +27,8 @@ public class GradeActivity extends AppCompatActivity {
     static final int REQUEST_CODE = 41324;
     private ListView listViewDeDisciplinas;
     private ArrayList<Disciplina> disciplinas;
+    private  ListView listViewAdd;
+    private ArrayList<Disciplina> addDisciplinas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +41,33 @@ public class GradeActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GradeActivity.this, AddDiscActivity.class);
+                /*Intent intent = new Intent(GradeActivity.this, AddDiscActivity.class);
                 ArrayList<String> message = new ArrayList<>();
                 message.addAll(value);
                 intent.putExtra("MESSAGE", message);
 
                 ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(GradeActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
                 ActivityCompat.startActivityForResult(GradeActivity.this,intent,REQUEST_CODE,opts.toBundle());
-                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);*/
+                final Dialog dialog = new Dialog(GradeActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.activity_discadd);
+
+                listViewAdd = (ListView) dialog.findViewById(R.id.discToAdd);
+                // Popula a Lista de disciplinas apartir do Model de Disciplinas
+
+                addDisciplinas = Disciplina.getDisciplinasPorStatus(value,GradeActivity.this,0);
+                listViewAdd.setAdapter(new DisciplinasAdapter(addDisciplinas, GradeActivity.this, 2));
+                Button concluido = (Button) dialog.findViewById(R.id.concAddDisc);
+                concluido.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        GradeActivity.this.finish();
+                        GradeActivity.this.startActivity(GradeActivity.this.getIntent());
+                    }
+                });
+                dialog.show();
             }
         });
 

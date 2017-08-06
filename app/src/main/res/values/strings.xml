@@ -3,6 +3,9 @@
     <string name="course_prompt">Escolha um curso</string>
     <string name="loading">Carregando</string>
     <string name="progress_course_name">Seu Curso</string>
+    <string name="add_disciplina">Escolha as disciplinas</string>
+    <string name="add_disciplina_ok">OK</string>
+    <string name="add_disciplina_cancel">Cancelar</string>
 
     <string-array name="cursos_array">
         <item>Ciência da Computação</item>

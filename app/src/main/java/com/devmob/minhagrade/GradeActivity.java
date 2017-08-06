@@ -1,12 +1,15 @@
 package com.devmob.minhagrade;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -29,6 +32,7 @@ public class GradeActivity extends AppCompatActivity {
     private ArrayList<Disciplina> disciplinas;
     private  ListView listViewAdd;
     private ArrayList<Disciplina> addDisciplinas;
+    private ArrayList<Integer> guardaItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +53,45 @@ public class GradeActivity extends AppCompatActivity {
                 ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(GradeActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
                 ActivityCompat.startActivityForResult(GradeActivity.this,intent,REQUEST_CODE,opts.toBundle());
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);*/
-                final Dialog dialog = new Dialog(GradeActivity.this);
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setContentView(R.layout.activity_discadd);
-
-                listViewAdd = (ListView) dialog.findViewById(R.id.discToAdd);
+                final AlertDialog.Builder dialog = new AlertDialog.Builder(GradeActivity.this);
+                guardaItems = new ArrayList<>();
                 // Popula a Lista de disciplinas apartir do Model de Disciplinas
 
                 addDisciplinas = Disciplina.getDisciplinasPorStatus(value,GradeActivity.this,0);
-                listViewAdd.setAdapter(new DisciplinasAdapter(addDisciplinas, GradeActivity.this, 2));
-                Button concluido = (Button) dialog.findViewById(R.id.concAddDisc);
+                CharSequence[] listaDeNomeDisciplinas = new CharSequence[addDisciplinas.size()];
+                int i =0;
+                for(Disciplina disc : addDisciplinas) {
+                    listaDeNomeDisciplinas[i++]=disc.getNome();
+                }
+                //listViewAdd.setAdapter(new DisciplinasAdapter(addDisciplinas, GradeActivity.this, 2));
+                dialog.setTitle(R.string.add_disciplina).setMultiChoiceItems(listaDeNomeDisciplinas,null,new DialogInterface.OnMultiChoiceClickListener(){
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i, boolean isChecked) {
+                        if(isChecked){
+                            guardaItems.add(i);
+                        }else if(guardaItems.contains(i)){
+                            guardaItems.remove(i);
+                        }
+                    }
+                }).setPositiveButton(R.string.add_disciplina_ok, new DialogInterface.OnClickListener(){
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        for(Integer n : guardaItems)
+                            Prefs.setInteger(GradeActivity.this,addDisciplinas.get(n).getNome(),1);
+                        GradeActivity.this.finish();
+                        GradeActivity.this.startActivity(GradeActivity.this.getIntent());
+                    }
+                }).setNegativeButton(R.string.add_disciplina_cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                dialog.create();
+                dialog.show();
+                /*Button concluido = (Button) dialog.findViewById(R.id.concAddDisc);
                 concluido.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -67,7 +100,7 @@ public class GradeActivity extends AppCompatActivity {
                         GradeActivity.this.startActivity(GradeActivity.this.getIntent());
                     }
                 });
-                dialog.show();
+                dialog.show();*/
             }
         });
 

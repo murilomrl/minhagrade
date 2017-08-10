@@ -79,7 +79,7 @@ public class Disciplina {
             quantidade = quantidade+array[i].length;
         }
 
-        Log.i("Quantidade:", String.valueOf(quantidade));
+//        Log.i("Quantidade:", String.valueOf(quantidade));
         Prefs.setInteger(context,"QuantidadeDisciplinas",quantidade);
 
         disciplinasVetor = array[Integer.parseInt(String.valueOf(indice.charAt(0)))-1];
@@ -129,7 +129,7 @@ public class Disciplina {
             quantidade = quantidade+array[i].length;
         }
 
-        Log.i("Quantidade:", String.valueOf(quantidade));
+//        Log.i("Quantidade:", String.valueOf(quantidade));
         Prefs.setInteger(context,"QuantidadeDisciplinas",quantidade);
         int indice;
         for(indice=0;indice<value.size()-1;indice++) {
@@ -138,7 +138,7 @@ public class Disciplina {
                 status = Prefs.getInt(context, disciplinasVetor[i]);
                 if (status == st) {
                     disciplinas.add(new Disciplina(disciplinasVetor[i]));
-                    Log.i("d",disciplinasVetor[i]);
+//                    Log.i("d",disciplinasVetor[i]);
                 }
             }
         }

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="atuarias_periodo1">
+        <item>Computacao I</item>
+        <item>Algebra Linear I</item>
+        <item>Calculo Difer e Integral I</item>
+        <item>Analise Exploratoria de Dados</item>
+        <item>Sem C Atuariais e Estatística</item>
+    </string-array>
+
+    <string-array name="atuarias_periodo2">
+        <item>Elementos de Fisica</item>
+        <item>Algebra I</item>
+        <item>Calculo II</item>
+        <item>Introducao a Estatistica</item>
+        <item>Algebra Linear II</item>
+    </string-array>
+
+    <string-array name="atuarias_periodo3">
+        <item>Calculo Numerico</item>
+        <item>Computacao II</item>
+        <item>Calculo III</item>
+        <item>Calculo das Probabilidades I</item>
+        <item>Matematica Financeira</item>
+    </string-array>
+
+    <string-array name="atuarias_periodo4">
+        <item>Equacoes Diferenciais</item>
+        <item>Analise I</item>
+        <item>Inferencia Estatistica I</item>
+        <item>Calculo das Probabilidades II</item>
+        <item>Demografia</item>
+    </string-array>
+
+    <string-array name="atuarias_periodo5">
+        <item>Analise de Regressao</item>
+        <item>Dir Social e Legisl de Seguros</item>
+        <item>Inferencia Estatistica II</item>
+        <item>Processos Estocasticos</item>
+        <item>Matematica Atuarial I</item>
+        <item>Introducao a Administracao</item>
+    </string-array>
+
+    <string-array name="atuarias_periodo6">
+        <item>Anal Estatistica Multivariada</item>
+        <item>Teoria do Risco</item>
+        <item>Estatistica Computacional</item>
+        <item>Tecnicas de Amostragem</item>
+        <item>Matematica Atuarial II</item>
+        <item>Introducao a Contabilidade</item>
+    </string-array>
+
+    <string-array name="atuarias_periodo7">
+        <item>Analise de Series Temporais</item>
+        <item>Praticas Atuariais em Seguros</item>
+        <item>Teoria da Credibilidade</item>
+        <item>Economia</item>
+        <item>Atividades Academicas Optativas 1</item>
+    </string-array>
+
+    <string-array name="atuarias_periodo8">
+        <item>Tarifacao de Seguros</item>
+        <item>Atividades Academicas Optativas 2</item>
+        <item>Projeto em Ciencias Atuariais</item>
+        <item>Praticas Atuariais em Pensoes</item>
+        <item>Geren Financ Reservas Tecnicas</item>
+    </string-array>
+
+
+    <string-array name="atuarias">
+        <item>@array/atuarias_periodo1</item>
+        <item>@array/atuarias_periodo2</item>
+        <item>@array/atuarias_periodo3</item>
+        <item>@array/atuarias_periodo4</item>
+        <item>@array/atuarias_periodo5</item>
+        <item>@array/atuarias_periodo6</item>
+        <item>@array/atuarias_periodo7</item>
+        <item>@array/atuarias_periodo8</item>
+    </string-array>
+
+</resources>

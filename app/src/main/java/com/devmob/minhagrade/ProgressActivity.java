@@ -77,7 +77,7 @@ public class ProgressActivity extends AppCompatActivity {
                 // something wrong with the XML
             }
         }
-        Log.i("Lista ", String.valueOf(array[1][0]));
+//        Log.i("Lista ", String.valueOf(array[1][0]));
         ta.recycle(); // Important!
         final HashMap<String,List<String>> mapa_curso = new HashMap<>();
         for (int i = 0; i < array[0].length; i++){
@@ -103,7 +103,7 @@ public class ProgressActivity extends AppCompatActivity {
                 message.addAll(periodos);
 
                 intent.putExtra("MESSAGE", message);
-                Log.i("koe",curso);
+//                Log.i("koe",curso);
                 /**
                  * Animação de transição entre activitys
                  */
@@ -144,9 +144,9 @@ public class ProgressActivity extends AppCompatActivity {
         int numeroDeDisciplinas = Prefs.getInt(this,"QuantidadeDisciplinas");
         double result = ((double) concluido/(double) numeroDeDisciplinas)*100;
         DecimalFormat df = new DecimalFormat("#.##");
-        Log.i("Porcento", String.valueOf(result));
-        Log.i("Concluido", String.valueOf(concluido));
-        Log.i("QuantidadeDisciplinas", String.valueOf(numeroDeDisciplinas));
+//        Log.i("Porcento", String.valueOf(result));
+//        Log.i("Concluido", String.valueOf(concluido));
+//        Log.i("QuantidadeDisciplinas", String.valueOf(numeroDeDisciplinas));
         TextView porcentos= (TextView) findViewById(R.id.porcentagem);
         porcentos.setText(df.format(result)+"%");
     }

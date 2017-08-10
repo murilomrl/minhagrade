@@ -86,7 +86,7 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
             statusDisciplina.setText("Pendente");
             view.setBackgroundColor(this.getResources().getColor(R.color.colorNaoFeito));
         }
-        Log.i("Concluido", String.valueOf(Prefs.getInt(this,"Concluido")));
+//        Log.i("Concluido", String.valueOf(Prefs.getInt(this,"Concluido")));
     }
 
 

@@ -37,7 +37,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
         addItemsOnSpinner();
         addListenerOnButton();
         String course = Prefs.getString(this,"course");//"No name defined" is the default value.
-        Log.d("CURSO", course);
+//        Log.d("CURSO", course);
         if(!course.isEmpty()){
             Intent intent = new Intent(CourseActivity.this, ProgressActivity.class);
             intent.putExtra("MESSAGE", course);

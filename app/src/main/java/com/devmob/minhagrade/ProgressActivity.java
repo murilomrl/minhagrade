@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 //import com.devmob.minhagrade.Lixo.Periodo;
 
+import com.devmob.minhagrade.Model.Disciplina;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,7 +60,6 @@ public class ProgressActivity extends AppCompatActivity {
 
         // Porcentagem
         calculaPorcentagem();
-
 
         //Teste de back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);

@@ -130,7 +130,7 @@ public class Disciplina {
         }
 
 //        Log.i("Quantidade:", String.valueOf(quantidade));
-        Prefs.setInteger(context,"QuantidadeDisciplinas",quantidade);
+//        Prefs.setInteger(context,"QuantidadeDisciplinas",quantidade);
         int indice;
         for(indice=0;indice<value.size()-1;indice++) {
             disciplinasVetor = array[indice];

@@ -103,6 +103,8 @@ public class Disciplina {
         int n = 0;
         Resources res = context.getResources();
         String[][] array = new String[0][];
+        Log.i("Get0",value.get(0));
+        Log.i("Get1",value.get(1));
         try {
             Field field = R.array.class.getField(value.get(0));
             TypedArray ta = res.obtainTypedArray(field.getInt(null));

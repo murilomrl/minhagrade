@@ -80,7 +80,6 @@ public class ProgressActivity extends AppCompatActivity {
         ArrayList<Disciplina> cursando = new ArrayList<>();
         cursando = Disciplina.getDisciplinasPorStatus(list,getApplicationContext(), 1);
         calculaPorcentagemCursando(cursando.size());
-        Toast.makeText(this,"Cursos "+ String.valueOf(cursando.size()),Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -139,7 +138,6 @@ public class ProgressActivity extends AppCompatActivity {
         ArrayList<Disciplina> cursando = new ArrayList<>();
         cursando = Disciplina.getDisciplinasPorStatus(list,getApplicationContext(), 1);
         calculaPorcentagemCursando(cursando.size());
-        Toast.makeText(this,"Cursos "+ String.valueOf(cursando.size()),Toast.LENGTH_SHORT).show();
 
         Button grade = (Button) findViewById(R.id.grade);
         grade.setOnClickListener(new View.OnClickListener(){

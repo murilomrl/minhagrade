@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 //import com.devmob.minhagrade.Lixo.Periodo;
 
+import com.devmob.minhagrade.Model.Disciplina;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,6 +45,41 @@ public class ProgressActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         calculaPorcentagem();
+        Resources res = getResources();
+        TypedArray ta = res.obtainTypedArray(R.array.map);
+        int n = ta.length();
+        String[][] array = new String[n][];
+        for (int i = 0; i < n; ++i) {
+            int id = ta.getResourceId(i, 0);
+            if (id > 0) {
+                array[i] = res.getStringArray(id);
+            } else {
+                // something wrong with the XML
+            }
+        }
+//        Log.i("Lista ", String.valueOf(array[1][0]));
+        ta.recycle(); // Important!
+        final HashMap<String,List<String>> mapa_curso = new HashMap<>();
+        for (int i = 0; i < array[0].length; i++){
+            List<String> lista = new ArrayList<>();
+            lista.add(0,array[1][i]);
+            lista.add(1,array[2][i]);
+            mapa_curso.put(array[0][i],lista);
+        }
+
+
+        final List<String> periodos = new ArrayList<>();
+        for (int i = 1; i<=Integer.parseInt(String.valueOf(mapa_curso.get(curso).get(0))); i++) {
+            periodos.add(i + "º periodo");
+        }
+
+        // Bloco em Teste
+        ArrayList<String> list = new ArrayList<>();
+        list.add(mapa_curso.get(curso).get(1));
+        list.addAll(periodos);
+        ArrayList<Disciplina> cursando = new ArrayList<>();
+        cursando = Disciplina.getDisciplinasPorStatus(list,getApplicationContext(), 1);
+        calculaPorcentagemCursando(cursando.size());
     }
 
     @Override
@@ -58,6 +95,7 @@ public class ProgressActivity extends AppCompatActivity {
 
         // Porcentagem
         calculaPorcentagem();
+
 
 
         //Teste de back button
@@ -77,7 +115,7 @@ public class ProgressActivity extends AppCompatActivity {
                 // something wrong with the XML
             }
         }
-        Log.i("Lista ", String.valueOf(array[1][0]));
+//        Log.i("Lista ", String.valueOf(array[1][0]));
         ta.recycle(); // Important!
         final HashMap<String,List<String>> mapa_curso = new HashMap<>();
         for (int i = 0; i < array[0].length; i++){
@@ -93,6 +131,14 @@ public class ProgressActivity extends AppCompatActivity {
             periodos.add(i + "º periodo");
         }
 
+        // Bloco em Teste
+        ArrayList<String> list = new ArrayList<>();
+        list.add(mapa_curso.get(curso).get(1));
+        list.addAll(periodos);
+        ArrayList<Disciplina> cursando = new ArrayList<>();
+        cursando = Disciplina.getDisciplinasPorStatus(list,getApplicationContext(), 1);
+        calculaPorcentagemCursando(cursando.size());
+
         Button grade = (Button) findViewById(R.id.grade);
         grade.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -103,7 +149,7 @@ public class ProgressActivity extends AppCompatActivity {
                 message.addAll(periodos);
 
                 intent.putExtra("MESSAGE", message);
-                Log.i("koe",curso);
+//                Log.i("koe",curso);
                 /**
                  * Animação de transição entre activitys
                  */
@@ -144,11 +190,16 @@ public class ProgressActivity extends AppCompatActivity {
         int numeroDeDisciplinas = Prefs.getInt(this,"QuantidadeDisciplinas");
         double result = ((double) concluido/(double) numeroDeDisciplinas)*100;
         DecimalFormat df = new DecimalFormat("#.##");
-        Log.i("Porcento", String.valueOf(result));
-        Log.i("Concluido", String.valueOf(concluido));
-        Log.i("QuantidadeDisciplinas", String.valueOf(numeroDeDisciplinas));
         TextView porcentos= (TextView) findViewById(R.id.porcentagem);
         porcentos.setText(df.format(result)+"%");
+    }
+
+    public void calculaPorcentagemCursando(int cursando){
+        int numeroDeDisciplinas = Prefs.getInt(this,"QuantidadeDisciplinas");
+        double result = ((double) cursando/(double) numeroDeDisciplinas)*100;
+        DecimalFormat df = new DecimalFormat("#.##");
+        TextView porcentos= (TextView) findViewById(R.id.cursando);
+        porcentos.setText("Cursando: "+df.format(result)+"%");
     }
 
 

@@ -3,22 +3,22 @@
 
     <string-array name="cursos">
         <item>Ciência da Computação</item>
-        <item>Arquitetura</item>
+        <item>Ciências Atuariais</item>
     </string-array>
 
     <string-array name="periodos">
         <item>9</item>
-        <item>10</item>
+        <item>8</item>
     </string-array>
 
     <string-array name="aliasCursos">
         <item>cc</item>
-        <item>fau</item>
+        <item>atuarias</item>
     </string-array>
 
     <string-array name="quantidadeDisciplinas">
         <item>44</item>
-        <item>61</item>
+        <item>42</item>
     </string-array>
 
     <string-array name="map">

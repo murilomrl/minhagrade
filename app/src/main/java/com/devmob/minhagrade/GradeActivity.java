@@ -130,10 +130,10 @@ public class GradeActivity extends AppCompatActivity {
                 dialog.show();*/
             }
             else {
-                Log.i("oi", disciplinas.get(0).getNome());
+//                Log.i("oi", disciplinas.get(0).getNome());
                 // Usa DisciplinasAdapter para carregar as disciplinas
                 listViewDeDisciplinas.setAdapter(new DisciplinasAdapter(disciplinas, this, 1));
-                Log.i("oi", "c");
+//                Log.i("oi", "c");
             }
         }
     }

@@ -79,7 +79,7 @@ public class Disciplina {
             quantidade = quantidade+array[i].length;
         }
 
-        Log.i("Quantidade:", String.valueOf(quantidade));
+//        Log.i("Quantidade:", String.valueOf(quantidade));
         Prefs.setInteger(context,"QuantidadeDisciplinas",quantidade);
 
         disciplinasVetor = array[Integer.parseInt(String.valueOf(indice.charAt(0)))-1];
@@ -103,6 +103,8 @@ public class Disciplina {
         int n = 0;
         Resources res = context.getResources();
         String[][] array = new String[0][];
+        Log.i("Get0",value.get(0));
+        Log.i("Get1",value.get(1));
         try {
             Field field = R.array.class.getField(value.get(0));
             TypedArray ta = res.obtainTypedArray(field.getInt(null));
@@ -129,8 +131,8 @@ public class Disciplina {
             quantidade = quantidade+array[i].length;
         }
 
-        Log.i("Quantidade:", String.valueOf(quantidade));
-        Prefs.setInteger(context,"QuantidadeDisciplinas",quantidade);
+//        Log.i("Quantidade:", String.valueOf(quantidade));
+//        Prefs.setInteger(context,"QuantidadeDisciplinas",quantidade);
         int indice;
         for(indice=0;indice<value.size()-1;indice++) {
             disciplinasVetor = array[indice];
@@ -138,7 +140,7 @@ public class Disciplina {
                 status = Prefs.getInt(context, disciplinasVetor[i]);
                 if (status == st) {
                     disciplinas.add(new Disciplina(disciplinasVetor[i]));
-                    Log.i("d",disciplinasVetor[i]);
+//                    Log.i("d",disciplinasVetor[i]);
                 }
             }
         }

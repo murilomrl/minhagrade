@@ -9,154 +9,178 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:weightSum="1"
-            android:layout_weight="0.45">
+            android:layout_weight="0.45"
+            android:weightSum="1">
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp">
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/minhagrade1" />
             </RelativeLayout>
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:weightSum="1"
-            android:layout_weight="0.5">
+            android:layout_weight="0.5"
+            android:weightSum="1">
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
+
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/main_botoes"
-                    android:src="@drawable/ic_done_black_48dp"
                     android:gravity="center|bottom"
-                    android:paddingBottom="10dp"/>
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/ic_done" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:paddingTop="70dp"
-                    android:textSize="18sp"
-                    android:text="Minha Grade"/>
+                    android:text="Minha Grade"
+                    android:textSize="18sp" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
+
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/main_botoes"
-                    android:src="@drawable/ic_done_all_black_48dp"
                     android:gravity="center|bottom"
-                    android:paddingBottom="10dp"/>
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/ic_done_all" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:paddingTop="70dp"
-                    android:textSize="18sp"
-                    android:text="Todos os periodos"/>
+                    android:text="Todos os periodos"
+                    android:textSize="18sp" />
             </RelativeLayout>
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:weightSum="1"
-            android:layout_weight="0.5">
+            android:layout_weight="0.5"
+            android:weightSum="1">
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
+
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/main_botoes"
-                    android:src="@drawable/ic_insert_chart_black_48dp"
                     android:gravity="center|bottom"
-                    android:paddingBottom="10dp" />
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/ic_chart" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:paddingTop="70dp"
-                    android:textSize="18sp"
-                    android:text="Progresso"/>
+                    android:text="Progresso"
+                    android:textSize="18sp" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
+
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/main_botoes"
-                    android:src="@drawable/ic_spellcheck_black_48dp"
                     android:gravity="center|bottom"
-                    android:paddingBottom="10dp"/>
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/ic_spellcheck" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:paddingTop="70dp"
-                    android:textSize="18sp"
-                    android:text="Disciplinas"/>
+                    android:text="Disciplinas"
+                    android:textSize="18sp" />
             </RelativeLayout>
 
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:weightSum="1"
-            android:layout_weight="0.5">
+            android:layout_weight="0.5"
+            android:weightSum="1">
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
+
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/main_botoes"
-                    android:src="@drawable/ic_event_black_48dp"
                     android:gravity="center|bottom"
-                    android:paddingBottom="10dp"/>
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/ic_event" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:paddingTop="70dp"
-                    android:textSize="18sp"
-                    android:text="Calendario"/>
+                    android:text="Calendario"
+                    android:textSize="18sp" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
+
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/main_botoes"
-                    android:src="@drawable/ic_delete_black_48dp"
                     android:gravity="center|bottom"
-                    android:paddingBottom="10dp"/>
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/ic_delete" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:paddingTop="70dp"
-                    android:textSize="18sp"
-                    android:text="Apagar"/>
+                    android:text="Apagar"
+                    android:textSize="18sp" />
             </RelativeLayout>
 
         </TableRow>

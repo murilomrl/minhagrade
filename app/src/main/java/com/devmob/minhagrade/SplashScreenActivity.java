@@ -24,6 +24,7 @@ public class SplashScreenActivity extends AppCompatActivity implements Animation
 
         final ImageView imageView = (ImageView) findViewById(R.id.logoDevmob);
         final Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.alpha);
+        animation.setDuration(100);
         imageView.startAnimation(animation);
         animation.setAnimationListener(this);
     }

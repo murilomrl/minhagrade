@@ -72,7 +72,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
         String message = String.valueOf(spinner.getSelectedItem());
         CienciaDaComputação cc = new CienciaDaComputação(this);
         cc.populaCurso();
-//      Prefs.setString(this,"course", message);
+        Prefs.setString(this,"course", message);
         intent.putExtra("MESSAGE", message);
         /**
          * Animação de transição entre activitys

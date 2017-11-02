@@ -78,7 +78,7 @@ public class ProgressActivity extends AppCompatActivity {
         list.add(mapa_curso.get(curso).get(1));
         list.addAll(periodos);
         ArrayList<Disciplina> cursando = new ArrayList<>();
-        cursando = Disciplina.getDisciplinasPorStatus(list,getApplicationContext(), 1);
+//        cursando = Disciplina.getDisciplinasPorStatus(list,getApplicationContext(), 1);
         calculaPorcentagemCursando(cursando.size());
     }
 
@@ -136,7 +136,7 @@ public class ProgressActivity extends AppCompatActivity {
         list.add(mapa_curso.get(curso).get(1));
         list.addAll(periodos);
         ArrayList<Disciplina> cursando = new ArrayList<>();
-        cursando = Disciplina.getDisciplinasPorStatus(list,getApplicationContext(), 1);
+//        cursando = Disciplina.getDisciplinasPorStatus(list,getApplicationContext(), 1);
         calculaPorcentagemCursando(cursando.size());
 
         Button grade = (Button) findViewById(R.id.grade);

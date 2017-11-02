@@ -42,7 +42,7 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
         listViewDeDisciplinas = (ListView) findViewById(R.id.listaDisciplinas);
 
         // Popula a Lista de disciplinas apartir do Model de Disciplinas
-        disciplinas = Disciplina.getDisciplinas(value,this);
+//        disciplinas = Disciplina.getDisciplinas(value,this);
 
         // Usa DisciplinasAdapter para carregar as disciplinas
         listViewDeDisciplinas.setAdapter(new DisciplinasAdapter(disciplinas,this,0));

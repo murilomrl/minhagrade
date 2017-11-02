@@ -42,7 +42,7 @@ public class AddDiscActivity extends AppCompatActivity{
         listViewDeDisciplinas = (ListView) findViewById(R.id.discToAdd);
         // Popula a Lista de disciplinas apartir do Model de Disciplinas
 
-        disciplinas = Disciplina.getDisciplinasPorStatus(value,this,0);
+//        disciplinas = Disciplina.getDisciplinasPorStatus(value,this,0);
         listViewDeDisciplinas.setAdapter(new DisciplinasAdapter(disciplinas, this, 2));
     }
 

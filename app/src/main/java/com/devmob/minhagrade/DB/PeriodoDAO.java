@@ -57,4 +57,12 @@ public class PeriodoDAO extends DBHelper{
         onClose();
         return periodos;
     }
+
+    public boolean apagaTudo(){
+        onOpen();
+        db.execSQL("DELETE FROM "+ DBHelper.TABLE_DISCIPLINA);
+        db.execSQL("DELETE FROM "+ DBHelper.TABLE_PERIODO);
+        onClose();
+        return true;
+    }
 }

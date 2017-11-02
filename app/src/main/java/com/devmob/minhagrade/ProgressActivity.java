@@ -44,7 +44,7 @@ public class ProgressActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        calculaPorcentagem();
+//        calculaPorcentagem();
         Resources res = getResources();
         TypedArray ta = res.obtainTypedArray(R.array.map);
         int n = ta.length();
@@ -79,7 +79,7 @@ public class ProgressActivity extends AppCompatActivity {
         list.addAll(periodos);
         ArrayList<Disciplina> cursando = new ArrayList<>();
 //        cursando = Disciplina.getDisciplinasPorStatus(list,getApplicationContext(), 1);
-        calculaPorcentagemCursando(cursando.size());
+//        calculaPorcentagemCursando(cursando.size());
     }
 
     @Override
@@ -94,7 +94,7 @@ public class ProgressActivity extends AppCompatActivity {
         course.setText(curso);
 
         // Porcentagem
-        calculaPorcentagem();
+//        calculaPorcentagem();
 
 
 
@@ -137,7 +137,7 @@ public class ProgressActivity extends AppCompatActivity {
         list.addAll(periodos);
         ArrayList<Disciplina> cursando = new ArrayList<>();
 //        cursando = Disciplina.getDisciplinasPorStatus(list,getApplicationContext(), 1);
-        calculaPorcentagemCursando(cursando.size());
+//        calculaPorcentagemCursando(cursando.size());
 
         Button grade = (Button) findViewById(R.id.grade);
         grade.setOnClickListener(new View.OnClickListener(){
@@ -185,22 +185,22 @@ public class ProgressActivity extends AppCompatActivity {
 
     }
 
-    public void calculaPorcentagem(){
-        int concluido = Prefs.getInt(this,"Concluido");
-        int numeroDeDisciplinas = Prefs.getInt(this,"QuantidadeDisciplinas");
-        double result = ((double) concluido/(double) numeroDeDisciplinas)*100;
-        DecimalFormat df = new DecimalFormat("#.##");
-        TextView porcentos= (TextView) findViewById(R.id.porcentagem);
-        porcentos.setText(df.format(result)+"%");
-    }
-
-    public void calculaPorcentagemCursando(int cursando){
-        int numeroDeDisciplinas = Prefs.getInt(this,"QuantidadeDisciplinas");
-        double result = ((double) cursando/(double) numeroDeDisciplinas)*100;
-        DecimalFormat df = new DecimalFormat("#.##");
-        TextView porcentos= (TextView) findViewById(R.id.cursando);
-        porcentos.setText("Cursando: "+df.format(result)+"%");
-    }
+//    public void calculaPorcentagem(){
+//        int concluido = Prefs.getInt(this,"Concluido");
+//        int numeroDeDisciplinas = Prefs.getInt(this,"QuantidadeDisciplinas");
+//        double result = ((double) concluido/(double) numeroDeDisciplinas)*100;
+//        DecimalFormat df = new DecimalFormat("#.##");
+//        TextView porcentos= (TextView) findViewById(R.id.porcentagem);
+//        porcentos.setText(df.format(result)+"%");
+//    }
+//
+//    public void calculaPorcentagemCursando(int cursando){
+//        int numeroDeDisciplinas = Prefs.getInt(this,"QuantidadeDisciplinas");
+//        double result = ((double) cursando/(double) numeroDeDisciplinas)*100;
+//        DecimalFormat df = new DecimalFormat("#.##");
+//        TextView porcentos= (TextView) findViewById(R.id.cursando);
+//        porcentos.setText("Cursando: "+df.format(result)+"%");
+//    }
 
 
     //Volta para a activity anterior

@@ -21,7 +21,6 @@ public class CienciaDaComputação {
         this.context = context;
         database = new PeriodoDAO(context);
         databaseDisciplina = new DisciplinaDAO(context);
-
     }
 
     public void populaCurso(){

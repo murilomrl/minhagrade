@@ -23,6 +23,15 @@ public class Disciplina {
      * Status: 0 para não feito, 1 para fazendo e 2 para feito
      */
     private int status;
+    private String periodo;
+
+    public String getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
+    }
 
     public Disciplina(String nome) {
         this.nome = nome;

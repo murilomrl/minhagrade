@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.devmob.minhagrade.TestActivity"
+    tools:context="com.devmob.minhagrade.HomeActivity"
     android:orientation="vertical">
 
     <TableLayout
@@ -26,6 +26,9 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="30dp"
+                    android:layout_alignParentTop="true"
                     android:src="@drawable/minhagrade1" />
             </RelativeLayout>
         </TableRow>
@@ -42,6 +45,7 @@
                 android:layout_weight="0.5">
 
                 <ImageButton
+                    android:id="@+id/minhaGrade"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/main_botoes"
@@ -64,6 +68,7 @@
                 android:layout_weight="0.5">
 
                 <ImageButton
+                    android:id="@+id/periodos"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/main_botoes"
@@ -93,6 +98,7 @@
                 android:layout_weight="0.5">
 
                 <ImageButton
+                    android:id="@+id/progresso"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/main_botoes"
@@ -115,6 +121,7 @@
                 android:layout_weight="0.5">
 
                 <ImageButton
+                    android:id="@+id/disciplinas"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/main_botoes"
@@ -145,6 +152,7 @@
                 android:layout_weight="0.5">
 
                 <ImageButton
+                    android:id="@+id/calendario"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/main_botoes"
@@ -167,6 +175,7 @@
                 android:layout_weight="0.5">
 
                 <ImageButton
+                    android:id="@+id/apagarDados"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/main_botoes"

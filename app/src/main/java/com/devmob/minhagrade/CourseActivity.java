@@ -14,11 +14,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 //import com.devmob.minhagrade.Lixo.Cursos;
 
 import com.devmob.minhagrade.Adapter.CursoAdapter;
+import com.devmob.minhagrade.DB.CienciaDaComputação;
 import com.devmob.minhagrade.Model.Curso;
+import com.devmob.minhagrade.Model.Periodo;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -39,7 +42,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
         String course = Prefs.getString(this,"course");//"No name defined" is the default value.
 //        Log.d("CURSO", course);
         if(!course.isEmpty()){
-            Intent intent = new Intent(CourseActivity.this, ProgressActivity.class);
+            Intent intent = new Intent(CourseActivity.this, HomeActivity.class);
             intent.putExtra("MESSAGE", course);
             startActivity(intent);
         }
@@ -65,23 +68,17 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(CourseActivity.this, ProgressActivity.class);
+        Intent intent = new Intent(CourseActivity.this, HomeActivity.class);
         String message = String.valueOf(spinner.getSelectedItem());
-        Prefs.setString(this,"course", message);
-        //Log.i("curso",spinner.getSelectedItem().toString());
-        Prefs.setInteger(this,"Concluido",0);
-        Prefs.setInteger(this,"QuantidadeDisciplinas",100);
-        //Log.d("PREF_COURSE", message);
+        CienciaDaComputação cc = new CienciaDaComputação(this);
+        cc.populaCurso();
+//      Prefs.setString(this,"course", message);
         intent.putExtra("MESSAGE", message);
         /**
          * Animação de transição entre activitys
          */
         ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(CourseActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
         ActivityCompat.startActivity(CourseActivity.this,intent,opts.toBundle());
-        //CourseActivity.this.startActivity(intent);
-                /*Toast.makeText(CourseActivity.this,
-                        "OnClickListener : " +
-                                "\nSpinner : "+ String.valueOf(spinner1.getSelectedItem()),
-                        Toast.LENGTH_SHORT).show();*/
+
     }
 }

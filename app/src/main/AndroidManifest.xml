@@ -42,8 +42,9 @@
             android:parentActivityName=".ProgressActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TestActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:name=".HomeActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

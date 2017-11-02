@@ -24,7 +24,7 @@ public class CursoAdapter extends BaseAdapter {
     public CursoAdapter(Context context, List<Curso> cursos) {
         this.context = context;
         this.cursos = cursos;
-        layoutInflater = (LayoutInflater.from(context));
+        layoutInflater = LayoutInflater.from(context);
     }
 
     @Override

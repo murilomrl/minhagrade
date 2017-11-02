@@ -95,8 +95,8 @@ public class DisciplinasAdapter extends BaseAdapter {
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Prefs.setInteger(context,disciplina.getNome(),2);
-                                    Prefs.setInteger(context,"Concluido",Prefs.getInt(context,"Concluido")+1);
+//                                    Prefs.setInteger(context,disciplina.getNome(),2);
+//                                    Prefs.setInteger(context,"Concluido",Prefs.getInt(context,"Concluido")+1);
                                     ((Activity) context).finish();
                                     ((Activity) context).startActivity(((Activity) context).getIntent());
                                 }
@@ -124,7 +124,7 @@ public class DisciplinasAdapter extends BaseAdapter {
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Prefs.setInteger(context,disciplina.getNome(),0);
+//                                    Prefs.setInteger(context,disciplina.getNome(),0);
                                     ((Activity) context).finish();
                                     ((Activity) context).startActivity(((Activity) context).getIntent());
                                 }
@@ -181,10 +181,10 @@ public class DisciplinasAdapter extends BaseAdapter {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if(isChecked) {
-                            Prefs.setInteger(context, disciplina.getNome(), 1);
+//                            Prefs.setInteger(context, disciplina.getNome(), 1);
                         }
                         else{
-                            Prefs.setInteger(context, disciplina.getNome(), 0);
+//                            Prefs.setInteger(context, disciplina.getNome(), 0);
                         }
                     }
                 });

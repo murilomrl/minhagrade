@@ -2,8 +2,12 @@ package com.devmob.minhagrade;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -51,8 +55,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, "Minha Grade",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.periodos:
-                Toast.makeText(this, "Periodos",Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(HomeActivity.this, TodosOsPeriodosActivity.class);
+                ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(HomeActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
+                ActivityCompat.startActivity(HomeActivity.this,intent,opts.toBundle());
                 break;
             case R.id.progresso:
                 Toast.makeText(this, "Progresso",Toast.LENGTH_SHORT).show();
@@ -94,5 +99,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    @Override
+    public void onBackPressed(){
+        this.finishAffinity();
     }
 }

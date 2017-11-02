@@ -43,8 +43,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".TodosOsPeriodosActivity"></activity>
     </application>
 
 </manifest>

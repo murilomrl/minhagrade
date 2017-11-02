@@ -67,13 +67,13 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
         disciplina.setStatus(status);
 
         //Salva dados
-        Prefs.setInteger(this,disciplina.getNome(),status);
+//        Prefs.setInteger(this,disciplina.getNome(),status);
 
         TextView statusDisciplina = (TextView) view.findViewById(R.id.statusDisciplina);
 
         // Pinta o ITEM da ListView de acordo com o status
         if (status == 2){
-            Prefs.setInteger(this,"Concluido",Prefs.getInt(this,"Concluido")+1);
+//            Prefs.setInteger(this,"Concluido",Prefs.getInt(this,"Concluido")+1);
             view.setBackgroundColor(this.getResources().getColor(R.color.colorFeito));
             statusDisciplina.setText("Concluido");
         }
@@ -82,7 +82,7 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
             statusDisciplina.setText("Cursando");
         }
         else{
-            Prefs.setInteger(this,"Concluido",Prefs.getInt(this,"Concluido")-1);
+//            Prefs.setInteger(this,"Concluido",Prefs.getInt(this,"Concluido")-1);
             statusDisciplina.setText("Pendente");
             view.setBackgroundColor(this.getResources().getColor(R.color.colorNaoFeito));
         }

@@ -27,7 +27,7 @@ public class PeriodoAdapter extends BaseAdapter {
     public PeriodoAdapter(Context context, List<Periodo> periodoList) {
         this.context = context;
         this.periodoList = periodoList;
-        Log.d("list", periodoList.toString());
+//        Log.d("list", periodoList.toString());
     }
 
     @Override

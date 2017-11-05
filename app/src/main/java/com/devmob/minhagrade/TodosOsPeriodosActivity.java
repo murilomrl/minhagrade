@@ -1,9 +1,12 @@
 package com.devmob.minhagrade;
 
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -46,5 +49,28 @@ public class TodosOsPeriodosActivity extends AppCompatActivity implements OnItem
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Periodo periodo = this.periodoList.get(position);
         Log.d("Clickado",periodo.getNome());
+        Intent intent = new Intent(this,PeriodoActivity.class);
+        intent.putExtra("PERIODO", periodo.getNome());
+        ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(this,R.anim.slide_in_left,R.anim.slide_out_left);
+        ActivityCompat.startActivity(this,intent,opts.toBundle());
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; goto parent activity.
+                this.finish();
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
     }
 }

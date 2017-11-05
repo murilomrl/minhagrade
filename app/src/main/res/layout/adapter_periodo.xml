@@ -10,7 +10,7 @@
         android:paddingBottom="25dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:paddingLeft="10dp"
         android:text="Período"
         android:focusableInTouchMode="false"

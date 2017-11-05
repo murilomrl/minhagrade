@@ -59,7 +59,7 @@ public class Disciplina {
     }
 
     public String toString(){
-        return "Disciplina:"+nome+" Status:"+status+" Periodo:"+periodo;
+        return "Disciplina:"+nome+" Status:"+status+" Periodo:"+periodo+"\n";
     }
 
 

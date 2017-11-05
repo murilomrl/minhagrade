@@ -61,10 +61,10 @@ public class DisciplinaDAO extends DBHelper{
         return disciplinas;
     }
 
-    public List<Disciplina> getDisciplinasPorPeriodo(int periodo){
+    public List<Disciplina> getDisciplinasPorPeriodo(String periodo){
         List<Disciplina> disciplinas = new ArrayList<>();
         onOpen();
-        Cursor cursor = db.rawQuery("SELECT * FROM "+DBHelper.TABLE_DISCIPLINA+" WHERE periodo="+periodo, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM "+DBHelper.TABLE_DISCIPLINA+" WHERE periodo= '"+periodo+"'", null);
         while (cursor.moveToNext()){
             Disciplina disciplina = new Disciplina(
                     cursor.getString(cursor.getColumnIndex("nome")),

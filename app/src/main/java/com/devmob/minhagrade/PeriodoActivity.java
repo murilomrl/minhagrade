@@ -14,6 +14,7 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.devmob.minhagrade.Adapter.DisciplinasAdapter;
+import com.devmob.minhagrade.DB.DisciplinaDAO;
 import com.devmob.minhagrade.Model.Disciplina;
 import com.google.gson.Gson;
 
@@ -24,6 +25,7 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
 
     private ListView listViewDeDisciplinas;
     private List<Disciplina> disciplinas;
+    private DisciplinaDAO disciplinaDAO = new DisciplinaDAO(this);
 
 
     @Override
@@ -32,17 +34,18 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
         setContentView(R.layout.activity_periodo);
 
         Intent intent = getIntent();
-        final ArrayList<String> value =  intent.getStringArrayListExtra("MESSAGE");
+        final String value =  intent.getStringExtra("PERIODO");
         TextView periodo = (TextView) findViewById(R.id.periodo);
 
         // Coloca o numero do periodo no TextView do Periodo
-        periodo.setText(value.get(1));
+        periodo.setText(value);
 
         // Instancia a ListView
         listViewDeDisciplinas = (ListView) findViewById(R.id.listaDisciplinas);
 
         // Popula a Lista de disciplinas apartir do Model de Disciplinas
-//        disciplinas = Disciplina.getDisciplinas(value,this);
+        disciplinas = disciplinaDAO.getDisciplinasPorPeriodo(value);
+//        Log.d("LISTA", disciplinas.toString());
 
         // Usa DisciplinasAdapter para carregar as disciplinas
         listViewDeDisciplinas.setAdapter(new DisciplinasAdapter(disciplinas,this,0));

@@ -1,6 +1,7 @@
 package com.devmob.minhagrade.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import com.devmob.minhagrade.Model.Curso;
 import com.devmob.minhagrade.Model.Periodo;
 import com.devmob.minhagrade.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,41 +21,38 @@ import java.util.List;
 
 public class PeriodoAdapter extends BaseAdapter {
 
-    Context context;
-    List<Periodo> periodoList;
-    LayoutInflater layoutInflater;
+    private final Context context;
+     private final List<Periodo> periodoList;
 
     public PeriodoAdapter(Context context, List<Periodo> periodoList) {
         this.context = context;
         this.periodoList = periodoList;
-        this.layoutInflater = LayoutInflater.from(context);
+        //Log.d("list", periodoList.toString());
     }
 
     @Override
     public int getCount() {
-        return periodoList.size();
+        return  periodoList != null?periodoList.size():0;
     }
 
     @Override
     public Object getItem(int position) {
-        return periodoList.get(position).getNome();
+        return periodoList.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Periodo periodo;
-        convertView = layoutInflater.inflate(R.layout.listperiodo,null);
-        TextView nomePeriodo = (TextView) convertView.findViewById(R.id.nomePeriodo);
+        View view = LayoutInflater.from(context).inflate(R.layout.adapter_periodo, parent, false);
 
-        periodo = periodoList.get(position);
-
+        TextView nomePeriodo = (TextView) view.findViewById(R.id.textViewPeriodo);
+        Periodo periodo = periodoList.get(position);
         nomePeriodo.setText(periodo.getNome());
 
-        return convertView;
+        return view;
     }
 }

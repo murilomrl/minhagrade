@@ -29,4 +29,8 @@ public class Periodo {
         this.nome = nome;
         this.curso = curso;
     }
+
+    public String toString(){
+        return "Periodo:"+getNome()+" Curso:"+getCurso()+"\n";
+    }
 }

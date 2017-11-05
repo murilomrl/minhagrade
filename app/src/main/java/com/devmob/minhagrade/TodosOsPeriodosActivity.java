@@ -21,7 +21,7 @@ public class TodosOsPeriodosActivity extends AppCompatActivity {
     private String curso;
     private PeriodoAdapter periodoArrayAdapter;
     private ListView listView;
-    private List<Periodo> periodoList;
+    private List<Periodo> periodoList = new ArrayList<>();
     private PeriodoDAO periodoDAO = new PeriodoDAO(this);
 
     @Override
@@ -31,13 +31,11 @@ public class TodosOsPeriodosActivity extends AppCompatActivity {
         final Intent intent = getIntent();
         curso =  Prefs.getString(this, "course");
         TextView course = (TextView) findViewById(R.id.course);
+        listView = (ListView) findViewById(R.id.listaPeriodo);
         course.setText(curso);
 
         periodoList = periodoDAO.getPeriodos();
-        Periodo periodo = periodoList.get(2);
-        Log.d("TODOS", periodo.getNome());
-//        periodoArrayAdapter = new PeriodoAdapter(this,periodoList);
-//        listView.setAdapter(periodoArrayAdapter);
+        listView.setAdapter(new PeriodoAdapter(this,periodoList));
 
     }
 }

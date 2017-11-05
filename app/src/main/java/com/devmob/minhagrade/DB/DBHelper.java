@@ -25,8 +25,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String KEY_ID = "id";
 
 //    Cria tabelas
-    private static final String CREATE_PERIODO = "CREATE TABLE IF NOT EXISTS "+TABLE_PERIODO+"("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, curso TEXT NOT NULL)";
-    private static final String CREATE_DISCIPLINA = "CREATE TABLE IF NOT EXISTS "+TABLE_DISCIPLINA+"("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, status INTEGER NOT NULL, periodo INTEGER NOT NULL, FOREIGN KEY(periodo) REFERENCES "+TABLE_PERIODO+"(id))";
+    private static final String CREATE_PERIODO = "CREATE TABLE IF NOT EXISTS "+TABLE_PERIODO+"(nome TEXT NOT NULL PRIMARY KEY, curso TEXT NOT NULL)";
+    private static final String CREATE_DISCIPLINA = "CREATE TABLE IF NOT EXISTS "+TABLE_DISCIPLINA+"("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, status INTEGER NOT NULL, periodo TEXT NOT NULL, FOREIGN KEY(periodo) REFERENCES "+TABLE_PERIODO+"(nome))";
 
 
     public DBHelper(Context context) {

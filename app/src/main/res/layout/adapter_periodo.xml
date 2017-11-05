@@ -6,11 +6,15 @@
     android:orientation="horizontal">
     <TextView
         android:id="@+id/textViewPeriodo"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
+        android:paddingTop="25dp"
+        android:paddingBottom="25dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="16sp"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="10dp"
+        android:text="Período"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
+        android:focusable="false"/>
 
 </LinearLayout>

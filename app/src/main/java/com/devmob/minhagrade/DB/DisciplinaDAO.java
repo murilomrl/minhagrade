@@ -40,7 +40,7 @@ public class DisciplinaDAO extends DBHelper{
             disciplina = new Disciplina(
                     cursor.getString(cursor.getColumnIndex("nome")),
                     cursor.getInt(cursor.getColumnIndex("status")),
-                    cursor.getInt(cursor.getColumnIndex("periodo")));
+                    cursor.getString(cursor.getColumnIndex("periodo")));
         }
         onClose();
         return disciplina;
@@ -54,7 +54,7 @@ public class DisciplinaDAO extends DBHelper{
             Disciplina disciplina = new Disciplina(
                     cursor.getString(cursor.getColumnIndex("nome")),
                     cursor.getInt(cursor.getColumnIndex("status")),
-                    cursor.getInt(cursor.getColumnIndex("periodo")));
+                    cursor.getString(cursor.getColumnIndex("periodo")));
             disciplinas.add(disciplina);
         }
         onClose();
@@ -69,7 +69,7 @@ public class DisciplinaDAO extends DBHelper{
             Disciplina disciplina = new Disciplina(
                     cursor.getString(cursor.getColumnIndex("nome")),
                     cursor.getInt(cursor.getColumnIndex("status")),
-                    cursor.getInt(cursor.getColumnIndex("periodo")));
+                    cursor.getString(cursor.getColumnIndex("periodo")));
             disciplinas.add(disciplina);
         }
         onClose();

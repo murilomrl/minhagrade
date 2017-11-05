@@ -101,6 +101,7 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; goto parent activity.
+                disciplinaDAO.atualizaDisciplinas(disciplinas);
                 this.finish();
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
                 return true;
@@ -111,6 +112,7 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
 
     @Override
     public void onBackPressed(){
+        disciplinaDAO.atualizaDisciplinas(disciplinas);
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
 

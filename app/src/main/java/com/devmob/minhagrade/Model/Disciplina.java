@@ -24,11 +24,27 @@ public class Disciplina {
      */
     private int status;
     private String periodo;
+    private int id;
+
+    public Disciplina(int id,String nome, int status, String periodo) {
+        this.id = id;
+        this.nome = nome;
+        this.status = status;
+        this.periodo = periodo;
+    }
 
     public Disciplina(String nome, int status, String periodo) {
         this.nome = nome;
         this.status = status;
         this.periodo = periodo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPeriodo() {

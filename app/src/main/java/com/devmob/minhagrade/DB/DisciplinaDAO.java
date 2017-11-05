@@ -3,6 +3,7 @@ package com.devmob.minhagrade.DB;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 import com.devmob.minhagrade.Model.Disciplina;
 import com.devmob.minhagrade.Model.Periodo;
@@ -31,34 +32,14 @@ public class DisciplinaDAO extends DBHelper{
         onClose();
     }
 
-    public Disciplina getDisciplina(Integer id){
-        Disciplina disciplina = null;
-        String sql = "SELECT * FROM "+DBHelper.TABLE_DISCIPLINA+" WHERE "+DBHelper.KEY_ID+" = "+id;
+    public void atualiza(Disciplina disciplina){
         onOpen();
-        Cursor cursor = db.rawQuery(sql,null);
-        if (cursor.moveToNext()){
-            disciplina = new Disciplina(
-                    cursor.getString(cursor.getColumnIndex("nome")),
-                    cursor.getInt(cursor.getColumnIndex("status")),
-                    cursor.getString(cursor.getColumnIndex("periodo")));
-        }
+        ContentValues values = new ContentValues();
+        values.put("nome", disciplina.getNome());
+        values.put("status",disciplina.getStatus());
+        values.put("periodo",disciplina.getPeriodo());
+        db.update(DBHelper.TABLE_DISCIPLINA,values," id = "+disciplina.getId(),null);
         onClose();
-        return disciplina;
-    }
-
-    public List<Disciplina> getDisciplinas(){
-        List<Disciplina> disciplinas = new ArrayList<>();
-        onOpen();
-        Cursor cursor = db.rawQuery("SELECT * FROM "+DBHelper.TABLE_DISCIPLINA, null);
-        while (cursor.moveToNext()){
-            Disciplina disciplina = new Disciplina(
-                    cursor.getString(cursor.getColumnIndex("nome")),
-                    cursor.getInt(cursor.getColumnIndex("status")),
-                    cursor.getString(cursor.getColumnIndex("periodo")));
-            disciplinas.add(disciplina);
-        }
-        onClose();
-        return disciplinas;
     }
 
     public List<Disciplina> getDisciplinasPorPeriodo(String periodo){
@@ -67,12 +48,23 @@ public class DisciplinaDAO extends DBHelper{
         Cursor cursor = db.rawQuery("SELECT * FROM "+DBHelper.TABLE_DISCIPLINA+" WHERE periodo= '"+periodo+"'", null);
         while (cursor.moveToNext()){
             Disciplina disciplina = new Disciplina(
+                    cursor.getInt(cursor.getColumnIndex("id")),
                     cursor.getString(cursor.getColumnIndex("nome")),
                     cursor.getInt(cursor.getColumnIndex("status")),
                     cursor.getString(cursor.getColumnIndex("periodo")));
             disciplinas.add(disciplina);
         }
+        Log.d("Disciplinas", disciplinas.toString());
         onClose();
         return disciplinas;
+    }
+
+    public void atualizaDisciplinas(List<Disciplina> disciplinaList){
+        onOpen();
+        for (Disciplina disciplina: disciplinaList) {
+            this.atualiza(disciplina);
+        }
+        
+        onClose();
     }
 }

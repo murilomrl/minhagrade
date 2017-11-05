@@ -112,8 +112,8 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
 
     @Override
     public void onBackPressed(){
-        disciplinaDAO.atualizaDisciplinas(disciplinas);
         super.onBackPressed();
+        disciplinaDAO.atualizaDisciplinas(disciplinas);
         overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
 
     }

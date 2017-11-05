@@ -3,7 +3,6 @@ package com.devmob.minhagrade.DB;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.util.Log;
 
 import com.devmob.minhagrade.Model.Disciplina;
 import com.devmob.minhagrade.Model.Periodo;
@@ -54,17 +53,15 @@ public class DisciplinaDAO extends DBHelper{
                     cursor.getString(cursor.getColumnIndex("periodo")));
             disciplinas.add(disciplina);
         }
-        Log.d("Disciplinas", disciplinas.toString());
         onClose();
         return disciplinas;
     }
 
     public void atualizaDisciplinas(List<Disciplina> disciplinaList){
-        onOpen();
+//        onOpen();
         for (Disciplina disciplina: disciplinaList) {
-            this.atualiza(disciplina);
+            atualiza(disciplina);
         }
-        
-        onClose();
+//        onClose();
     }
 }

@@ -9,11 +9,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
 
 import com.devmob.minhagrade.Adapter.PeriodoAdapter;
 import com.devmob.minhagrade.DB.PeriodoDAO;
@@ -33,7 +31,7 @@ public class TodosOsPeriodosActivity extends AppCompatActivity implements OnItem
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_blank);
+        setContentView(R.layout.activity_todos);
         final Intent intent = getIntent();
         curso =  Prefs.getString(this, "course");
         TextView course = (TextView) findViewById(R.id.course);

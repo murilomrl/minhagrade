@@ -56,6 +56,22 @@ public class DisciplinaDAO extends DBHelper{
         onClose();
         return disciplinas;
     }
+    public List<Disciplina> getDisciplinas(){
+        List<Disciplina> disciplinas = new ArrayList<>();
+        onOpen();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+DBHelper.TABLE_DISCIPLINA, null);
+        while (cursor.moveToNext()){
+            Disciplina disciplina = new Disciplina(
+                    cursor.getInt(cursor.getColumnIndex("id")),
+                    cursor.getString(cursor.getColumnIndex("nome")),
+                    cursor.getInt(cursor.getColumnIndex("status")),
+                    cursor.getString(cursor.getColumnIndex("periodo")));
+            disciplinas.add(disciplina);
+        }
+        onClose();
+        return disciplinas;
+    }
+
 
     public void atualizaDisciplinas(List<Disciplina> disciplinaList){
 //        onOpen();

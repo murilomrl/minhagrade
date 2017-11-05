@@ -50,23 +50,28 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+
+        Intent intent;
+        ActivityOptionsCompat opts;
         switch (v.getId()){
             case R.id.minhaGrade:
                 Toast.makeText(this, "Minha Grade",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.periodos:
-                Intent intent = new Intent(HomeActivity.this, TodosOsPeriodosActivity.class);
-                ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(HomeActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
-                ActivityCompat.startActivity(HomeActivity.this,intent,opts.toBundle());
+                intent = new Intent(this, TodosOsPeriodosActivity.class);
+                opts =  ActivityOptionsCompat.makeCustomAnimation(this,R.anim.slide_in_left,R.anim.slide_out_left);
+                ActivityCompat.startActivity(this,intent,opts.toBundle());
                 break;
             case R.id.progresso:
                 Toast.makeText(this, "Progresso",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.disciplinas:
-                Toast.makeText(this, "Disciplinas",Toast.LENGTH_SHORT).show();
+                intent = new Intent(this, DisciplinasActivity.class);
+                opts = ActivityOptionsCompat.makeCustomAnimation(this,R.anim.slide_in_left,R.anim.slide_out_left);
+                ActivityCompat.startActivity(this,intent,opts.toBundle());
                 break;
             case R.id.calendario:
-                Toast.makeText(this, "Calendario",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "EM BREVE",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.apagarDados:
                 apagarDados();

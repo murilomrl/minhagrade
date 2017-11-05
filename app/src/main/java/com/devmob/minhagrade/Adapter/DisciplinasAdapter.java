@@ -78,7 +78,7 @@ public class DisciplinasAdapter extends BaseAdapter {
             // Atualiza os valores das views
             disciplina = disciplinaArrayList.get(position);
 
-            // Coloca valor na TextView do listdisciplina.xml
+            // Coloca valor na TextView do adapter_disciplina.xml
             textView.setText(disciplina.getNome());
 
             // Parte dos icones clicáveis
@@ -143,7 +143,7 @@ public class DisciplinasAdapter extends BaseAdapter {
         }else {
             if(act==0) {
                 //Infla a View
-                view = LayoutInflater.from(context).inflate(R.layout.listdisciplina, parent, false);
+                view = LayoutInflater.from(context).inflate(R.layout.adapter_disciplina, parent, false);
 
                 // Faz ViewById das views que precisa atualizar
                 TextView textView = (TextView) view.findViewById(R.id.nomeDisciplina);
@@ -154,7 +154,7 @@ public class DisciplinasAdapter extends BaseAdapter {
                 // Atualiza os valores das views
                 disciplina = disciplinaArrayList.get(position);
 
-                // Coloca valor na TextView do listdisciplina.xml
+                // Coloca valor na TextView do adapter_disciplina.xml
                 textView.setText(disciplina.getNome());
 
                 // Colorir Item pelo status

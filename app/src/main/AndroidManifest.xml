@@ -49,6 +49,10 @@
             android:name=".TodosOsPeriodosActivity"
             android:label="@string/app_name"
             android:parentActivityName=".HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".DisciplinasActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait"/>
     </application>
 

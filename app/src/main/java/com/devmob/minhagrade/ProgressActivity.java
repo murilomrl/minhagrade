@@ -58,6 +58,8 @@ public class ProgressActivity extends AppCompatActivity {
         webView.addJavascriptInterface(new WebAppInterface(), "Android");
 
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
+        webView.getSettings().setUseWideViewPort(true);
         webView.loadUrl("file:///android_asset/chartsPie.html");
 
     }

@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 //import com.devmob.minhagrade.Lixo.Periodo;
 
+import com.devmob.minhagrade.DB.DisciplinaDAO;
 import com.devmob.minhagrade.Model.Disciplina;
 
 import java.text.DecimalFormat;
@@ -35,201 +36,40 @@ import java.util.List;
 
 public class ProgressActivity extends AppCompatActivity {
 
-
-    private ListView listasDePeriodos;
-    //private Periodo periodo;
-    private ArrayAdapter<String> adapter;
     private String curso;
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-//        calculaPorcentagem();
-        Resources res = getResources();
-        TypedArray ta = res.obtainTypedArray(R.array.map);
-        int n = ta.length();
-        String[][] array = new String[n][];
-        for (int i = 0; i < n; ++i) {
-            int id = ta.getResourceId(i, 0);
-            if (id > 0) {
-                array[i] = res.getStringArray(id);
-            } else {
-                // something wrong with the XML
-            }
-        }
-//        Log.i("Lista ", String.valueOf(array[1][0]));
-        ta.recycle(); // Important!
-        final HashMap<String,List<String>> mapa_curso = new HashMap<>();
-        for (int i = 0; i < array[0].length; i++){
-            List<String> lista = new ArrayList<>();
-            lista.add(0,array[1][i]);
-            lista.add(1,array[2][i]);
-            mapa_curso.put(array[0][i],lista);
-        }
-
-
-        final List<String> periodos = new ArrayList<>();
-        for (int i = 1; i<=Integer.parseInt(String.valueOf(mapa_curso.get(curso).get(0))); i++) {
-            periodos.add(i + "º periodo");
-        }
-
-        // Bloco em Teste
-        ArrayList<String> list = new ArrayList<>();
-        list.add(mapa_curso.get(curso).get(1));
-        list.addAll(periodos);
-        ArrayList<Disciplina> cursando = new ArrayList<>();
-//        cursando = Disciplina.getDisciplinasPorStatus(list,getApplicationContext(), 1);
-//        calculaPorcentagemCursando(cursando.size());
-    }
+    private TextView porcentagemConcluido;
+    private TextView porcentagemCursando;
+    private TextView porcentagemFaltando;
+    private DisciplinaDAO disciplinaDAO = new DisciplinaDAO(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
-        //periodo = new Periodo();
 
         final Intent intent = getIntent();
-        curso =  intent.getStringExtra("MESSAGE");
+        curso =  Prefs.getString(this,"course");
         TextView course = (TextView) findViewById(R.id.course);
         course.setText(curso);
 
-        // Porcentagem
-//        calculaPorcentagem();
+        porcentagemConcluido = (TextView) findViewById(R.id.porcentagemConcluido);
+        porcentagemCursando = (TextView) findViewById(R.id.porcentagemCursando);
+        porcentagemFaltando = (TextView) findViewById(R.id.porcentagemFaltam);
 
-
-
-        //Teste de back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
-        listasDePeriodos = (ListView) findViewById(R.id.listaPeriodo);
-
-        Resources res = getResources();
-        TypedArray ta = res.obtainTypedArray(R.array.map);
-        int n = ta.length();
-        String[][] array = new String[n][];
-        for (int i = 0; i < n; ++i) {
-            int id = ta.getResourceId(i, 0);
-            if (id > 0) {
-                array[i] = res.getStringArray(id);
-            } else {
-                // something wrong with the XML
-            }
-        }
-//        Log.i("Lista ", String.valueOf(array[1][0]));
-        ta.recycle(); // Important!
-        final HashMap<String,List<String>> mapa_curso = new HashMap<>();
-        for (int i = 0; i < array[0].length; i++){
-            List<String> lista = new ArrayList<>();
-            lista.add(0,array[1][i]);
-            lista.add(1,array[2][i]);
-            mapa_curso.put(array[0][i],lista);
-        }
-
-
-        final List<String> periodos = new ArrayList<>();
-        for (int i = 1; i<=Integer.parseInt(String.valueOf(mapa_curso.get(curso).get(0))); i++) {
-            periodos.add(i + "º periodo");
-        }
-
-        // Bloco em Teste
-        ArrayList<String> list = new ArrayList<>();
-        list.add(mapa_curso.get(curso).get(1));
-        list.addAll(periodos);
-        ArrayList<Disciplina> cursando = new ArrayList<>();
-//        cursando = Disciplina.getDisciplinasPorStatus(list,getApplicationContext(), 1);
-//        calculaPorcentagemCursando(cursando.size());
-
-        Button grade = (Button) findViewById(R.id.grade);
-        grade.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProgressActivity.this, GradeActivity.class);
-                ArrayList<String> message = new ArrayList<>();
-                message.add(mapa_curso.get(curso).get(1));
-                message.addAll(periodos);
-
-                intent.putExtra("MESSAGE", message);
-//                Log.i("koe",curso);
-                /**
-                 * Animação de transição entre activitys
-                 */
-                ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(ProgressActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
-                ActivityCompat.startActivity(ProgressActivity.this,intent,opts.toBundle());
-            }
-        });
-
-        adapter = new ArrayAdapter<String>(this,R.layout.listperiodo, periodos);
-
-        listasDePeriodos.setAdapter(adapter);
-
-        listasDePeriodos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String periodoSelecionado = (String) adapter.getItem(position);
-                Intent intent = new Intent(ProgressActivity.this, PeriodoActivity.class);
-                String periodo = String.valueOf(periodoSelecionado);
-                ArrayList<String> message = new ArrayList<>();
-
-                message.add(mapa_curso.get(curso).get(1));
-                message.add(periodo);
-                message.add(curso);
-                intent.putExtra("MESSAGE", message);
-                /**
-                 * Animação de transição entre activitys
-                 */
-                ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(ProgressActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
-                ActivityCompat.startActivity(ProgressActivity.this,intent,opts.toBundle());
-                //ProgressActivity.this.startActivity(intent);
-            }
-        });
+        porcentagemConcluido.setText(disciplinaDAO.porcentagemDeDisciplinasPorStatus(2));
+        porcentagemCursando.setText(disciplinaDAO.porcentagemDeDisciplinasPorStatus(1));
+        porcentagemFaltando.setText(disciplinaDAO.porcentagemDeDisciplinasPorStatus(0));
 
     }
 
-//    public void calculaPorcentagem(){
-//        int concluido = Prefs.getInt(this,"Concluido");
-//        int numeroDeDisciplinas = Prefs.getInt(this,"QuantidadeDisciplinas");
-//        double result = ((double) concluido/(double) numeroDeDisciplinas)*100;
-//        DecimalFormat df = new DecimalFormat("#.##");
-//        TextView porcentos= (TextView) findViewById(R.id.porcentagem);
-//        porcentos.setText(df.format(result)+"%");
-//    }
-//
-//    public void calculaPorcentagemCursando(int cursando){
-//        int numeroDeDisciplinas = Prefs.getInt(this,"QuantidadeDisciplinas");
-//        double result = ((double) cursando/(double) numeroDeDisciplinas)*100;
-//        DecimalFormat df = new DecimalFormat("#.##");
-//        TextView porcentos= (TextView) findViewById(R.id.cursando);
-//        porcentos.setText("Cursando: "+df.format(result)+"%");
-//    }
 
-
-    //Volta para a activity anterior
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.apagarDados:
+            case android.R.id.home:
                 // app icon in action bar clicked; goto parent activity.
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setCancelable(true);
-                builder.setTitle("Confirmação");
-                builder.setMessage("Você tem certeza que quer apagar os dados da sua grade?");
-                builder.setPositiveButton("Sim",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Prefs.clear(ProgressActivity.this);
-                                ProgressActivity.this.finish();
-                                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
-                            }
-                        });
-                builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                this.finish();
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -237,14 +77,9 @@ public class ProgressActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar, menu);
-        return true;
-    }
-
-    @Override
     public void onBackPressed(){
-        this.finishAffinity();
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
     }
 
 }

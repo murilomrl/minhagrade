@@ -3,10 +3,12 @@ package com.devmob.minhagrade.DB;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 import com.devmob.minhagrade.Model.Disciplina;
 import com.devmob.minhagrade.Model.Periodo;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,10 +76,24 @@ public class DisciplinaDAO extends DBHelper{
 
 
     public void atualizaDisciplinas(List<Disciplina> disciplinaList){
-//        onOpen();
         for (Disciplina disciplina: disciplinaList) {
             atualiza(disciplina);
         }
-//        onClose();
+    }
+
+    public String porcentagemDeDisciplinasPorStatus(int status){
+        onOpen();
+        double result = 0.0;
+        int porcentagem;
+        int total;
+        Cursor cursor = db.rawQuery("SELECT  * FROM "+DBHelper.TABLE_DISCIPLINA+" WHERE status = "+status,null);
+        porcentagem = cursor.getCount();
+        cursor = db.rawQuery("SELECT  *  FROM Disciplina",null);
+        total = cursor.getCount();
+        DecimalFormat df = new DecimalFormat("#.##");
+        result = ((double) porcentagem/(double)total)*100;
+
+        onClose();
+        return df.format(result)+"%";
     }
 }

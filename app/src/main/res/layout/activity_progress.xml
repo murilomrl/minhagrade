@@ -22,42 +22,49 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TableRow>
+        <TableRow
+            android:layout_margin="15dp">
             <TextView
                 android:layout_weight="1"
                 android:text="Concluido :"
                 android:textSize="25sp"
-                android:textAlignment="center"/>
+                android:textAlignment="textStart"/>
             <TextView
-                android:id="@+id/porcentagem"
+                android:id="@+id/porcentagemConcluido"
                 android:layout_weight="1"
                 android:text="0%"
                 android:textSize="25sp"
-                android:textAlignment="center"/>
+                android:textAlignment="textEnd"/>
+        </TableRow>
+        <TableRow
+            android:layout_margin="15dp">
+            <TextView
+                android:layout_weight="1"
+                android:text="Cursando :"
+                android:textSize="25sp"
+                android:textAlignment="textStart"/>
+            <TextView
+                android:id="@+id/porcentagemCursando"
+                android:layout_weight="1"
+                android:text="0%"
+                android:textSize="25sp"
+                android:textAlignment="textEnd"/>
+        </TableRow>
+        <TableRow
+            android:layout_margin="15dp">
+            <TextView
+                android:layout_weight="1"
+                android:text="Faltam :"
+                android:textSize="25sp"
+                android:textAlignment="textStart"/>
+            <TextView
+                android:id="@+id/porcentagemFaltam"
+                android:layout_weight="1"
+                android:text="0%"
+                android:textSize="25sp"
+                android:textAlignment="textEnd"/>
         </TableRow>
     </TableLayout>
-    <TextView
-        android:id="@+id/cursando"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="cursando: 0%"
-        android:textSize="20sp"/>
-    <Button
-        android:id="@+id/grade"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Grade do Semestre" />
-
-    <ListView
-        android:id="@+id/listaPeriodo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:clipToPadding="false"
-        android:paddingBottom="10dp">
-
-    </ListView>
 
 
 </LinearLayout>

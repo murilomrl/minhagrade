@@ -1,38 +1,24 @@
 package com.devmob.minhagrade;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Menu;
+import android.view.Display;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 //import com.devmob.minhagrade.Lixo.Periodo;
 
 import com.devmob.minhagrade.DB.DisciplinaDAO;
-import com.devmob.minhagrade.Model.Disciplina;
-
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by devmob on 27/03/17.
  */
+
+@SuppressLint("SetJavaScriptEnabled")
 
 public class ProgressActivity extends AppCompatActivity {
 
@@ -41,6 +27,9 @@ public class ProgressActivity extends AppCompatActivity {
     private TextView porcentagemCursando;
     private TextView porcentagemFaltando;
     private DisciplinaDAO disciplinaDAO = new DisciplinaDAO(this);
+
+    private WebView webView;
+    private int dadoConcluido, dadoCursando, dadoFaltando;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +49,42 @@ public class ProgressActivity extends AppCompatActivity {
         porcentagemCursando.setText(disciplinaDAO.porcentagemDeDisciplinasPorStatus(1));
         porcentagemFaltando.setText(disciplinaDAO.porcentagemDeDisciplinasPorStatus(0));
 
+
+        dadoConcluido = disciplinaDAO.quantidadeDisciplinasPorStatus(2);
+        dadoCursando = disciplinaDAO.quantidadeDisciplinasPorStatus(1);
+        dadoFaltando = disciplinaDAO.quantidadeDisciplinasPorStatus(0);
+
+        webView = (WebView)findViewById(R.id.pizza);
+        webView.addJavascriptInterface(new WebAppInterface(), "Android");
+
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl("file:///android_asset/chartsPie.html");
+
+    }
+
+    public class WebAppInterface{
+        @JavascriptInterface
+        public int getDadoConcluido(){
+            return dadoConcluido;
+        }
+        @JavascriptInterface
+        public int getDadoCursando(){
+            return dadoCursando;
+        }
+        @JavascriptInterface
+        public int getDadoFaltando(){
+            return dadoFaltando;
+        }
+        @JavascriptInterface
+        public int getWidth(){
+            Display display = getWindowManager().getDefaultDisplay();
+            return display.getWidth();
+        }
+        @JavascriptInterface
+        public int getHeight(){
+            Display display = getWindowManager().getDefaultDisplay();
+            return display.getHeight();
+        }
     }
 
 

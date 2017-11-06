@@ -27,13 +27,13 @@ import java.util.ArrayList;
 
 public class GradeActivity extends AppCompatActivity {
 
-//    static final int REQUEST_CODE = 41324;
-//    private ListView listViewDeDisciplinas;
-//    private ArrayList<Disciplina> disciplinas;
-//    private  ListView listViewAdd;
-//    private ArrayList<Disciplina> addDisciplinas;
-//    private ArrayList<Integer> guardaItems;
-//
+    static final int REQUEST_CODE = 41324;
+    private ListView listViewDeDisciplinas;
+    private ArrayList<Disciplina> disciplinas;
+    private  ListView listViewAdd;
+    private ArrayList<Disciplina> addDisciplinas;
+    private ArrayList<Integer> guardaItems;
+
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
@@ -138,45 +138,35 @@ public class GradeActivity extends AppCompatActivity {
 //        }
 //    }
 //
-//    // Metodo pra atualizar a grade assim que a activity que adiciona disciplinas terminar
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-//        super.onActivityResult(requestCode, resultCode, intent);
-//
-//        if (requestCode == REQUEST_CODE) {
-//            finish();
-//            startActivity(getIntent());
-//        }
-//    }
-//
-//    //Volta para a activity anterior
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case android.R.id.home:
-//                // app icon in action bar clicked; goto parent activity.
-//                this.finish();
-//                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
-//
-//    @Override
-//    public void onBackPressed(){
-//        super.onBackPressed();
-//        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
-//
-//    }
-//
-//    @Override
-//    public void onConfigurationChanged(Configuration newConfig) {
-//        super.onConfigurationChanged(newConfig);
-//        int orientacao = this.getResources().getConfiguration().orientation;
-//        if(orientacao == Configuration.ORIENTATION_LANDSCAPE) {
-//
-//        }else{
-//        }
-//    }
+    // Metodo pra atualizar a grade assim que a activity que adiciona disciplinas terminar
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if (requestCode == REQUEST_CODE) {
+            finish();
+            startActivity(getIntent());
+        }
+    }
+
+    //Volta para a activity anterior
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; goto parent activity.
+                this.finish();
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
+    }
 }

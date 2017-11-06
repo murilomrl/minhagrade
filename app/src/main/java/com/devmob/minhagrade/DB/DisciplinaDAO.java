@@ -88,12 +88,23 @@ public class DisciplinaDAO extends DBHelper{
         int total;
         Cursor cursor = db.rawQuery("SELECT  * FROM "+DBHelper.TABLE_DISCIPLINA+" WHERE status = "+status,null);
         porcentagem = cursor.getCount();
-        cursor = db.rawQuery("SELECT  *  FROM Disciplina",null);
+        cursor = db.rawQuery("SELECT  *  FROM "+DBHelper.TABLE_DISCIPLINA,null);
         total = cursor.getCount();
-        DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat df = new DecimalFormat("#.#");
         result = ((double) porcentagem/(double)total)*100;
 
         onClose();
-        return df.format(result)+"%";
+        return df.format(result)+"%("+porcentagem+")";
+    }
+    public int quantidadeDisciplinasPorStatus(int status){
+        onOpen();
+        double result = 0.0;
+        int quantidade;
+        Cursor cursor = db.rawQuery("SELECT  * FROM "+DBHelper.TABLE_DISCIPLINA+" WHERE status = "+status,null);
+        quantidade = cursor.getCount();
+
+
+        onClose();
+        return quantidade;
     }
 }

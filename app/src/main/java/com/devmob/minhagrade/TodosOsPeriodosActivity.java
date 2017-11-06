@@ -46,7 +46,7 @@ public class TodosOsPeriodosActivity extends AppCompatActivity implements OnItem
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Periodo periodo = this.periodoList.get(position);
-        Log.d("Clickado",periodo.getNome());
+//        Log.d("Clickado",periodo.getNome());
         Intent intent = new Intent(this,PeriodoActivity.class);
         intent.putExtra("PERIODO", periodo.getNome());
         ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(this,R.anim.slide_in_left,R.anim.slide_out_left);

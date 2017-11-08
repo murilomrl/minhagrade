@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:paddingTop="25dp"
-    android:paddingBottom="25dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingRight="10dp"
@@ -9,17 +9,17 @@
     <TableRow>
         <TextView
             android:id="@+id/nomeDisciplina"
-            android:textSize="20sp"
+            android:textSize="@dimen/font_size"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:text="Disciplina"
+            android:text="@string/disciplina"
             android:layout_weight="1"/>
         <TextView
             android:id="@+id/statusDisciplina"
-            android:textSize="20sp"
+            android:textSize="@dimen/font_size"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:text="Status"
+            android:text="@string/status"
             android:gravity="right"
             android:layout_weight="1"/>
     </TableRow>

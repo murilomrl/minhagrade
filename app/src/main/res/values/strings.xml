@@ -6,6 +6,15 @@
     <string name="add_disciplina">Escolha as disciplinas</string>
     <string name="add_disciplina_ok">OK</string>
     <string name="add_disciplina_cancel">Cancelar</string>
+    <string name="periodo_selecionado">Período Selecionado</string>
+    <string name="progress_concluido">Concluído :</string>
+    <string name="progress_cursando">Cursando :</string>
+    <string name="progress_faltando">Faltando :</string>
+    <string name="disciplina">Disciplina</string>
+    <string name="status">status</string>
+    <string name="periodo">período</string>
+    <string name="entrar">Entrar</string>
+    <string name="course_curso">Seu curso :</string>
 
     <string-array name="cursos_array">
         <item>Ciência da Computação</item>

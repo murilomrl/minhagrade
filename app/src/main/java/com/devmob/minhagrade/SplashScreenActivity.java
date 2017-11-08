@@ -1,7 +1,6 @@
 package com.devmob.minhagrade;
 
 import android.content.Intent;
-import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +8,6 @@ import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import static java.lang.Thread.sleep;
 
@@ -20,7 +18,7 @@ public class SplashScreenActivity extends AppCompatActivity implements Animation
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+        setContentView(R.layout.activity_splashscreen);
 
         final ImageView imageView = (ImageView) findViewById(R.id.logoDevmob);
         final Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.alpha);

@@ -7,7 +7,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -73,7 +73,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 ActivityCompat.startActivity(this,intent,opts.toBundle());
                 break;
             case R.id.calendario:
-                Toast.makeText(this, "EM BREVE",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Em Breve",Toast.LENGTH_SHORT).show();
+                Log.d("Calendario","oooooooi");
                 break;
             case R.id.apagarDados:
                 apagarDados();

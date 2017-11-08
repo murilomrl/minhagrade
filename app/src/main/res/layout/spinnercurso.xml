@@ -6,10 +6,10 @@
         android:id="@+id/nomeCurso"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Curso"
+        android:text="@string/course_curso"
         android:layout_gravity="center"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="@dimen/font_size"
         android:layout_margin="5dp"
         android:textColor="#000000"/>
 

@@ -59,7 +59,7 @@
                     android:gravity="center"
                     android:paddingTop="70dp"
                     android:text="Minha Grade"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/font_size" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -82,7 +82,7 @@
                     android:gravity="center"
                     android:paddingTop="70dp"
                     android:text="Todos os periodos"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/font_size" />
             </RelativeLayout>
         </TableRow>
 
@@ -112,7 +112,7 @@
                     android:gravity="center"
                     android:paddingTop="70dp"
                     android:text="Progresso"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/font_size" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -135,7 +135,7 @@
                     android:gravity="center"
                     android:paddingTop="70dp"
                     android:text="Disciplinas"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/font_size" />
             </RelativeLayout>
 
         </TableRow>
@@ -166,7 +166,7 @@
                     android:gravity="center"
                     android:paddingTop="70dp"
                     android:text="Calendario"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/font_size" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -189,7 +189,7 @@
                     android:gravity="center"
                     android:paddingTop="70dp"
                     android:text="Apagar"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/font_size" />
             </RelativeLayout>
 
         </TableRow>

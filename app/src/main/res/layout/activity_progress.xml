@@ -26,42 +26,42 @@
             android:layout_margin="15dp">
             <TextView
                 android:layout_weight="1"
-                android:text="Concluido :"
-                android:textSize="25sp"
+                android:text="@string/progress_concluido"
+                android:textSize="@dimen/font_size"
                 android:textAlignment="textStart"/>
             <TextView
                 android:id="@+id/porcentagemConcluido"
                 android:layout_weight="1"
                 android:text="0%"
-                android:textSize="25sp"
+                android:textSize="@dimen/font_size"
                 android:textAlignment="textEnd"/>
         </TableRow>
         <TableRow
             android:layout_margin="15dp">
             <TextView
                 android:layout_weight="1"
-                android:text="Cursando :"
-                android:textSize="25sp"
+                android:text="@string/progress_cursando"
+                android:textSize="@dimen/font_size"
                 android:textAlignment="textStart"/>
             <TextView
                 android:id="@+id/porcentagemCursando"
                 android:layout_weight="1"
                 android:text="0%"
-                android:textSize="25sp"
+                android:textSize="@dimen/font_size"
                 android:textAlignment="textEnd"/>
         </TableRow>
         <TableRow
             android:layout_margin="15dp">
             <TextView
                 android:layout_weight="1"
-                android:text="Faltam :"
-                android:textSize="25sp"
+                android:text="@string/progress_faltando"
+                android:textSize="@dimen/font_size"
                 android:textAlignment="textStart"/>
             <TextView
                 android:id="@+id/porcentagemFaltam"
                 android:layout_weight="1"
                 android:text="0%"
-                android:textSize="25sp"
+                android:textSize="@dimen/font_size"
                 android:textAlignment="textEnd"/>
         </TableRow>
     </TableLayout>

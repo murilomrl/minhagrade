@@ -41,8 +41,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         imageButtonDisciplinas = (ImageButton) findViewById(R.id.disciplinas);
         imageButtonDisciplinas.setOnClickListener(this);
 
-        imageButtonCalendario = (ImageButton) findViewById(R.id.disciplinas);
-        imageButtonDisciplinas.setOnClickListener(this);
+        imageButtonCalendario = (ImageButton) findViewById(R.id.calendario);
+        imageButtonCalendario.setOnClickListener(this);
 
         imageButtonApagar = (ImageButton) findViewById(R.id.apagarDados);
         imageButtonApagar.setOnClickListener(this);

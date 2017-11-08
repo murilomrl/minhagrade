@@ -1,31 +1,20 @@
 package com.devmob.minhagrade;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.widget.CursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 //import com.devmob.minhagrade.Lixo.Cursos;
 
 import com.devmob.minhagrade.Adapter.CursoAdapter;
 import com.devmob.minhagrade.DB.CienciaDaComputação;
 import com.devmob.minhagrade.Model.Curso;
-import com.devmob.minhagrade.Model.Periodo;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import com.devmob.minhagrade.Model.Prefs;
 
 public class CourseActivity extends AppCompatActivity implements View.OnClickListener {
 

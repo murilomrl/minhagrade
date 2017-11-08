@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.devmob.minhagrade.Adapter.DisciplinasAdapter;
 import com.devmob.minhagrade.DB.DisciplinaDAO;
 import com.devmob.minhagrade.Model.Disciplina;
+import com.devmob.minhagrade.Model.Prefs;
 
 import java.util.List;
 

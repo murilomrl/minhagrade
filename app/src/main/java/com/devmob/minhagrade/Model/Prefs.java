@@ -1,4 +1,4 @@
-package com.devmob.minhagrade;
+package com.devmob.minhagrade.Model;
 
 import android.content.Context;
 import android.content.SharedPreferences;

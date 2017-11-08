@@ -4,31 +4,19 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.devmob.minhagrade.GradeActivity;
+import com.devmob.minhagrade.DB.DisciplinaDAO;
 import com.devmob.minhagrade.Model.Disciplina;
-import com.devmob.minhagrade.PeriodoActivity;
-import com.devmob.minhagrade.Prefs;
-import com.devmob.minhagrade.ProgressActivity;
 import com.devmob.minhagrade.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,12 +28,14 @@ public class DisciplinasAdapter extends BaseAdapter {
     private final List<Disciplina> disciplinaArrayList;
     private final Context context;
     private final int act;
+    private DisciplinaDAO disciplinaDAO;
 
     // Variável act criada simplesmente para não precisar de dois adapters...
     public DisciplinasAdapter(List<Disciplina> disciplinaArrayList, Context context, int act) {
         this.disciplinaArrayList = disciplinaArrayList;
         this.context = context;
         this.act = act;
+        disciplinaDAO = new DisciplinaDAO(context);
     }
 
 
@@ -71,7 +61,7 @@ public class DisciplinasAdapter extends BaseAdapter {
 
         if(this.act==1) {
             //Infla a View
-            view = LayoutInflater.from(context).inflate(R.layout.gradedisciplina, parent, false);
+            view = LayoutInflater.from(context).inflate(R.layout.adapter_gradedisciplina, parent, false);
             // Faz ViewById das views que precisa atualizar
             TextView textView = (TextView)view.findViewById(R.id.nomeDisciplina);
 
@@ -95,8 +85,8 @@ public class DisciplinasAdapter extends BaseAdapter {
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-//                                    Prefs.setInteger(context,disciplina.getNome(),2);
-//                                    Prefs.setInteger(context,"Concluido",Prefs.getInt(context,"Concluido")+1);
+                                    disciplina.setStatus(2);
+                                    disciplinaDAO.atualiza(disciplina);
                                     ((Activity) context).finish();
                                     ((Activity) context).startActivity(((Activity) context).getIntent());
                                 }
@@ -124,7 +114,8 @@ public class DisciplinasAdapter extends BaseAdapter {
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-//                                    Prefs.setInteger(context,disciplina.getNome(),0);
+                                    disciplina.setStatus(0);
+                                    disciplinaDAO.atualiza(disciplina);
                                     ((Activity) context).finish();
                                     ((Activity) context).startActivity(((Activity) context).getIntent());
                                 }

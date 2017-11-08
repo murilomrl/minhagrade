@@ -13,6 +13,7 @@ import android.widget.TextView;
 //import com.devmob.minhagrade.Lixo.Periodo;
 
 import com.devmob.minhagrade.DB.DisciplinaDAO;
+import com.devmob.minhagrade.Model.Prefs;
 
 /**
  * Created by devmob on 27/03/17.

@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.devmob.minhagrade.DB.PeriodoDAO;
+import com.devmob.minhagrade.Model.Prefs;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -55,7 +56,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         ActivityOptionsCompat opts;
         switch (v.getId()){
             case R.id.minhaGrade:
-                Toast.makeText(this, "Minha Grade",Toast.LENGTH_SHORT).show();
+                intent = new Intent(this, GradeActivity.class);
+                opts =  ActivityOptionsCompat.makeCustomAnimation(this,R.anim.slide_in_left,R.anim.slide_out_left);
+                ActivityCompat.startActivity(this,intent,opts.toBundle());
                 break;
             case R.id.periodos:
                 intent = new Intent(this, TodosOsPeriodosActivity.class);

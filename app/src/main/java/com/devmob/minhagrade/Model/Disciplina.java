@@ -1,17 +1,5 @@
 package com.devmob.minhagrade.Model;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.util.Log;
-
-import com.devmob.minhagrade.Prefs;
-import com.devmob.minhagrade.R;
-
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-
 
 /**
  * Created by DevMob on 17/05/2017.

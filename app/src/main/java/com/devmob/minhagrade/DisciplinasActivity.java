@@ -49,6 +49,8 @@ public class DisciplinasActivity extends AppCompatActivity implements AdapterVie
         // Atualiza o status da disciplina
         disciplina.setStatus(status);
 
+
+        disciplinaDAO.atualiza(disciplina);
         //Salva dados
 //        Prefs.setInteger(this,disciplina.getNome(),status);
 
@@ -77,7 +79,6 @@ public class DisciplinasActivity extends AppCompatActivity implements AdapterVie
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; goto parent activity.
-                disciplinaDAO.atualizaDisciplinas(disciplinaList);
                 this.finish();
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
                 return true;
@@ -89,7 +90,6 @@ public class DisciplinasActivity extends AppCompatActivity implements AdapterVie
     @Override
     public void onBackPressed(){
         super.onBackPressed();
-        disciplinaDAO.atualizaDisciplinas(disciplinaList);
         overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
 
     }

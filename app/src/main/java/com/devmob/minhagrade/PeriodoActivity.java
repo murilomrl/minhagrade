@@ -25,6 +25,7 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
 
     private ListView listViewDeDisciplinas;
     private List<Disciplina> disciplinas;
+    private List<Disciplina> disciplinasComNovoStatus = new ArrayList<>();
     private DisciplinaDAO disciplinaDAO = new DisciplinaDAO(this);
 
 
@@ -69,8 +70,7 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
         // Atualiza o status da disciplina
         disciplina.setStatus(status);
 
-        //Salva dados
-//        Prefs.setInteger(this,disciplina.getNome(),status);
+        disciplinaDAO.atualiza(disciplina);
 
         TextView statusDisciplina = (TextView) view.findViewById(R.id.statusDisciplina);
 
@@ -92,16 +92,12 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
 //        Log.i("Concluido", String.valueOf(Prefs.getInt(this,"Concluido")));
     }
 
-
-    //Private Resources
-
     //Volta para a activity anterior
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; goto parent activity.
-                disciplinaDAO.atualizaDisciplinas(disciplinas);
                 this.finish();
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
                 return true;
@@ -113,7 +109,6 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
     @Override
     public void onBackPressed(){
         super.onBackPressed();
-        disciplinaDAO.atualizaDisciplinas(disciplinas);
         overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
 
     }

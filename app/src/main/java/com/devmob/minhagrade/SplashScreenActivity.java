@@ -9,11 +9,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.devmob.minhagrade.Model.Prefs;
+
 import static java.lang.Thread.sleep;
 
 public class SplashScreenActivity extends AppCompatActivity implements Animation.AnimationListener {
-
-    Thread splashThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +21,10 @@ public class SplashScreenActivity extends AppCompatActivity implements Animation
         setContentView(R.layout.activity_splashscreen);
 
         final ImageView imageView = (ImageView) findViewById(R.id.logoDevmob);
-        final Animation animation = AnimationUtils.loadAnimation(getBaseContext(),R.anim.alpha);
-        animation.setDuration(100);
-        imageView.startAnimation(animation);
-        animation.setAnimationListener(this);
+        final Animation animationBegin = AnimationUtils.loadAnimation(getBaseContext(),R.anim.alpha);
+        animationBegin.setDuration(2000);
+        imageView.startAnimation(animationBegin);
+        animationBegin.setAnimationListener(this);
     }
 
     @Override
@@ -34,7 +34,13 @@ public class SplashScreenActivity extends AppCompatActivity implements Animation
 
     @Override
     public void onAnimationEnd(Animation animation) {
-        Intent intent = new Intent(SplashScreenActivity.this, CourseActivity.class);
+        Intent intent;
+        if (Prefs.getString(this,"course").isEmpty()) {
+            intent = new Intent(SplashScreenActivity.this, CourseActivity.class);
+        }
+        else {
+            intent = new Intent(SplashScreenActivity.this, HomeActivity.class);
+        }
         ActivityOptionsCompat opts = ActivityOptionsCompat.makeCustomAnimation(SplashScreenActivity.this,R.anim.alpha,R.anim.reverse_alpha);
         ActivityCompat.startActivity(this,intent,opts.toBundle());
         finish();

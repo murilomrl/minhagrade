@@ -15,25 +15,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:textSize="25dp"
+        android:textSize="@dimen/title"
         android:paddingBottom="10dp"
         android:textStyle="bold"
         android:text="Selecione as disciplinas"
         android:textAlignment="center"/>
+
+
+    <ListView
+        android:id="@+id/discToAdd"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:background="@color/colorNaoFeito"
+        android:clickable="true"></ListView>
 
     <Button
         android:id="@+id/concAddDisc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Concluído" />
-
-
-    <ListView
-        android:id="@+id/discToAdd"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:background="@color/colorNaoFeito">
-    </ListView>
-
 </LinearLayout>

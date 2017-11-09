@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +19,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.devmob.minhagrade.DB.DisciplinaDAO;
+import com.devmob.minhagrade.GradeActivity;
 import com.devmob.minhagrade.Model.Disciplina;
 import com.devmob.minhagrade.R;
 
@@ -91,8 +95,11 @@ public class DisciplinasAdapter extends BaseAdapter {
                                 public void onClick(DialogInterface dialog, int which) {
                                     disciplina.setStatus(2);
                                     disciplinaDAO.atualiza(disciplina);
+                                    Intent intent = new Intent(context, GradeActivity.class);
+                                    ActivityOptionsCompat opts = ActivityOptionsCompat.makeCustomAnimation(context,R.anim.alpha,R.anim.reverse_alpha);
+                                    ActivityCompat.startActivity(context,intent,opts.toBundle());
                                     ((Activity) context).finish();
-                                    ((Activity) context).startActivity(((Activity) context).getIntent());
+//                                    ((Activity) context).startActivity(((Activity) context).getIntent());
                                 }
                             });
                     builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
@@ -120,8 +127,11 @@ public class DisciplinasAdapter extends BaseAdapter {
                                 public void onClick(DialogInterface dialog, int which) {
                                     disciplina.setStatus(0);
                                     disciplinaDAO.atualiza(disciplina);
+                                    Intent intent = new Intent(context, GradeActivity.class);
+                                    ActivityOptionsCompat opts = ActivityOptionsCompat.makeCustomAnimation(context,R.anim.alpha,R.anim.reverse_alpha);
+                                    ActivityCompat.startActivity(context,intent,opts.toBundle());
                                     ((Activity) context).finish();
-                                    ((Activity) context).startActivity(((Activity) context).getIntent());
+//                                    ((Activity) context).startActivity(((Activity) context).getIntent());
                                 }
                             });
                     builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {

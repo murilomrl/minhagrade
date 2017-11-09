@@ -1,5 +1,6 @@
 package com.devmob.minhagrade;
 
+import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,11 +12,14 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -78,6 +82,9 @@ public class GradeActivity extends AppCompatActivity implements View.OnClickList
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         alertDialog = builder.create();
 
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+
         Button button = (Button) alertLayout.findViewById(R.id.concAddDisc);
         ListView listView = (ListView) alertLayout.findViewById(R.id.discToAdd);
 
@@ -91,17 +98,26 @@ public class GradeActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
                 List<Disciplina> disciplinas = disciplinasAdapter.getMinhaGrade();
-
-                disciplinaDAO.atualizaDisciplinas(disciplinas);
+                if (!disciplinas.isEmpty()) {
+                    disciplinaDAO.atualizaDisciplinas(disciplinas);
+                }
                 alertDialog.dismiss();
+
+                Intent intent = new Intent(GradeActivity.this, GradeActivity.class);
+                ActivityOptionsCompat opts = ActivityOptionsCompat.makeCustomAnimation(GradeActivity.this,R.anim.alpha,R.anim.reverse_alpha);
+                ActivityCompat.startActivity(GradeActivity.this,intent,opts.toBundle());
+
                 GradeActivity.this.finish();
-                GradeActivity.this.startActivity(GradeActivity.this.getIntent());
+//                GradeActivity.this.startActivity(GradeActivity.this.getIntent());
             }
         });
 
         alertDialog.setView(alertLayout);
 
         alertDialog.show();
+        lp.width = (int) (metrics.widthPixels*0.95f);
+        lp.height = (int) (metrics.heightPixels*0.95f);
+        alertDialog.getWindow().setAttributes(lp);
     }
 
     //Volta para a activity anterior

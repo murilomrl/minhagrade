@@ -79,7 +79,7 @@ public class GradeActivity extends AppCompatActivity implements View.OnClickList
         LayoutInflater inflater = getLayoutInflater();
         final View alertLayout = inflater.inflate(R.layout.activity_discadd,null);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this).setInverseBackgroundForced(true);
         alertDialog = builder.create();
 
         DisplayMetrics metrics = getResources().getDisplayMetrics();
@@ -118,6 +118,7 @@ public class GradeActivity extends AppCompatActivity implements View.OnClickList
         lp.width = (int) (metrics.widthPixels*0.95f);
         lp.height = (int) (metrics.heightPixels*0.95f);
         alertDialog.getWindow().setAttributes(lp);
+        alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.background_light);
     }
 
     //Volta para a activity anterior

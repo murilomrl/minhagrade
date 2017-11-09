@@ -12,12 +12,15 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import com.devmob.minhagrade.Adapter.DisciplinasAdapter;
 import com.devmob.minhagrade.DB.DisciplinaDAO;
 import com.devmob.minhagrade.Model.Disciplina;
@@ -28,15 +31,15 @@ import java.util.List;
 // * Created by murilo on 29/06/17.
 
 
-public class GradeActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener{
+public class GradeActivity extends AppCompatActivity implements View.OnClickListener{
 
     static final int REQUEST_CODE = 41324;
     private ListView listViewDeDisciplinas;
     private List<Disciplina> disciplinas;
     private ListView listViewAdd;
-    private List<Disciplina> addDisciplinas;
-    private List<Integer> guardaItems;
+    private List<Disciplina> disciplinasPendentes;
     private DisciplinaDAO disciplinaDAO = new DisciplinaDAO(this);
+    private AlertDialog.Builder alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,8 @@ public class GradeActivity extends AppCompatActivity implements AdapterView.OnIt
 
         listViewDeDisciplinas.setAdapter(new DisciplinasAdapter(disciplinas,this,1));
 
+        add.setOnClickListener(this);
+
     }
 
     // Metodo pra atualizar a grade assim que a activity que adiciona disciplinas terminar
@@ -66,13 +71,22 @@ public class GradeActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-    }
-
-    @Override
     public void onClick(View v) {
-
+        LayoutInflater inflater = getLayoutInflater();
+        final View alertLayout = inflater.inflate(R.layout.activity_discadd,null);
+        alertDialog = new AlertDialog.Builder(this);
+        Button button = (Button) alertLayout.findViewById(R.id.concAddDisc);
+        ListView listView = (ListView) alertLayout.findViewById(R.id.discToAdd);
+        disciplinasPendentes = disciplinaDAO.getDisciplinasPorStatus(0);
+        listView.setAdapter(new DisciplinasAdapter(disciplinasPendentes,this, 99));
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("TOAST","OOOOOIIII");
+            }
+        });
+        alertDialog.setView(alertLayout);
+        alertDialog.show();
     }
 
     //Volta para a activity anterior

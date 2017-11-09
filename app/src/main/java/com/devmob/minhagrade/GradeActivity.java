@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
@@ -115,10 +116,7 @@ public class GradeActivity extends AppCompatActivity implements View.OnClickList
         alertDialog.setView(alertLayout);
 
         alertDialog.show();
-        lp.width = (int) (metrics.widthPixels*0.95f);
-        lp.height = (int) (metrics.heightPixels*0.95f);
-        alertDialog.getWindow().setAttributes(lp);
-        alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.background_light);
+        
     }
 
     //Volta para a activity anterior

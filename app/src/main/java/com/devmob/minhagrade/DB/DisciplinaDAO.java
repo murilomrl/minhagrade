@@ -36,6 +36,7 @@ public class DisciplinaDAO extends DBHelper{
     public void atualiza(Disciplina disciplina){
         onOpen();
         ContentValues values = new ContentValues();
+        Log.d("MinhaGrade", disciplina.toString());
         values.put("nome", disciplina.getNome());
         values.put("status",disciplina.getStatus());
         values.put("periodo",disciplina.getPeriodo());
@@ -91,6 +92,7 @@ public class DisciplinaDAO extends DBHelper{
 
 
     public void atualizaDisciplinas(List<Disciplina> disciplinaList){
+        Log.d("MinhaGrade", disciplinaList.toString());
         for (Disciplina disciplina: disciplinaList) {
             atualiza(disciplina);
         }

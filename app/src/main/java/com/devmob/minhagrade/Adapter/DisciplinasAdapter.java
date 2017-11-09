@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
@@ -17,6 +19,7 @@ import com.devmob.minhagrade.DB.DisciplinaDAO;
 import com.devmob.minhagrade.Model.Disciplina;
 import com.devmob.minhagrade.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,6 +31,7 @@ public class DisciplinasAdapter extends BaseAdapter {
     private final List<Disciplina> disciplinaArrayList;
     private final Context context;
     private final int act;
+    private List<Disciplina> minhaGradeDisciplina = new ArrayList<>();
     private DisciplinaDAO disciplinaDAO;
 
     // Variável act criada simplesmente para não precisar de dois adapters...
@@ -165,17 +169,19 @@ public class DisciplinasAdapter extends BaseAdapter {
                 // Atualiza os valores das views
                 disciplina = disciplinaArrayList.get(position);
                 // Botoes de Radio
-                RadioButton btdisc = (RadioButton) view.findViewById(R.id.radiobtDisc);
-                btdisc.setText(disciplina.getNome());
+                CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkBox);
+                checkBox.setText(disciplina.getNome());
                 // Modifica prefs ao mudar o check
-                btdisc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if(isChecked) {
-//                            Prefs.setInteger(context, disciplina.getNome(), 1);
+                            disciplina.setStatus(1);
+                            minhaGradeDisciplina.add(disciplina);
                         }
                         else{
-//                            Prefs.setInteger(context, disciplina.getNome(), 0);
+                            disciplina.setStatus(0);
+                            minhaGradeDisciplina.remove(disciplina);
                         }
                     }
                 });
@@ -183,9 +189,11 @@ public class DisciplinasAdapter extends BaseAdapter {
             }
         }
 
-
-
         // Retorna view
         return view;
+    }
+
+    public List<Disciplina> getMinhaGrade(){
+        return minhaGradeDisciplina;
     }
 }

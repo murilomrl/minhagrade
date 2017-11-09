@@ -14,8 +14,8 @@
     android:columnCount="1"
     android:rowCount="1">
 
-    <RadioButton
-        android:id="@+id/radiobtDisc"
+    <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:checked="false" />

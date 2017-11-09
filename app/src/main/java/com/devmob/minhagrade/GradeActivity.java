@@ -39,7 +39,7 @@ public class GradeActivity extends AppCompatActivity implements View.OnClickList
     private ListView listViewAdd;
     private List<Disciplina> disciplinasPendentes;
     private DisciplinaDAO disciplinaDAO = new DisciplinaDAO(this);
-    private AlertDialog.Builder alertDialog;
+    private AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,18 +74,33 @@ public class GradeActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         LayoutInflater inflater = getLayoutInflater();
         final View alertLayout = inflater.inflate(R.layout.activity_discadd,null);
-        alertDialog = new AlertDialog.Builder(this);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        alertDialog = builder.create();
+
         Button button = (Button) alertLayout.findViewById(R.id.concAddDisc);
         ListView listView = (ListView) alertLayout.findViewById(R.id.discToAdd);
+
         disciplinasPendentes = disciplinaDAO.getDisciplinasPorStatus(0);
-        listView.setAdapter(new DisciplinasAdapter(disciplinasPendentes,this, 99));
+
+        final DisciplinasAdapter disciplinasAdapter = new DisciplinasAdapter(disciplinasPendentes,this,99);
+
+
+        listView.setAdapter(disciplinasAdapter);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("TOAST","OOOOOIIII");
+                List<Disciplina> disciplinas = disciplinasAdapter.getMinhaGrade();
+
+                disciplinaDAO.atualizaDisciplinas(disciplinas);
+                alertDialog.dismiss();
+                GradeActivity.this.finish();
+                GradeActivity.this.startActivity(GradeActivity.this.getIntent());
             }
         });
+
         alertDialog.setView(alertLayout);
+
         alertDialog.show();
     }
 

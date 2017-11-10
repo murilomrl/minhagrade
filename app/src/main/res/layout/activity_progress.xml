@@ -65,10 +65,12 @@
                 android:textAlignment="textEnd"/>
         </TableRow>
     </TableLayout>
-    <WebView
-        android:id="@+id/pizza"
+    <com.github.mikephil.charting.charts.PieChart
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:id="@+id/pieChart">
+
+    </com.github.mikephil.charting.charts.PieChart>
 
 
 </LinearLayout>

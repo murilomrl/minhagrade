@@ -116,7 +116,7 @@ public class GradeActivity extends AppCompatActivity implements View.OnClickList
         alertDialog.setView(alertLayout);
 
         alertDialog.show();
-        
+
     }
 
     //Volta para a activity anterior

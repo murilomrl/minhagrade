@@ -4,9 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.TextView;
 
 //import com.devmob.minhagrade.Lixo.Periodo;
@@ -30,18 +34,13 @@ import java.util.ArrayList;
 
 @SuppressLint("SetJavaScriptEnabled")
 
-public class ProgressActivity extends AppCompatActivity {
+public class ProgressActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String curso;
     private TextView porcentagemConcluido;
     private TextView porcentagemCursando;
     private TextView porcentagemFaltando;
     private DisciplinaDAO disciplinaDAO = new DisciplinaDAO(this);
-
-    PieChart pieChart;
-
-    private WebView webView;
-    private int dadoConcluido, dadoCursando, dadoFaltando;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +50,9 @@ public class ProgressActivity extends AppCompatActivity {
         final Intent intent = getIntent();
         curso =  Prefs.getString(this,"course");
         TextView course = (TextView) findViewById(R.id.course);
+        Button button = (Button) findViewById(R.id.chartsButton);
+
+        button.setOnClickListener(this);
         course.setText(curso);
 
         porcentagemConcluido = (TextView) findViewById(R.id.porcentagemConcluido);
@@ -62,37 +64,14 @@ public class ProgressActivity extends AppCompatActivity {
         porcentagemFaltando.setText(disciplinaDAO.porcentagemDeDisciplinasPorStatus(0));
 
 
-        dadoConcluido = disciplinaDAO.quantidadeDisciplinasPorStatus(2);
-        dadoCursando = disciplinaDAO.quantidadeDisciplinasPorStatus(1);
-        dadoFaltando = disciplinaDAO.quantidadeDisciplinasPorStatus(0);
-
-        pieChart = (PieChart) findViewById(R.id.pieChart);
-
-        ArrayList<PieEntry> entries  = new ArrayList<>();
-        ArrayList<String> labels = new ArrayList<>();
-        ArrayList<Integer> colors = new ArrayList<>();
-
-        entries.add(new PieEntry(dadoConcluido,"Concluido",0));
-        entries.add(new PieEntry(dadoCursando,"Cursando",1));
-        entries.add(new PieEntry(dadoFaltando,"Pendente",2));
-
-        colors.add(Color.GREEN);
-        colors.add(Color.YELLOW);
-        colors.add(Color.WHITE);
-
-        PieDataSet dataSet = new PieDataSet(entries,"");
-        dataSet.setColors(colors);
-        dataSet.setSliceSpace(2);
-        dataSet.setValueTextSize(12);
-
-        PieData data = new PieData(dataSet);
-        pieChart.setData(data);
-        pieChart.setDrawHoleEnabled(false);
-        pieChart.invalidate();
-        pieChart.setEntryLabelColor(Color.BLACK);
-        pieChart.setRotationEnabled(false);
     }
 
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this, ChartActivity.class);
+        ActivityOptionsCompat opts = ActivityOptionsCompat.makeCustomAnimation(this,R.anim.slide_in_left,R.anim.slide_out_left);
+        ActivityCompat.startActivity(this,intent,opts.toBundle());
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -112,5 +91,6 @@ public class ProgressActivity extends AppCompatActivity {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
     }
+
 
 }

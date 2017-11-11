@@ -65,12 +65,11 @@
                 android:textAlignment="textEnd"/>
         </TableRow>
     </TableLayout>
-    <com.github.mikephil.charting.charts.PieChart
-        android:layout_height="match_parent"
+    <Button
         android:layout_width="match_parent"
-        android:id="@+id/pieChart">
-
-    </com.github.mikephil.charting.charts.PieChart>
+        android:layout_height="wrap_content"
+        android:id="@+id/chartsButton"
+        android:text="Gráficos"/>
 
 
 </LinearLayout>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.devmob.minhagrade.DB.DisciplinaDAO;
+import com.devmob.minhagrade.DB.PeriodoDAO;
 import com.github.mikephil.charting.charts.CombinedChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.CombinedData;
@@ -17,6 +18,7 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.data.ScatterData;
 import com.github.mikephil.charting.data.ScatterDataSet;
+import com.github.mikephil.charting.renderer.scatter.CircleShapeRenderer;
 import com.github.mikephil.charting.renderer.scatter.XShapeRenderer;
 
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 public class ChartActivity extends AppCompatActivity {
 
     private DisciplinaDAO disciplinaDAO = new DisciplinaDAO(this);
+    private PeriodoDAO periodoDAO = new PeriodoDAO(this);
     PieChart pieChart;
 
     private int dadoConcluido, dadoCursando, dadoFaltando;
@@ -48,7 +51,7 @@ public class ChartActivity extends AppCompatActivity {
         combinedChart.setHighlightFullBarEnabled(false);
 
         combinedChart.setDrawOrder( new CombinedChart.DrawOrder[]{
-                CombinedChart.DrawOrder.SCATTER, CombinedChart.DrawOrder.LINE
+                CombinedChart.DrawOrder.LINE, CombinedChart.DrawOrder.SCATTER
         });
 
         CombinedData data = new CombinedData();
@@ -57,31 +60,35 @@ public class ChartActivity extends AppCompatActivity {
         data.setData(generateScatterData());
 
         combinedChart.setData(data);
+//        combinedChart.setVisibleXRange(0,10);
+//        combinedChart.setVisibleYRange(0,disciplinaDAO.getDisciplinas().size(),null);
         combinedChart.invalidate();
 
     }
 
     private LineData generateLineData() {
         LineData data = new LineData();
-
+        int disciplinasAcumuladas = 0;
         ArrayList<Entry> entries = new ArrayList<>();
-        entries.add(new Entry(1,6));
-        entries.add(new Entry(2,11));
-        entries.add(new Entry(3,16));
-        entries.add(new Entry(4,21));
-        entries.add(new Entry(5,26));
-        entries.add(new Entry(12,30));
 
-        LineDataSet lineDataSet = new LineDataSet(entries,"Line");
+        for (int i = 1; i <= periodoDAO.getPeriodos().size();i++){
+            disciplinasAcumuladas = disciplinasAcumuladas+disciplinaDAO.getDisciplinasPorPeriodo(i+"º período").size();
+            entries.add(new Entry(i,disciplinasAcumuladas));
+
+        }
+
+
+        LineDataSet lineDataSet = new LineDataSet(entries,"DCC");
         lineDataSet.setColor(Color.GREEN);
         lineDataSet.setLineWidth(2.5f);
-        lineDataSet.setCircleColor(Color.GREEN);
-        lineDataSet.setCircleRadius(5f);
-        lineDataSet.setFillColor(Color.RED);
+        lineDataSet.setDrawCircles(false);
+//        lineDataSet.setCircleColor(Color.GREEN);
+//        lineDataSet.setCircleRadius(5f);
+//        lineDataSet.setFillColor(Color.RED);
         lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
         lineDataSet.setDrawValues(true);
         lineDataSet.setValueTextSize(10f);
-        lineDataSet.setValueTextColor(Color.GREEN);
+//        lineDataSet.setValueTextColor(Color.0);
 
         data.addDataSet(lineDataSet);
         return data;
@@ -91,23 +98,12 @@ public class ChartActivity extends AppCompatActivity {
         ScatterData data = new ScatterData();
 
         ArrayList<Entry> entries =  new ArrayList<>();
-        entries.add(new Entry(1,2));
-        entries.add(new Entry(2,30));
-        entries.add(new Entry(3,10));
-        entries.add(new Entry(4,27));
-        entries.add(new Entry(2,5));
-        entries.add(new Entry(5,11));
-        entries.add(new Entry(7,40));
-        entries.add(new Entry(6,9));
-        entries.add(new Entry(9,1));
-        entries.add(new Entry(10,20));
-        entries.add(new Entry(11,6));
-        entries.add(new Entry(12,30));
+        entries.add(new Entry(15,disciplinaDAO.getDisciplinasPorStatus(2).size()));
 
-        ScatterDataSet scatterDataSet = new ScatterDataSet(entries,"ScatterData");
+        ScatterDataSet scatterDataSet = new ScatterDataSet(entries,"Você");
         scatterDataSet.setColor(Color.RED);
-        scatterDataSet.setShapeRenderer(new XShapeRenderer());
-        scatterDataSet.setScatterShapeSize(50);
+        scatterDataSet.setShapeRenderer(new CircleShapeRenderer());
+        scatterDataSet.setScatterShapeSize(25);
         scatterDataSet.setDrawValues(true);
         scatterDataSet.setValueTextSize(10f);
         data.addDataSet(scatterDataSet);

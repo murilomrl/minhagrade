@@ -9,6 +9,8 @@ import com.devmob.minhagrade.DB.DisciplinaDAO;
 import com.devmob.minhagrade.DB.PeriodoDAO;
 import com.github.mikephil.charting.charts.CombinedChart;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.CombinedData;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -22,13 +24,13 @@ import com.github.mikephil.charting.renderer.scatter.CircleShapeRenderer;
 import com.github.mikephil.charting.renderer.scatter.XShapeRenderer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ChartActivity extends AppCompatActivity {
 
     private DisciplinaDAO disciplinaDAO = new DisciplinaDAO(this);
     private PeriodoDAO periodoDAO = new PeriodoDAO(this);
     PieChart pieChart;
-
     private int dadoConcluido, dadoCursando, dadoFaltando;
 
     private CombinedChart combinedChart;
@@ -41,6 +43,7 @@ public class ChartActivity extends AppCompatActivity {
         dadoCursando = disciplinaDAO.quantidadeDisciplinasPorStatus(1);
         dadoFaltando = disciplinaDAO.quantidadeDisciplinasPorStatus(0);
 
+        setTitle("DisciplinasXPeríodo");
 //        pieChart();
 
         combinedChart = (CombinedChart) findViewById(R.id.chart);
@@ -55,13 +58,17 @@ public class ChartActivity extends AppCompatActivity {
         });
 
         CombinedData data = new CombinedData();
+        XAxis xAxis = combinedChart.getXAxis();
 
         data.setData(generateLineData());
         data.setData(generateScatterData());
 
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+        YAxis yAxisRight = combinedChart.getAxisRight();
+        yAxisRight.setDrawLabels(false);
+
         combinedChart.setData(data);
-//        combinedChart.setVisibleXRange(0,10);
-//        combinedChart.setVisibleYRange(0,disciplinaDAO.getDisciplinas().size(),null);
         combinedChart.invalidate();
 
     }
@@ -71,9 +78,9 @@ public class ChartActivity extends AppCompatActivity {
         int disciplinasAcumuladas = 0;
         ArrayList<Entry> entries = new ArrayList<>();
 
-        for (int i = 1; i <= periodoDAO.getPeriodos().size();i++){
-            disciplinasAcumuladas = disciplinasAcumuladas+disciplinaDAO.getDisciplinasPorPeriodo(i+"º período").size();
+        for (int i = 1; i <= periodoDAO.getPeriodos().size()+1;i++){
             entries.add(new Entry(i,disciplinasAcumuladas));
+            disciplinasAcumuladas = disciplinasAcumuladas+disciplinaDAO.getDisciplinasPorPeriodo(i+"º período").size();
 
         }
 
@@ -82,6 +89,7 @@ public class ChartActivity extends AppCompatActivity {
         lineDataSet.setColor(Color.GREEN);
         lineDataSet.setLineWidth(2.5f);
         lineDataSet.setDrawCircles(false);
+
 //        lineDataSet.setCircleColor(Color.GREEN);
 //        lineDataSet.setCircleRadius(5f);
 //        lineDataSet.setFillColor(Color.RED);

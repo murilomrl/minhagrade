@@ -3,10 +3,14 @@ package com.devmob.minhagrade;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.devmob.minhagrade.DB.DisciplinaDAO;
 import com.devmob.minhagrade.DB.PeriodoDAO;
+import com.devmob.minhagrade.Model.Catalog;
+import com.devmob.minhagrade.Model.Ponto;
+import com.devmob.minhagrade.Model.Service;
 import com.github.mikephil.charting.charts.CombinedChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -18,8 +22,16 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.ScatterData;
 import com.github.mikephil.charting.data.ScatterDataSet;
 import com.github.mikephil.charting.renderer.scatter.CircleShapeRenderer;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 
 public class ChartActivity extends AppCompatActivity {
 
@@ -35,6 +47,30 @@ public class ChartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Service.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
+        Service service = retrofit.create(Service.class);
+        Call<Catalog> requestJSON = service.listCatalog();
+        requestJSON.enqueue(new Callback<Catalog>() {
+            @Override
+            public void onResponse(Call<Catalog> call, Response<Catalog> response) {
+                if(!response.isSuccessful()) {
+                    Log.i("tag","erro: " + response.code());
+                }
+                else{
+                    Catalog catalog = response.body();
+
+                    for(Ponto p : catalog.pontos){
+                        Log.i("tag", String.format("%s , %s", p.X, p.Y));
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Catalog> call, Throwable t) {
+                Log.e("tag","erro: " + t.getMessage());
+            }
+        });
+
         dadoConcluido = disciplinaDAO.quantidadeDisciplinasPorStatus(2);
         dadoCursando = disciplinaDAO.quantidadeDisciplinasPorStatus(1);
         dadoFaltando = disciplinaDAO.quantidadeDisciplinasPorStatus(0);

@@ -15,16 +15,11 @@ import com.github.mikephil.charting.data.CombinedData;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.data.ScatterData;
 import com.github.mikephil.charting.data.ScatterDataSet;
 import com.github.mikephil.charting.renderer.scatter.CircleShapeRenderer;
-import com.github.mikephil.charting.renderer.scatter.XShapeRenderer;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ChartActivity extends AppCompatActivity {
 
@@ -32,6 +27,7 @@ public class ChartActivity extends AppCompatActivity {
     private PeriodoDAO periodoDAO = new PeriodoDAO(this);
     PieChart pieChart;
     private int dadoConcluido, dadoCursando, dadoFaltando;
+    public static String json = "";
 
     private CombinedChart combinedChart;
 
@@ -71,10 +67,12 @@ public class ChartActivity extends AppCompatActivity {
         combinedChart.setData(data);
         combinedChart.invalidate();
 
+
     }
 
     private LineData generateLineData() {
         LineData data = new LineData();
+
         int disciplinasAcumuladas = 0;
         ArrayList<Entry> entries = new ArrayList<>();
 
@@ -85,20 +83,21 @@ public class ChartActivity extends AppCompatActivity {
         }
 
 
-        LineDataSet lineDataSet = new LineDataSet(entries,"DCC");
-        lineDataSet.setColor(Color.GREEN);
-        lineDataSet.setLineWidth(2.5f);
-        lineDataSet.setDrawCircles(false);
+        LineDataSet lineDataSetDCC = new LineDataSet(entries,"DCC");
+        lineDataSetDCC.setColor(Color.GREEN);
+        lineDataSetDCC.setLineWidth(2.5f);
+        lineDataSetDCC.setDrawCircles(false);
 
-//        lineDataSet.setCircleColor(Color.GREEN);
-//        lineDataSet.setCircleRadius(5f);
-//        lineDataSet.setFillColor(Color.RED);
-        lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
-        lineDataSet.setDrawValues(true);
-        lineDataSet.setValueTextSize(10f);
-//        lineDataSet.setValueTextColor(Color.0);
+//        lineDataSetDCC.setCircleColor(Color.GREEN);
+//        lineDataSetDCC.setCircleRadius(5f);
+//        lineDataSetDCC.setFillColor(Color.RED);
+        lineDataSetDCC.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        lineDataSetDCC.setDrawValues(true);
+        lineDataSetDCC.setValueTextSize(10f);
+//        lineDataSetDCC.setValueTextColor(Color.0);
 
-        data.addDataSet(lineDataSet);
+        data.addDataSet(lineDataSetDCC);
+
         return data;
     }
 
@@ -118,32 +117,35 @@ public class ChartActivity extends AppCompatActivity {
         return data;
     }
 
-    private void pieChart(){
-//        pieChart = (PieChart) findViewById(R.id.pieChart);
 
-        ArrayList<PieEntry> entries  = new ArrayList<>();
-        ArrayList<Integer> colors = new ArrayList<>();
 
-        entries.add(new PieEntry(dadoConcluido,"Concluido",0));
-        entries.add(new PieEntry(dadoCursando,"Cursando",1));
-        entries.add(new PieEntry(dadoFaltando,"Pendente",2));
+//    private void pieChart(){
+////        pieChart = (PieChart) findViewById(R.id.pieChart);
+//
+//        ArrayList<PieEntry> entries  = new ArrayList<>();
+//        ArrayList<Integer> colors = new ArrayList<>();
+//
+//        entries.add(new PieEntry(dadoConcluido,"Concluido",0));
+//        entries.add(new PieEntry(dadoCursando,"Cursando",1));
+//        entries.add(new PieEntry(dadoFaltando,"Pendente",2));
+//
+//        colors.add(Color.GREEN);
+//        colors.add(Color.YELLOW);
+//        colors.add(Color.WHITE);
+//
+//        PieDataSet dataSet = new PieDataSet(entries,"");
+//        dataSet.setColors(colors);
+//        dataSet.setSliceSpace(2);
+//        dataSet.setValueTextSize(12);
+//
+//        PieData data = new PieData(dataSet);
+//        pieChart.setData(data);
+//        pieChart.setDrawHoleEnabled(false);
+//        pieChart.invalidate();
+//        pieChart.setEntryLabelColor(Color.BLACK);
+//        pieChart.setRotationEnabled(false);
+//    }
 
-        colors.add(Color.GREEN);
-        colors.add(Color.YELLOW);
-        colors.add(Color.WHITE);
-
-        PieDataSet dataSet = new PieDataSet(entries,"");
-        dataSet.setColors(colors);
-        dataSet.setSliceSpace(2);
-        dataSet.setValueTextSize(12);
-
-        PieData data = new PieData(dataSet);
-        pieChart.setData(data);
-        pieChart.setDrawHoleEnabled(false);
-        pieChart.invalidate();
-        pieChart.setEntryLabelColor(Color.BLACK);
-        pieChart.setRotationEnabled(false);
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

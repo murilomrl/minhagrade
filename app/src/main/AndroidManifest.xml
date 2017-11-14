@@ -65,10 +65,12 @@
             android:label="@string/app_name"
             android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ChartActivity"
+        <activity
+            android:name=".ChartActivity"
             android:label="@string/app_name"
             android:parentActivityName=".ProgressActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".TesteHTTP"></activity>
     </application>
 
 </manifest>

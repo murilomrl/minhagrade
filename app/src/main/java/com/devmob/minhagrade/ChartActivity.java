@@ -8,11 +8,8 @@ import android.view.MenuItem;
 
 import com.devmob.minhagrade.DB.DisciplinaDAO;
 import com.devmob.minhagrade.DB.PeriodoDAO;
-import com.devmob.minhagrade.Model.Catalog;
-import com.devmob.minhagrade.Model.Ponto;
 import com.devmob.minhagrade.Model.Service;
 import com.github.mikephil.charting.charts.CombinedChart;
-import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.CombinedData;
@@ -22,10 +19,11 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.ScatterData;
 import com.github.mikephil.charting.data.ScatterDataSet;
 import com.github.mikephil.charting.renderer.scatter.CircleShapeRenderer;
-import com.google.gson.Gson;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,9 +35,7 @@ public class ChartActivity extends AppCompatActivity {
 
     private DisciplinaDAO disciplinaDAO = new DisciplinaDAO(this);
     private PeriodoDAO periodoDAO = new PeriodoDAO(this);
-    PieChart pieChart;
     private int dadoConcluido, dadoCursando, dadoFaltando;
-    public static String json = "";
 
     private CombinedChart combinedChart;
 
@@ -47,76 +43,99 @@ public class ChartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(Service.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Service.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
         Service service = retrofit.create(Service.class);
-        Call<Catalog> requestJSON = service.listCatalog();
-        requestJSON.enqueue(new Callback<Catalog>() {
+        Call<ResponseBody> requestJSON = service.listBody();
+        requestJSON.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<Catalog> call, Response<Catalog> response) {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if(!response.isSuccessful()) {
                     Log.i("tag","erro: " + response.code());
                 }
                 else{
-                    Catalog catalog = response.body();
+                    try {
+                        String json;
+                        json = response.body().string();
 
-                    for(Ponto p : catalog.pontos){
-                        Log.i("tag", String.format("%s , %s", p.X, p.Y));
+                        ArrayList<Entry> entries = this.JsonToEntries(json);
+
+                        dadoConcluido = disciplinaDAO.quantidadeDisciplinasPorStatus(2);
+                        dadoCursando = disciplinaDAO.quantidadeDisciplinasPorStatus(1);
+                        dadoFaltando = disciplinaDAO.quantidadeDisciplinasPorStatus(0);
+
+                        setTitle("DisciplinasXPeríodo");
+
+                        combinedChart = (CombinedChart) findViewById(R.id.chart);
+                        combinedChart.getDescription().setEnabled(false);
+                        combinedChart.setBackgroundColor(Color.WHITE);
+                        combinedChart.setDrawGridBackground(false);
+                        combinedChart.setDrawBarShadow(false);
+                        combinedChart.setHighlightFullBarEnabled(false);
+
+                        combinedChart.setDrawOrder( new CombinedChart.DrawOrder[]{
+                                CombinedChart.DrawOrder.LINE, CombinedChart.DrawOrder.SCATTER
+                        });
+
+                        CombinedData data = new CombinedData();
+                        XAxis xAxis = combinedChart.getXAxis();
+
+                        data.setData(generateLineData(entries));
+                        data.setData(generateScatterData());
+
+                        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+                        YAxis yAxisRight = combinedChart.getAxisRight();
+                        yAxisRight.setDrawLabels(false);
+
+                        combinedChart.setData(data);
+                        combinedChart.invalidate();
+
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
             }
 
+            private ArrayList<Entry> JsonToEntries(String json){
+                ArrayList<Entry> entries = new ArrayList<>();
+                json = json.replace("{","");
+                json = json.replace("}","");
+                String[] stringPontos = json.split(",");
+
+                Log.i("Json",json);
+                for (int i = 0; i < stringPontos.length; i++) {
+                    String[] s = stringPontos[i].split(":");
+                    entries.add(new Entry(i, Float.parseFloat(s[1])));
+
+                }
+
+                return entries;
+            }
+
             @Override
-            public void onFailure(Call<Catalog> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Log.e("tag","erro: " + t.getMessage());
             }
         });
 
-        dadoConcluido = disciplinaDAO.quantidadeDisciplinasPorStatus(2);
-        dadoCursando = disciplinaDAO.quantidadeDisciplinasPorStatus(1);
-        dadoFaltando = disciplinaDAO.quantidadeDisciplinasPorStatus(0);
-
-        setTitle("DisciplinasXPeríodo");
-//        pieChart();
-
-        combinedChart = (CombinedChart) findViewById(R.id.chart);
-        combinedChart.getDescription().setEnabled(false);
-        combinedChart.setBackgroundColor(Color.WHITE);
-        combinedChart.setDrawGridBackground(false);
-        combinedChart.setDrawBarShadow(false);
-        combinedChart.setHighlightFullBarEnabled(false);
-
-        combinedChart.setDrawOrder( new CombinedChart.DrawOrder[]{
-                CombinedChart.DrawOrder.LINE, CombinedChart.DrawOrder.SCATTER
-        });
-
-        CombinedData data = new CombinedData();
-        XAxis xAxis = combinedChart.getXAxis();
-
-        data.setData(generateLineData());
-        data.setData(generateScatterData());
-
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-
-        YAxis yAxisRight = combinedChart.getAxisRight();
-        yAxisRight.setDrawLabels(false);
-
-        combinedChart.setData(data);
-        combinedChart.invalidate();
-
 
     }
 
-    private LineData generateLineData() {
+    private LineData generateLineData(ArrayList<Entry> entries) {
         LineData data = new LineData();
 
         int disciplinasAcumuladas = 0;
-        ArrayList<Entry> entries = new ArrayList<>();
-
-        for (int i = 1; i <= periodoDAO.getPeriodos().size()+1;i++){
-            entries.add(new Entry(i,disciplinasAcumuladas));
-            disciplinasAcumuladas = disciplinasAcumuladas+disciplinaDAO.getDisciplinasPorPeriodo(i+"º período").size();
-
-        }
+//        ArrayList<Entry> entries = new ArrayList<>();
+//
+//        for (int i = 1; i <= periodoDAO.getPeriodos().size()+1;i++){
+//            entries.add(new Entry(i,disciplinasAcumuladas));
+//            disciplinasAcumuladas = disciplinasAcumuladas+disciplinaDAO.getDisciplinasPorPeriodo(i+"º período").size();
+//
+//        }
 
 
         LineDataSet lineDataSetDCC = new LineDataSet(entries,"DCC");
@@ -124,14 +143,9 @@ public class ChartActivity extends AppCompatActivity {
         lineDataSetDCC.setLineWidth(2.5f);
         lineDataSetDCC.setDrawCircles(false);
 
-//        lineDataSetDCC.setCircleColor(Color.GREEN);
-//        lineDataSetDCC.setCircleRadius(5f);
-//        lineDataSetDCC.setFillColor(Color.RED);
         lineDataSetDCC.setMode(LineDataSet.Mode.CUBIC_BEZIER);
         lineDataSetDCC.setDrawValues(true);
         lineDataSetDCC.setValueTextSize(10f);
-//        lineDataSetDCC.setValueTextColor(Color.0);
-
         data.addDataSet(lineDataSetDCC);
 
         return data;
@@ -181,6 +195,7 @@ public class ChartActivity extends AppCompatActivity {
 //        pieChart.setEntryLabelColor(Color.BLACK);
 //        pieChart.setRotationEnabled(false);
 //    }
+
 
 
     @Override

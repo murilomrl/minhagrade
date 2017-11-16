@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
-        android:id="@+id/nomeCurso"
+        android:id="@+id/textViewPeriodo"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/course_curso"
+        android:text="Seu período"
         android:layout_gravity="center"
         android:textAlignment="center"
-        android:textSize="@dimen/font_size"
+        android:textSize="18sp"
         android:layout_margin="5dp"
-        android:textColor="#000000"/>
+        android:textColor="#000000"
+        android:maxLines="2"
+        android:ellipsize="start"/>
 
 </LinearLayout>

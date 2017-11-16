@@ -45,7 +45,7 @@ public class CursoAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         Curso curso;
-        view = layoutInflater.inflate(R.layout.spinnercurso,null);
+        view = layoutInflater.inflate(R.layout.spinner_curso,null);
         TextView nomeCurso = (TextView) view.findViewById(R.id.nomeCurso);
 
         curso = cursos.get(i);

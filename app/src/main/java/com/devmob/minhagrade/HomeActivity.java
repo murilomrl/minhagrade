@@ -98,8 +98,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     public void onClick(DialogInterface dialog, int which) {
                         periodoDAO.apagaTudo();
                         Prefs.clear(HomeActivity.this);
-                        HomeActivity.this.finish();
-                        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+                        Intent intent = new Intent(HomeActivity.this, CourseActivity.class);
+//                        HomeActivity.this.finish();
+                        ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(HomeActivity.this,R.anim.slide_in_right,R.anim.slide_out_right);
+                        ActivityCompat.startActivity(HomeActivity.this,intent,opts.toBundle());
+                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                     }
                 });
         builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {

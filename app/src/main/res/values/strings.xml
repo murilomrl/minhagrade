@@ -19,6 +19,29 @@
 
     <string-array name="cursos_array">
         <item>Ciência da Computação</item>
-        <item>Ciências Atuariais</item>
+        <!--<item>Ciências Atuariais</item>-->
+    </string-array>
+
+    <string-array name="periodo_spinner">
+        <item>1º período</item>
+        <item>2º período</item>
+        <item>3º período</item>
+        <item>4º período</item>
+        <item>5º período</item>
+        <item>6º período</item>
+        <item>7º período</item>
+        <item>8º período</item>
+        <item>9º período</item>
+        <item>10º período</item>
+        <item>11º período</item>
+        <item>12º período</item>
+        <item>13º período</item>
+        <item>14º período</item>
+        <item>15º período</item>
+        <item>16º período</item>
+        <item>17º período</item>
+        <item>18º período</item>
+        <item>19º período</item>
+        <item>20º período</item>
     </string-array>
 </resources>

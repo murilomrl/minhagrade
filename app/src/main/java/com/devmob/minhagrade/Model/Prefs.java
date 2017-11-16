@@ -27,6 +27,20 @@ public class Prefs {
         return valor;
     }
 
+    // Metodo para salvar int
+    public static void setInteger(Context context, String chave, int valor){
+        SharedPreferences pref = context.getSharedPreferences(MY_PREFS_NAME,context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putInt(chave,valor);
+        editor.apply();
+    }
+    // Metodo para buscar int
+    public static int getInt(Context context, String chave){
+        SharedPreferences pref = context.getSharedPreferences(MY_PREFS_NAME,context.MODE_PRIVATE);
+        int valor = pref.getInt(chave,0);
+        return valor;
+    }
+
     //Metodo para limpar o cache
     public static void clear(Context context){
         SharedPreferences pref = context.getSharedPreferences(MY_PREFS_NAME,context.MODE_PRIVATE);

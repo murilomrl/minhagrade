@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import com.devmob.minhagrade.DB.DisciplinaDAO;
 import com.devmob.minhagrade.DB.PeriodoDAO;
+import com.devmob.minhagrade.Model.Prefs;
 import com.devmob.minhagrade.Model.Service;
 import com.github.mikephil.charting.charts.CombinedChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -155,7 +156,7 @@ public class ChartActivity extends AppCompatActivity {
         ScatterData data = new ScatterData();
 
         ArrayList<Entry> entries =  new ArrayList<>();
-        entries.add(new Entry(15,disciplinaDAO.getDisciplinasPorStatus(2).size()));
+        entries.add(new Entry(Prefs.getInt(this,"periodo"),disciplinaDAO.getDisciplinasPorStatus(2).size()));
 
         ScatterDataSet scatterDataSet = new ScatterDataSet(entries,"Você");
         scatterDataSet.setColor(Color.RED);

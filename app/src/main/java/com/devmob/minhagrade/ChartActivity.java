@@ -23,6 +23,10 @@ import com.github.mikephil.charting.renderer.scatter.CircleShapeRenderer;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -103,14 +107,13 @@ public class ChartActivity extends AppCompatActivity {
 
             private ArrayList<Entry> JsonToEntries(String json){
                 ArrayList<Entry> entries = new ArrayList<>();
-                json = json.replace("{","");
-                json = json.replace("}","");
+                json = json.replace("[","");
+                json = json.replace("]","");
                 String[] stringPontos = json.split(",");
 
                 Log.i("Json",json);
                 for (int i = 0; i < stringPontos.length; i++) {
-                    String[] s = stringPontos[i].split(":");
-                    entries.add(new Entry(i, Float.parseFloat(s[1])));
+                    entries.add(new Entry(i, Float.parseFloat(stringPontos[i])));
 
                 }
 
@@ -139,7 +142,7 @@ public class ChartActivity extends AppCompatActivity {
 //        }
 
 
-        LineDataSet lineDataSetDCC = new LineDataSet(entries,"DCC");
+        LineDataSet lineDataSetDCC = new LineDataSet(entries,"Outros Usuarios");
         lineDataSetDCC.setColor(Color.GREEN);
         lineDataSetDCC.setLineWidth(2.5f);
         lineDataSetDCC.setDrawCircles(false);
@@ -157,6 +160,55 @@ public class ChartActivity extends AppCompatActivity {
 
         ArrayList<Entry> entries =  new ArrayList<>();
         entries.add(new Entry(Prefs.getInt(this,"periodo"),disciplinaDAO.getDisciplinasPorStatus(2).size()));
+        entries.add(new Entry(0,0));
+        entries.add(new Entry(1,5));
+        entries.add(new Entry(1,4));
+        entries.add(new Entry(1,3));
+        entries.add(new Entry(2,9));
+        entries.add(new Entry(2,10));
+        entries.add(new Entry(2,8));
+        entries.add(new Entry(2,7));
+        entries.add(new Entry(3,14));
+        entries.add(new Entry(3,12));
+        entries.add(new Entry(3,16));
+        entries.add(new Entry(3,11));
+        entries.add(new Entry(3,9));
+        entries.add(new Entry(4,18));
+        entries.add(new Entry(4,13));
+        entries.add(new Entry(4,21));
+        entries.add(new Entry(4,11));
+        entries.add(new Entry(5,23));
+        entries.add(new Entry(5,13));
+        entries.add(new Entry(5,26));
+        entries.add(new Entry(5,15));
+        entries.add(new Entry(5,19));
+        entries.add(new Entry(5,11));
+        entries.add(new Entry(6,14));
+        entries.add(new Entry(6,23));
+        entries.add(new Entry(6,11));
+        entries.add(new Entry(7,15));
+        entries.add(new Entry(7,26));
+        entries.add(new Entry(7,12));
+        entries.add(new Entry(8,16));
+        entries.add(new Entry(8,15));
+        entries.add(new Entry(9,16));
+        entries.add(new Entry(9,18));
+        entries.add(new Entry(10,19));
+        entries.add(new Entry(10,21));
+        entries.add(new Entry(11,22));
+        entries.add(new Entry(12,26));
+        entries.add(new Entry(13,27));
+        entries.add(new Entry(14,31));
+
+//
+//        entries.add(new Entry(-1,0));
+//        entries.add(new Entry(0,1));
+//        entries.add(new Entry(1,2));
+//        entries.add(new Entry(2,1));
+
+
+
+
 
         ScatterDataSet scatterDataSet = new ScatterDataSet(entries,"Você");
         scatterDataSet.setColor(Color.RED);

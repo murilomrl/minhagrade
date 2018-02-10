@@ -17,7 +17,7 @@ import java.util.List;
  */
 
 public class DisciplinaDAO extends DBHelper{
-    private static final String TAG = "DiscipliaDAO";
+    private static final String TAG = "DisciplinaDAO";
 
     public DisciplinaDAO(Context context) {
         super(context);

@@ -76,9 +76,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 ActivityCompat.startActivity(this,intent,opts.toBundle());
                 break;
             case R.id.calendario:
-                Toast.makeText(this, "Em Breve",Toast.LENGTH_SHORT).show();
-                Log.d("Calendario","oooooooi");
+                intent = new Intent(this, CalendarActivity.class);
+                opts = ActivityOptionsCompat.makeCustomAnimation(this,R.anim.slide_in_left,R.anim.slide_out_left);
+                ActivityCompat.startActivity(this,intent,opts.toBundle());
                 break;
+                //Toast.makeText(this, "Em Breve",Toast.LENGTH_SHORT).show();
+                //Log.d("Calendario","oooooooi");
+                //break;
             case R.id.apagarDados:
                 apagarDados();
                 break;

@@ -16,6 +16,12 @@
     <string name="entrar">Entrar</string>
     <string name="course_curso">Seu curso :</string>
     <string name="minha_grade">Minha Grade</string>
+    <string name="criar_lembrete_btn">Criar lembrete</string>
+    <string name="submit_lembrete_btn">Salvar lembrete</string>
+    <string name="ver_lembrete_btn">Ver lembretes</string>
+    <string name="lembrete_texto">Lembrete</string>
+    <string name="lembrete_tipo">Tipo</string>
+    <string name="lembrete_disciplina">Disciplina</string>
 
     <string-array name="cursos_array">
         <item>Ciência da Computação</item>

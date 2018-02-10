@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/activity_calendar"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.devmob.minhagrade.CalendarActivity">
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="1"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp">
+    <Button
+        android:id="@+id/btnCriarLembreteCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/criar_lembrete_btn"
+        android:layout_marginTop="32dp"/>
+    <Button
+        android:id="@+id/btnVerLembreteCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ver_lembrete_btn"
+        android:layout_marginTop="32dp"/>
+    </GridLayout>
+    <EditText
+        android:id="@+id/texto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:hint="@string/lembrete_texto" />
+    <EditText
+        android:id="@+id/tipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:hint="@string/lembrete_tipo" />
+    <EditText
+        android:id="@+id/disciplina"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:hint="@string/lembrete_disciplina" />
+    <Button
+        android:id="@+id/btnSubmitCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/submit_lembrete_btn"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:visibility="invisible" />
+</LinearLayout>

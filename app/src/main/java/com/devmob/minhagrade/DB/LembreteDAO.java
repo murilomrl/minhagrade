@@ -21,17 +21,25 @@ public class LembreteDAO extends DBHelper{
         super(context);
     }
 
-    public void insere(Lembrete lembrete){
+    public int insere(Lembrete lembrete){
         onOpen();
+        int verif;
         ContentValues values = new ContentValues();
-        values.put("texto", lembrete.getTexto());
-        values.put("tipo", lembrete.getTipo());
-        values.put("dia", lembrete.getData()[0]);
-        values.put("mes", lembrete.getData()[1]);
-        values.put("ano", lembrete.getData()[2]);
-        values.put("disciplina", lembrete.getDisciplina());
-        db.insert(DBHelper.TABLE_LEMBRETE,null, values);
+        if(lembrete.getTexto().equals("") || lembrete.getTipo().equals("")){
+            verif=0;
+        }
+        else {
+            values.put("texto", lembrete.getTexto());
+            values.put("tipo", lembrete.getTipo());
+            values.put("dia", lembrete.getData()[0]);
+            values.put("mes", lembrete.getData()[1]);
+            values.put("ano", lembrete.getData()[2]);
+            values.put("disciplina", lembrete.getDisciplina());
+            db.insert(DBHelper.TABLE_LEMBRETE, null, values);
+            verif=1;
+        }
         onClose();
+        return verif;
     }
 
     public void atualiza(Lembrete lembrete){

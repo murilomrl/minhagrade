@@ -11,51 +11,98 @@
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <GridLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:rowCount="1"
-        android:layout_gravity="center"
-        android:layout_marginBottom="15dp">
-    <Button
-        android:id="@+id/btnCriarLembreteCalendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/criar_lembrete_btn"
-        android:layout_marginTop="32dp"/>
-    <Button
-        android:id="@+id/btnVerLembreteCalendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ver_lembrete_btn"
-        android:layout_marginTop="32dp"/>
-    </GridLayout>
-    <EditText
-        android:id="@+id/texto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:hint="@string/lembrete_texto" />
-    <EditText
-        android:id="@+id/tipo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:hint="@string/lembrete_tipo" />
-    <EditText
-        android:id="@+id/disciplina"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:hint="@string/lembrete_disciplina" />
-    <Button
-        android:id="@+id/btnSubmitCalendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/submit_lembrete_btn"
-        android:layout_gravity="center"
-        android:layout_marginTop="32dp"
-        android:visibility="invisible" />
+        android:layout_gravity="center">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="1"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp">
+        <Button
+            android:id="@+id/btnCriarLembreteCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/criar_lembrete_btn"
+            android:visibility="visible"
+            android:layout_marginTop="32dp"/>
+        <Button
+            android:id="@+id/btnVerLembreteCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ver_lembrete_btn"
+            android:visibility="visible"
+            android:layout_marginTop="32dp"/>
+        </GridLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/texto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:hint="@string/lembrete_texto" />
+            <EditText
+                android:id="@+id/tipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:hint="@string/lembrete_tipo" />
+            <EditText
+                android:id="@+id/disciplina"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:hint="@string/lembrete_disciplina" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="1"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp">
+                <Button
+                    android:id="@+id/btnSubmitCalendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/submit_lembrete_btn"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="32dp"
+                    android:visibility="invisible" />
+                <Button
+                    android:id="@+id/btnCancelCalendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cancelar_lembrete_btn"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="32dp"
+                    android:visibility="invisible" />
+            </GridLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/btnFecharLembreteCalendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fechar_lembrete_btn"
+                android:layout_marginTop="32dp"
+                android:visibility="invisible"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerViewLembrete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                android:visibility="invisible"/>
+        </LinearLayout>
+    </FrameLayout>
 </LinearLayout>

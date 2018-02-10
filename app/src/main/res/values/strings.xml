@@ -19,6 +19,8 @@
     <string name="criar_lembrete_btn">Criar lembrete</string>
     <string name="submit_lembrete_btn">Salvar lembrete</string>
     <string name="ver_lembrete_btn">Ver lembretes</string>
+    <string name="cancelar_lembrete_btn">Cancelar</string>
+    <string name="fechar_lembrete_btn">Fechar lembretes</string>
     <string name="lembrete_texto">Lembrete</string>
     <string name="lembrete_tipo">Tipo</string>
     <string name="lembrete_disciplina">Disciplina</string>

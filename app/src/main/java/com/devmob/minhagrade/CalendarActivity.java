@@ -3,17 +3,20 @@ package com.devmob.minhagrade;
 import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.devmob.minhagrade.Adapter.LembreteAdapter;
 import com.devmob.minhagrade.DB.LembreteDAO;
 import com.devmob.minhagrade.Model.Lembrete;
-import com.devmob.minhagrade.R;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -26,8 +29,12 @@ public class CalendarActivity extends AppCompatActivity implements View.OnClickL
     private EditText textoView;
     private EditText tipoView;
     private EditText disciplinaView;
+    private RecyclerView lembretesRecyclerView;
+    private LembreteAdapter lembreteAdapter;
     private Button btnCriarLembrete;
     private Button btnVerLembrete;
+    private Button btnFecharLembrete;
+    private Button btnCancelarLembrete;
     private Button btnSubmit;
     private String texto;
     private String tipo;
@@ -49,12 +56,22 @@ public class CalendarActivity extends AppCompatActivity implements View.OnClickL
         disciplinaView = (EditText) findViewById(R.id.disciplina);
         btnSubmit = (Button) findViewById(R.id.btnSubmitCalendar);
         btnVerLembrete = (Button) findViewById(R.id.btnVerLembreteCalendar);
-
+        btnFecharLembrete = (Button) findViewById(R.id.btnFecharLembreteCalendar);
+        btnCancelarLembrete = (Button) findViewById(R.id.btnCancelCalendar);
+        lembretesRecyclerView = (RecyclerView) findViewById(R.id.recyclerViewLembrete);
+        lembretesRecyclerView.setHasFixedSize(true);
+        lembretes = new ArrayList<>();
+        lembreteAdapter = new LembreteAdapter(this,lembretes);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        lembretesRecyclerView.setLayoutManager(layoutManager);
+        lembretesRecyclerView.setAdapter(lembreteAdapter);
         btnSubmit.setOnClickListener(this);
         btnCriarLembrete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 v.setVisibility(View.INVISIBLE);
+                btnCancelarLembrete.setVisibility(View.VISIBLE);
                 btnVerLembrete.setVisibility(View.INVISIBLE);
                 textoView.setVisibility(View.VISIBLE);
                 tipoView.setVisibility(View.VISIBLE);
@@ -73,9 +90,39 @@ public class CalendarActivity extends AppCompatActivity implements View.OnClickL
                 mes = Integer.parseInt(selectedDate.substring(3,5));
                 ano = Integer.parseInt(selectedDate.substring(6,10));
                 //Toast.makeText(getApplicationContext(),"data: "+dia+","+mes+","+ano,Toast.LENGTH_SHORT).show();
-                lembretes = lembreteDAO.getLembretePorData(dia,mes,ano);
+                List<Lembrete> lembretesData = lembreteDAO.getLembretePorData(dia,mes,ano);
+                lembretes.clear();
+                lembretes.addAll(lembretesData);
+                lembreteAdapter.notifyDataSetChanged();
                 Toast.makeText(getApplicationContext(),"Texto: "+lembretes.get(0).getTexto(),Toast.LENGTH_SHORT).show();
-
+                v.setVisibility(View.INVISIBLE);
+                btnCriarLembrete.setVisibility(View.INVISIBLE);
+                lembretesRecyclerView.setVisibility(View.VISIBLE);
+                btnFecharLembrete.setVisibility(View.VISIBLE);
+            }
+        });
+        btnFecharLembrete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lembretesRecyclerView.setVisibility(View.INVISIBLE);
+                v.setVisibility(View.INVISIBLE);
+                btnCriarLembrete.setVisibility(View.VISIBLE);
+                btnVerLembrete.setVisibility(View.VISIBLE);
+            }
+        });
+        btnCancelarLembrete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnSubmit.setVisibility(View.INVISIBLE);
+                v.setVisibility(View.INVISIBLE);
+                textoView.setVisibility(View.INVISIBLE);
+                tipoView.setVisibility(View.INVISIBLE);
+                disciplinaView.setVisibility(View.INVISIBLE);
+                btnCriarLembrete.setVisibility(View.VISIBLE);
+                btnVerLembrete.setVisibility(View.VISIBLE);
+                textoView.setHint(R.string.lembrete_texto);
+                tipoView.setHint(R.string.lembrete_tipo);
+                disciplinaView.setHint(R.string.lembrete_disciplina);
             }
         });
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -108,15 +155,21 @@ public class CalendarActivity extends AppCompatActivity implements View.OnClickL
         tipo = String.valueOf(tipoView.getText());
         disciplina = String.valueOf(disciplinaView.getText());
         lembrete = new Lembrete(texto, tipo, dia, mes, ano, disciplina);
-        lembreteDAO.insere(lembrete);
+        int valida = lembreteDAO.insere(lembrete);
+        if(valida==1){
+            Toast.makeText(getApplicationContext(),"Lembrete inserido com sucesso!",Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"Erro ao inserir lembrete, Texto e/ou Tipo não inseridos!",Toast.LENGTH_LONG).show();
+        }
         v.setVisibility(View.INVISIBLE);
         textoView.setVisibility(View.INVISIBLE);
         tipoView.setVisibility(View.INVISIBLE);
         disciplinaView.setVisibility(View.INVISIBLE);
         btnCriarLembrete.setVisibility(View.VISIBLE);
         btnVerLembrete.setVisibility(View.VISIBLE);
-        textoView.setText(R.string.lembrete_texto);
-        tipoView.setText(R.string.lembrete_tipo);
-        disciplinaView.setText(R.string.lembrete_disciplina);
+        textoView.setHint(R.string.lembrete_texto);
+        tipoView.setHint(R.string.lembrete_tipo);
+        disciplinaView.setHint(R.string.lembrete_disciplina);
     }
 }

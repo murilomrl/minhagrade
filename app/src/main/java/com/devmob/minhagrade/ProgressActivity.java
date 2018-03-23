@@ -34,14 +34,16 @@ import java.util.ArrayList;
 
 @SuppressLint("SetJavaScriptEnabled")
 
-public class ProgressActivity extends AppCompatActivity implements View.OnClickListener {
+public class ProgressActivity extends AppCompatActivity {
 
     private String curso;
     private TextView porcentagemConcluido;
     private TextView porcentagemCursando;
     private TextView porcentagemFaltando;
     private DisciplinaDAO disciplinaDAO = new DisciplinaDAO(this);
+    private int dadoConcluido, dadoCursando, dadoFaltando;
 
+    PieChart pieChart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +52,13 @@ public class ProgressActivity extends AppCompatActivity implements View.OnClickL
         final Intent intent = getIntent();
         curso =  Prefs.getString(this,"course");
         TextView course = (TextView) findViewById(R.id.course);
-        Button button = (Button) findViewById(R.id.chartsButton);
 
-        button.setOnClickListener(this);
         course.setText(curso);
+
+
+        dadoConcluido = disciplinaDAO.quantidadeDisciplinasPorStatus(2);
+        dadoCursando = disciplinaDAO.quantidadeDisciplinasPorStatus(1);
+        dadoFaltando = disciplinaDAO.quantidadeDisciplinasPorStatus(0);
 
         porcentagemConcluido = (TextView) findViewById(R.id.porcentagemConcluido);
         porcentagemCursando = (TextView) findViewById(R.id.porcentagemCursando);
@@ -63,14 +68,41 @@ public class ProgressActivity extends AppCompatActivity implements View.OnClickL
         porcentagemCursando.setText(disciplinaDAO.porcentagemDeDisciplinasPorStatus(1));
         porcentagemFaltando.setText(disciplinaDAO.porcentagemDeDisciplinasPorStatus(0));
 
+        pieChart();
 
     }
 
-    @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(this, ChartActivity.class);
-        ActivityOptionsCompat opts = ActivityOptionsCompat.makeCustomAnimation(this,R.anim.slide_in_left,R.anim.slide_out_left);
-        ActivityCompat.startActivity(this,intent,opts.toBundle());
+    private void pieChart(){
+       pieChart = (PieChart) findViewById(R.id.piechart);
+
+        ArrayList<PieEntry> entries  = new ArrayList<>();
+        ArrayList<Integer> colors = new ArrayList<>();
+
+        if(dadoConcluido!=0) {
+            entries.add(new PieEntry(dadoConcluido, "Concluido", 0));
+            colors.add(getResources().getColor(R.color.colorPieFeito));
+        }
+        if(dadoCursando!=0) {
+            entries.add(new PieEntry(dadoCursando, "Cursando", 1));
+            colors.add(getResources().getColor(R.color.colorPieFazendo));
+        }
+        if(dadoFaltando!=0) {
+            entries.add(new PieEntry(dadoFaltando, "Pendente", 2));
+            colors.add(getResources().getColor(R.color.colorPieNaoFeito));
+        }
+
+        PieDataSet dataSet = new PieDataSet(entries,"");
+        dataSet.setColors(colors);
+        dataSet.setSliceSpace(2);
+        dataSet.setValueTextSize(12);
+
+        PieData data = new PieData(dataSet);
+        pieChart.setData(data);
+        pieChart.setDrawHoleEnabled(false);
+        pieChart.invalidate();
+        pieChart.setEntryLabelColor(Color.BLACK);
+        pieChart.setRotationEnabled(false);
+        pieChart.getDescription().setEnabled(false);
     }
 
     @Override

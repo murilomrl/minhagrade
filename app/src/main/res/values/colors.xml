@@ -2,7 +2,12 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#3F51B5</color>
+
+    <color name="colorPieFazendo">#475AEA</color>
+    <color name="colorPieFeito">#304A9D</color>
+    <color name="colorPieNaoFeito">#99A7FF</color>
+
     <color name="colorFazendo">#FFFA81</color>
     <color name="colorFeito">#85ca5d</color>
     <color name="colorNaoFeito">#FAFAFA</color>

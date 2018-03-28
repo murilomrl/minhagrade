@@ -69,6 +69,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
+        btnSubmit.setClickable(false);
         Intent intent = new Intent(CourseActivity.this, HomeActivity.class);
         String course = String.valueOf(spinner.getSelectedItem());
         String periodo = String.valueOf(periodoSpinner.getSelectedItem());

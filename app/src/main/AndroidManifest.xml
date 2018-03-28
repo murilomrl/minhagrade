@@ -65,7 +65,11 @@
             android:label="@string/app_name"
             android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".CalendarActivity"></activity>
+        <activity android:name=".CalendarActivity" />
+        <activity
+            android:name=".NovoCursoActivity"
+            android:label="@string/title_activity_novo_curso"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

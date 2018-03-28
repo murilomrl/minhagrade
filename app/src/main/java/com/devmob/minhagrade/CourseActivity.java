@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 //import com.devmob.minhagrade.Lixo.Cursos;
 
@@ -19,11 +20,13 @@ import com.devmob.minhagrade.Model.Curso;
 import com.devmob.minhagrade.Model.Periodo;
 import com.devmob.minhagrade.Model.Prefs;
 
+
 public class CourseActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Spinner spinner;
     private Spinner periodoSpinner;
     private Button btnSubmit;
+    private TextView naoAchouLink;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,15 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 
         spinner.setAdapter(cursoAdapter);
 
+        naoAchouLink = (TextView) findViewById(R.id.naoAchouCurso);
+        naoAchouLink.setClickable(true);
+        naoAchouLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CourseActivity.this, NovoCursoActivity.class);
+                startActivity(intent);
+            }
+        });
 
         periodoSpinner = (Spinner) findViewById(R.id.periodo_spinner);
 

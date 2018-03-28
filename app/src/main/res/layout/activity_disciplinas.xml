@@ -7,6 +7,7 @@
     android:id="@+id/activity_progressbar"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.devmob.minhagrade.DisciplinasActivity">
+
     <TextView
         android:id="@+id/course"
         android:layout_width="wrap_content"

@@ -24,6 +24,7 @@
     <string name="lembrete_texto">Lembrete</string>
     <string name="lembrete_tipo">Tipo</string>
     <string name="lembrete_disciplina">Disciplina</string>
+    <string name="naoAchouCurso"><u>Não achou seu curso?</u></string>
 
     <string-array name="cursos_array">
         <item>Ciência da Computação</item>
@@ -52,4 +53,5 @@
         <item>19º período</item>
         <item>20º período</item>
     </string-array>
+    <string name="title_activity_novo_curso">NovoCursoActivity</string>
 </resources>

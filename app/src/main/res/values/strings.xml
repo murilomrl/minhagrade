@@ -54,4 +54,8 @@
         <item>20º período</item>
     </string-array>
     <string name="title_activity_novo_curso">NovoCursoActivity</string>
+
+    <!-- Configurações -->
+    <string name="title_activity_configuracoes">Configurações</string>
+
 </resources>

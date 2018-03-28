@@ -175,20 +175,20 @@
                 android:layout_weight="0.5">
 
                 <ImageButton
-                    android:id="@+id/apagarDados"
+                    android:id="@+id/configuracoes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/main_botoes"
                     android:gravity="center|bottom"
                     android:paddingBottom="10dp"
-                    android:src="@drawable/ic_delete" />
+                    android:src="@drawable/ic_settings" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:paddingTop="70dp"
-                    android:text="Apagar"
+                    android:text="@string/title_activity_configuracoes"
                     android:textSize="@dimen/font_size" />
             </RelativeLayout>
 

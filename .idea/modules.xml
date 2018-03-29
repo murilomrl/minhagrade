@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\DevMobUFRJ\Documents\minhagrade\app\app.iml" filepath="C:\Users\DevMobUFRJ\Documents\minhagrade\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../DevMobUFRJ/Documents/minhagrade/app/app.iml" filepath="$PROJECT_DIR$/../../../DevMobUFRJ/Documents/minhagrade/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/minhagrade.iml" filepath="$PROJECT_DIR$/minhagrade.iml" />
-      <module fileurl="file://C:\Users\DevMobUFRJ\Documents\minhagrade\minhagrade.iml" filepath="C:\Users\DevMobUFRJ\Documents\minhagrade\minhagrade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../DevMobUFRJ/Documents/minhagrade/minhagrade.iml" filepath="$PROJECT_DIR$/../../../DevMobUFRJ/Documents/minhagrade/minhagrade.iml" />
     </modules>
   </component>
 </project>

@@ -34,9 +34,10 @@ public class TodosOsPeriodosActivity extends AppCompatActivity implements OnItem
         setContentView(R.layout.activity_todos);
         final Intent intent = getIntent();
         curso =  Prefs.getString(this, "course");
-        TextView course = (TextView) findViewById(R.id.course);
+//        TextView course = (TextView) findViewById(R.id.course);
         listView = (ListView) findViewById(R.id.listaPeriodo);
-        course.setText(curso);
+//        course.setText(curso);
+        getSupportActionBar().setTitle(curso);
 
         periodoList = periodoDAO.getPeriodos();
         listView.setAdapter(new PeriodoAdapter(this,periodoList));

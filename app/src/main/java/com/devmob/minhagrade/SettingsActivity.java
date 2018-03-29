@@ -7,11 +7,17 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
+import android.text.util.Linkify;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Scroller;
+import android.widget.TextView;
 
 import com.devmob.minhagrade.DB.PeriodoDAO;
 import com.devmob.minhagrade.Model.Prefs;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by georgerappel on 28/03/18.
@@ -20,6 +26,7 @@ import com.devmob.minhagrade.Model.Prefs;
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
     View apagarDados;
+    View sobre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +34,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_configuracoes);
 
         apagarDados = findViewById(R.id.apagarDados);
+        sobre = findViewById(R.id.sobre);
+
         apagarDados.setOnClickListener(this);
+        sobre.setOnClickListener(this);
     }
 
     @Override
@@ -43,6 +53,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.apagarDados:
                 apagarDados();
+                break;
+            case R.id.sobre:
+                dialogSobre();
                 break;
         }
 
@@ -69,6 +82,21 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             .setNegativeButton("Não", null);
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    private void dialogSobre(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.sobre))
+                .setMessage(getString(R.string.dialog_sobre_description))
+                .setPositiveButton("Ok", null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        TextView tvMessage = (TextView) dialog.findViewById(android.R.id.message);
+        tvMessage.setScroller(new Scroller(this));
+        tvMessage.setVerticalScrollBarEnabled(true);
+        tvMessage.setMovementMethod(new ScrollingMovementMethod());
+        tvMessage.setLinksClickable(true);
+        tvMessage.setAutoLinkMask(Linkify.ALL);
     }
 
     @Override

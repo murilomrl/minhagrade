@@ -11,27 +11,66 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Extras"
+            android:textSize="@dimen/title"/>
+
         <LinearLayout
             android:id="@+id/apagarDados"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="3dp"
+            android:layout_marginTop="13dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <ImageView
                 android:src="@drawable/ic_delete"
-                android:layout_width="20dp"
-                android:layout_height="20dp" />
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:textSize="@dimen/font_size"
-                android:text="Apagar Dados"/>
+                android:textSize="@dimen/font_size_larger"
+                android:text="Apagar dados"/>
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/sobre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:src="@drawable/ic_help_outline_white_24dp"
+                android:tint="@color/colorPrimary"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/font_size_larger"
+                android:text="@string/sobre" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#33000000"/>
     </LinearLayout>
 </ScrollView>

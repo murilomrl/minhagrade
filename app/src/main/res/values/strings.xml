@@ -57,5 +57,15 @@
 
     <!-- Configurações -->
     <string name="title_activity_configuracoes">Configurações</string>
+    <string name="sobre">Sobre</string>
+    <string name="dialog_sobre_description">O Minha Grade foi desenvolvido pela DevMob - Grupo de
+        Extensão em Desenvolvimento Mobile da UFRJ. Qualquer contato pode ser feito através do email devmobufrj@gmail.com,
+        mais informações sobre o grupo na página no facebook: DevMob UFRJ.
+        \n\nDesenvolvedores:
+        \n&#8226; Hylson Kobayashi
+        \n&#8226; Murilo Moura
+        \n\nColaboração:
+        \n&#8226; Luiz Fernando (dev)
+        \n&#8226; George Rappel (dev)</string>
 
 </resources>

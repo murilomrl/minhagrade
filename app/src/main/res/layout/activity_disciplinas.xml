@@ -10,19 +10,27 @@
 
     <TextView
         android:id="@+id/course"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textSize="@dimen/title"
-        android:paddingBottom="10dp"
         android:textStyle="bold"
+        android:textAlignment="center"
         android:text="@string/progress_course_name"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="(Toque na disciplina para alterar o seu status)"
+        android:textSize="14sp"
+        android:paddingBottom="10dp"
+        android:textAlignment="center"/>
     <ListView
         android:id="@+id/listaDisciplinas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:clipToPadding="false"
-        android:paddingBottom="10dp">
+        android:paddingBottom="10dp"
+        android:dividerHeight="2dp">
     </ListView>
 </LinearLayout>

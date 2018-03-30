@@ -10,13 +10,19 @@
 
     <TextView
         android:id="@+id/periodo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textSize="@dimen/title"
-        android:paddingBottom="10dp"
         android:textStyle="bold"
         android:text="@string/periodo_selecionado"
+        android:textAlignment="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="(Toque na disciplina para alterar o seu status)"
+        android:textSize="14sp"
+        android:paddingBottom="10dp"
         android:textAlignment="center"/>
 
     <ListView
@@ -25,7 +31,8 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:background="@color/colorNaoFeito"
-        android:clipToPadding="false" >
+        android:clipToPadding="false"
+        android:dividerHeight="2dp">
 
     </ListView>
 

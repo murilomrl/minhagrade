@@ -55,6 +55,8 @@ public class ProgressActivity extends AppCompatActivity {
 
         course.setText(curso);
 
+        getSupportActionBar().setTitle("Progresso");
+
 
         dadoConcluido = disciplinaDAO.quantidadeDisciplinasPorStatus(2);
         dadoCursando = disciplinaDAO.quantidadeDisciplinasPorStatus(1);

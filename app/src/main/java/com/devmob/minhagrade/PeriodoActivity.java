@@ -16,6 +16,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import com.devmob.minhagrade.Adapter.DisciplinasAdapter;
 import com.devmob.minhagrade.DB.DisciplinaDAO;
 import com.devmob.minhagrade.Model.Disciplina;
+import com.devmob.minhagrade.Model.Prefs;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import java.util.List;
 
 public class PeriodoActivity extends AppCompatActivity implements OnItemClickListener{
 
+    private String curso;
     private ListView listViewDeDisciplinas;
     private List<Disciplina> disciplinas;
     private List<Disciplina> disciplinasComNovoStatus = new ArrayList<>();
@@ -40,6 +42,9 @@ public class PeriodoActivity extends AppCompatActivity implements OnItemClickLis
 
         // Coloca o numero do periodo no TextView do Periodo
         periodo.setText(value);
+
+        curso =  Prefs.getString(this, "course");
+        getSupportActionBar().setTitle(curso);
 
         // Instancia a ListView
         listViewDeDisciplinas = (ListView) findViewById(R.id.listaDisciplinas);

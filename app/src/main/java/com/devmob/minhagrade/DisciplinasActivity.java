@@ -18,6 +18,7 @@ import java.util.List;
 
 public class DisciplinasActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
+    private String curso;
     private DisciplinaDAO disciplinaDAO = new DisciplinaDAO(this);
     private List<Disciplina> disciplinaList;
     private ListView listView;
@@ -28,7 +29,12 @@ public class DisciplinasActivity extends AppCompatActivity implements AdapterVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disciplinas);
         textView = (TextView) findViewById(R.id.course);
-        textView.setText(Prefs.getString(this,"course"));
+
+        curso =  Prefs.getString(this, "course");
+        textView.setText("Disciplinas do curso de "+curso);
+
+        getSupportActionBar().setTitle("Disciplinas");
+
         disciplinaList = disciplinaDAO.getDisciplinas();
         listView = (ListView) findViewById(R.id.listaDisciplinas);
         listView.setAdapter(new DisciplinasAdapter(disciplinaList,this,0));

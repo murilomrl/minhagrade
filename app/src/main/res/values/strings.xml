@@ -68,7 +68,7 @@
         \n\nColaboração:
         \n&#8226; Luiz Fernando (dev)
         \n&#8226; George Rappel (dev)</string>
-    <string name="texto_novo_curso">Parece que não temos ainda seu curso no nosso sistema, para inserí-la precisamos que nos envie o nome do seu curso, disciplinas e seus períodos correspondentes.
+    <string name="texto_novo_curso">Parece que não temos ainda seu curso no nosso sistema, para inseri-lo precisamos que nos envie o nome do seu curso, disciplinas e seus períodos correspondentes.
     \n\nToque no ícone abaixo caso deseje nos enviar as informações do seu curso.</string>
 
 </resources>

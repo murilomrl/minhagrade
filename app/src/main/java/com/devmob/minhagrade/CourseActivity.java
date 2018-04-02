@@ -49,7 +49,6 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
                 ActivityOptionsCompat opts;
                 opts =  ActivityOptionsCompat.makeCustomAnimation(CourseActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
                 ActivityCompat.startActivity(CourseActivity.this,intent,opts.toBundle());
-                startActivity(intent);
             }
         });
 

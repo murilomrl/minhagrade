@@ -46,6 +46,9 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CourseActivity.this, NovoCursoActivity.class);
+                ActivityOptionsCompat opts;
+                opts =  ActivityOptionsCompat.makeCustomAnimation(CourseActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
+                ActivityCompat.startActivity(CourseActivity.this,intent,opts.toBundle());
                 startActivity(intent);
             }
         });

@@ -36,7 +36,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 
         CursoAdapter cursoAdapter = new CursoAdapter(getApplicationContext(),Curso.getCursos(getApplicationContext()));
 
-        PeriodoAdapter periodoAdapter = new PeriodoAdapter(this,Periodo.getPeriodos(this));
+//        PeriodoAdapter periodoAdapter = new PeriodoAdapter(this,Periodo.getPeriodos(this));
 
         spinner.setAdapter(cursoAdapter);
 
@@ -52,9 +52,9 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        periodoSpinner = (Spinner) findViewById(R.id.periodo_spinner);
-
-        periodoSpinner.setAdapter(periodoAdapter);
+//        periodoSpinner = (Spinner) findViewById(R.id.periodo_spinner);
+//
+//        periodoSpinner.setAdapter(periodoAdapter);
 
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
 
@@ -74,14 +74,14 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
         btnSubmit.setClickable(false);
         Intent intent = new Intent(CourseActivity.this, HomeActivity.class);
         String course = String.valueOf(spinner.getSelectedItem());
-        String periodo = String.valueOf(periodoSpinner.getSelectedItem());
+//        String periodo = String.valueOf(periodoSpinner.getSelectedItem());
         CienciaDaComputação cc = new CienciaDaComputação(this);
         cc.populaCurso();
-        String[] periodoString = periodo.split("º");
-        periodoString = periodoString[0].split(":");
-        Log.d("Teste",periodo);
+//        String[] periodoString = periodo.split("º");
+//        periodoString = periodoString[0].split(":");
+//        Log.d("Teste",periodo);
         Prefs.setString(this,"course", course);
-        Prefs.setInteger(this,"periodo",Integer.parseInt(periodoString[1]));
+//        Prefs.setInteger(this,"periodo",Integer.parseInt(periodoString[1]));
         intent.putExtra("MESSAGE", course);
         /**
          * Animação de transição entre activitys

@@ -39,7 +39,8 @@
         android:minHeight="48dp"
         android:layout_gravity="center"
         android:src="@drawable/ic_mail_outline_black_48dp"
-        android:tint="@color/colorPieFeito"/>
+        android:tint="@color/colorPieFeito"
+        android:background="@color/colorNaoFeito"/>
 
 </LinearLayout>
 

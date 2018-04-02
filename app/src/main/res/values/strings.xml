@@ -25,6 +25,7 @@
     <string name="lembrete_tipo">Tipo</string>
     <string name="lembrete_disciplina">Disciplina</string>
     <string name="naoAchouCurso"><u>Não achou seu curso?</u></string>
+    <string name="title_novo_curso">O que fazer?</string>
 
     <string-array name="cursos_array">
         <item>Ciência da Computação</item>
@@ -53,7 +54,7 @@
         <item>19º período</item>
         <item>20º período</item>
     </string-array>
-    <string name="title_activity_novo_curso">NovoCursoActivity</string>
+    <string name="title_activity_novo_curso">Novo Curso</string>
 
     <!-- Configurações -->
     <string name="title_activity_configuracoes">Configurações</string>
@@ -67,5 +68,7 @@
         \n\nColaboração:
         \n&#8226; Luiz Fernando (dev)
         \n&#8226; George Rappel (dev)</string>
+    <string name="texto_novo_curso">Parece que não temos ainda seu curso no nosso sistema, para inserí-la precisamos que nos envie o nome do seu curso, disciplinas e seus períodos correspondentes.
+    \n\nToque no ícone abaixo caso deseje nos enviar as informações do seu curso.</string>
 
 </resources>

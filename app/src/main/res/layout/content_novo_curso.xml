@@ -7,11 +7,5 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.devmob.minhagrade.NovoCursoActivity"
     tools:showIn="@layout/activity_novo_curso">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="20dp"
-        android:text="Parece que não temos ainda seu curso no nosso sistema, para inserí-la precisamos que nos envie o nome do seu curso, disciplinas e seus períodos correspondentes."
-        android:textSize="15sp"/>
+
 </LinearLayout>

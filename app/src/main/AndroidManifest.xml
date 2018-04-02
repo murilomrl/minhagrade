@@ -65,7 +65,8 @@
         <activity
             android:name=".NovoCursoActivity"
             android:label="@string/title_activity_novo_curso"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:parentActivityName=".CourseActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_configuracoes"

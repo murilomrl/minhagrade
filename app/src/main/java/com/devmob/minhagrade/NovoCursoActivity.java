@@ -28,6 +28,7 @@ public class NovoCursoActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse("mailto: devmob.ufrj@gmail.com"));
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Digite aqui seu curso");
+                startActivity(Intent.createChooser(intent,"Enviar email..."));
             }
         });
     }

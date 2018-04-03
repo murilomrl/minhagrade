@@ -34,7 +34,7 @@ public class CienciaDaComputação {
         periodos = database.getPeriodos();
         databaseDisciplina.insere(new Disciplina("Cálculo Infinitesimal I",0,periodos.get(0).getNome()));
         databaseDisciplina.insere(new Disciplina("Computação I",0,periodos.get(0).getNome()));
-        databaseDisciplina.insere(new Disciplina("Fund da Computacao Digital",0,periodos.get(0).getNome()));
+        databaseDisciplina.insere(new Disciplina("Fund da Computação Digital",0,periodos.get(0).getNome()));
         databaseDisciplina.insere(new Disciplina("Números Inteiros Criptografia",0,periodos.get(0).getNome()));
         databaseDisciplina.insere(new Disciplina("Sistemas de Informação",0,periodos.get(0).getNome()));
 //      2º Periodo

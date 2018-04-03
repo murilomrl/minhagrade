@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -69,9 +70,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 ActivityCompat.startActivity(this,intent,opts.toBundle());
                 break;
             case R.id.calendario:
-                intent = new Intent(this, CalendarActivity.class);
-                opts = ActivityOptionsCompat.makeCustomAnimation(this,R.anim.slide_in_left,R.anim.slide_out_left);
-                ActivityCompat.startActivity(this,intent,opts.toBundle());
+                Toast.makeText(this, "Em Breve", Toast.LENGTH_SHORT).show();
+
+//                Descomentar quando o colendario estiver pronto
+
+//                intent = new Intent(this, CalendarActivity.class);
+//                opts = ActivityOptionsCompat.makeCustomAnimation(this,R.anim.slide_in_left,R.anim.slide_out_left);
+//                ActivityCompat.startActivity(this,intent,opts.toBundle());
                 break;
             case R.id.configuracoes:
                 intent = new Intent(this, SettingsActivity.class);

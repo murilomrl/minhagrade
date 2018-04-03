@@ -30,7 +30,7 @@
                 android:textAlignment="textStart"/>
             <TextView
                 android:layout_weight="1"
-                android:text="Porcentagem (n° Disciplinas)"
+                android:text="Porcentagem (Qtd Disciplinas)"
                 android:textSize="15sp"
                 android:textAlignment="textEnd"/>
         </TableRow>

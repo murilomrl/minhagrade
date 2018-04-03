@@ -111,6 +111,22 @@ public class DisciplinaDAO extends DBHelper{
         onClose();
         return df.format(result)+"%("+porcentagem+")";
     }
+
+    public float porcentagemDeDisciplinasPorStatusDouble(int status){
+        onOpen();
+        double result = 0.0;
+        int porcentagem;
+        int total;
+        Cursor cursor = db.rawQuery("SELECT  * FROM "+DBHelper.TABLE_DISCIPLINA+" WHERE status = "+status,null);
+        porcentagem = cursor.getCount();
+        cursor = db.rawQuery("SELECT  *  FROM "+DBHelper.TABLE_DISCIPLINA,null);
+        total = cursor.getCount();
+        DecimalFormat df = new DecimalFormat("#.#");
+        result = ((double) porcentagem/(double)total)*100;
+
+        onClose();
+        return Float.parseFloat(df.format(result));
+    }
     public int quantidadeDisciplinasPorStatus(int status){
         onOpen();
         double result = 0.0;

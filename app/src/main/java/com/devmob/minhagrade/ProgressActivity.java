@@ -25,6 +25,7 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.data.ScatterData;
 import com.github.mikephil.charting.data.ScatterDataSet;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 
 import java.util.ArrayList;
 
@@ -81,15 +82,15 @@ public class ProgressActivity extends AppCompatActivity {
         ArrayList<Integer> colors = new ArrayList<>();
 
         if(dadoConcluido!=0) {
-            entries.add(new PieEntry(dadoConcluido, "Concluido", 0));
+            entries.add(new PieEntry(disciplinaDAO.porcentagemDeDisciplinasPorStatusDouble(2), "Concluido", 0));
             colors.add(getResources().getColor(R.color.colorPieFeito));
         }
         if(dadoCursando!=0) {
-            entries.add(new PieEntry(dadoCursando, "Cursando", 1));
+            entries.add(new PieEntry(disciplinaDAO.porcentagemDeDisciplinasPorStatusDouble(1), "Cursando", 1));
             colors.add(getResources().getColor(R.color.colorPieFazendo));
         }
         if(dadoFaltando!=0) {
-            entries.add(new PieEntry(dadoFaltando, "Pendente", 2));
+            entries.add(new PieEntry(disciplinaDAO.porcentagemDeDisciplinasPorStatusDouble(0), "Pendente", 2));
             colors.add(getResources().getColor(R.color.colorPieNaoFeito));
         }
 
@@ -97,6 +98,7 @@ public class ProgressActivity extends AppCompatActivity {
         dataSet.setColors(colors);
         dataSet.setSliceSpace(2);
         dataSet.setValueTextSize(12);
+        dataSet.setValueFormatter(new PercentFormatter());
 
         PieData data = new PieData(dataSet);
         pieChart.setData(data);

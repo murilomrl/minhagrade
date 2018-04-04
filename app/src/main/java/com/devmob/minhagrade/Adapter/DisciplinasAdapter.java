@@ -64,7 +64,7 @@ public class DisciplinasAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, final View convertView, ViewGroup parent) {
-        View view;
+        final View view;
         final Disciplina disciplina;
 
         if(this.act==1) {
@@ -181,6 +181,9 @@ public class DisciplinasAdapter extends BaseAdapter {
                 // Botoes de Radio
                 CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkBox);
                 checkBox.setText(disciplina.getNome());
+                if(disciplina.getStatus() == 1){
+                    checkBox.setChecked(true);
+                }
                 // Modifica prefs ao mudar o check
                 checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override

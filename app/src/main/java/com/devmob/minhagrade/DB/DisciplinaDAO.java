@@ -3,10 +3,8 @@ package com.devmob.minhagrade.DB;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.util.Log;
 
 import com.devmob.minhagrade.Model.Disciplina;
-import com.devmob.minhagrade.Model.Periodo;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -28,7 +26,7 @@ public class DisciplinaDAO extends DBHelper{
         ContentValues values = new ContentValues();
         values.put("nome", disciplina.getNome());
         values.put("status", disciplina.getStatus());
-        values.put("periodo", disciplina.getPeriodo());
+        values.put("periodo", disciplina.getPeriodoString());
         db.insert(DBHelper.TABLE_DISCIPLINA,null, values);
         onClose();
     }
@@ -38,7 +36,7 @@ public class DisciplinaDAO extends DBHelper{
         ContentValues values = new ContentValues();
         values.put("nome", disciplina.getNome());
         values.put("status",disciplina.getStatus());
-        values.put("periodo",disciplina.getPeriodo());
+        values.put("periodo",disciplina.getPeriodoString());
         db.update(DBHelper.TABLE_DISCIPLINA,values," id = "+disciplina.getId(),null);
         onClose();
     }

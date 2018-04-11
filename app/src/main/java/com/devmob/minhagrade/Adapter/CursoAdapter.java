@@ -33,8 +33,8 @@ public class CursoAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-        return cursos.get(position).getNome();
+    public Curso getItem(int position) {
+        return cursos.get(position);
     }
 
     @Override

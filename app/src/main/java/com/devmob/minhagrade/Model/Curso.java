@@ -3,6 +3,7 @@ package com.devmob.minhagrade.Model;
 import android.content.Context;
 
 import com.devmob.minhagrade.R;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,14 +16,31 @@ import java.util.List;
  */
 
 public class Curso {
+
+    private String _id;
     private String nome;
+    private int periodos;
+    private ArrayList<Disciplina> disciplinas = new ArrayList<>();
 
     public Curso(String nome) {
+        this._id = "";
         this.nome = nome;
+    }
+
+    public String getId() {
+        return _id;
     }
 
     public String getNome() {
         return nome;
+    }
+
+    public int getPeriodos(){
+        return periodos;
+    }
+
+    public List<Disciplina> getDisciplinas(){
+        return disciplinas;
     }
 
     public static ArrayList<Curso> getCursos(Context context){
@@ -36,5 +54,9 @@ public class Curso {
         }
 
         return cursos;
+    }
+
+    public String toString(){
+        return (new Gson()).toJson(this);
     }
 }

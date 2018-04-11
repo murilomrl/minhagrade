@@ -11,20 +11,21 @@ public class Disciplina {
      * Status: 0 para não feito, 1 para fazendo e 2 para feito
      */
     private int status;
-    private String periodo;
+    private int periodo;
+    private String periodoString;
     private int id;
 
-    public Disciplina(int id,String nome, int status, String periodo) {
+    public Disciplina(int id,String nome, int status, String periodoString) {
         this.id = id;
         this.nome = nome;
         this.status = status;
-        this.periodo = periodo;
+        this.periodoString = periodoString;
     }
 
-    public Disciplina(String nome, int status, String periodo) {
+    public Disciplina(String nome, int status, String periodoString) {
         this.nome = nome;
         this.status = status;
-        this.periodo = periodo;
+        this.periodoString = periodoString;
     }
 
     public int getId() {
@@ -35,12 +36,16 @@ public class Disciplina {
         this.id = id;
     }
 
-    public String getPeriodo() {
+    public int getPeriodo(){
         return periodo;
     }
 
-    public void setPeriodo(String periodo) {
-        this.periodo = periodo;
+    public String getPeriodoString() {
+        return periodoString;
+    }
+
+    public void setPeriodoString(String periodoString) {
+        this.periodoString = periodoString;
     }
 
     public Disciplina(String nome) {
@@ -63,7 +68,7 @@ public class Disciplina {
     }
 
     public String toString(){
-        return "Disciplina:"+nome+" Status:"+status+" Periodo:"+periodo+"\n";
+        return "Disciplina:"+nome+" Status:"+status+" Periodo:"+ periodoString +"\n";
     }
 
 

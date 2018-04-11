@@ -48,12 +48,21 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
     private Button btnSubmit;
     private TextView naoAchouLink;
     private CursoAdapter cursoAdapter;
+    private AlertDialog dialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
         spinner = (Spinner) findViewById(R.id.spinner);
+
+        dialog = new AlertDialog.Builder(this)
+                //.setIcon(loading)?
+                .setTitle("Aguarde")
+                .setMessage("Baixando lista de disciplinas...")
+                .setCancelable(false)
+                .create();
+        dialog.show();
 
         final Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API.BASE_URL)
@@ -64,19 +73,20 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
         call.enqueue(new Callback<List<Curso>>() {
             @Override
             public void onResponse(Call<List<Curso>> call, Response<List<Curso>> response) {
-                List<String> materias = new ArrayList<>();
-                for(Curso c : response.body()) {
-                    Log.i("get courses", c.toString());
-                    materias.add(c.getNome());
+                if(response.isSuccessful()) {
+                    cursoAdapter = new CursoAdapter(CourseActivity.this, response.body());
+                    spinner.setAdapter(cursoAdapter);
+                    dialog.dismiss();
+                } else {
+                    dialog.setTitle("Erro");
+                    dialog.setMessage("Problemas no servidor. Tente novamente mais tarde.");
                 }
-
-                cursoAdapter = new CursoAdapter(CourseActivity.this, response.body());
-                spinner.setAdapter(cursoAdapter);
             }
 
             @Override
             public void onFailure(Call<List<Curso>> call, Throwable t) {
-
+                dialog.setTitle("Erro");
+                dialog.setMessage("Não foi possível conectar com o servidor. Tente novamente mais tarde.");
             }
         });
 
@@ -116,9 +126,10 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        btnSubmit.setClickable(false);
-        Intent intent = new Intent(CourseActivity.this, HomeActivity.class);
-        String course = String.valueOf(spinner.getSelectedItem());
+        if(spinner.getAdapter() != null && spinner.getAdapter().getCount() > 0) {
+            btnSubmit.setClickable(false);
+            Intent intent = new Intent(CourseActivity.this, HomeActivity.class);
+            String course = String.valueOf(spinner.getSelectedItem());
 //        String periodo = String.valueOf(periodoSpinner.getSelectedItem());
 //        CienciaDaComputação cc = new CienciaDaComputação(this);
 //        cc.populaCurso();
@@ -134,30 +145,29 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 //        ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(CourseActivity.this,R.anim.slide_in_left,R.anim.slide_out_left);
 //        ActivityCompat.startActivity(CourseActivity.this,intent,opts.toBundle());
 
-        final Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(API.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        final API service = retrofit.create(API.class);
-        Call<Curso> call = service.getCourse(((Curso)spinner.getSelectedItem()).getId());
-        call.enqueue(new Callback<Curso>() {
-            @Override
-            public void onResponse(Call<Curso> call, Response<Curso> response) {
-                if(response.isSuccessful() && response.body() != null) {
-                    Log.e("Success courseact", "1: " + response.body().toString());
-                    Log.e("Success courseact", "url: " + call.request().url());
-                    populaCurso(response.body());
-                } else {
-                    //erro
-                    Log.e("Response Courseact", "Erro onResponse");
+            final Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(API.BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            final API service = retrofit.create(API.class);
+            Call<Curso> call = service.getCourse(((Curso) spinner.getSelectedItem()).getId());
+            call.enqueue(new Callback<Curso>() {
+                @Override
+                public void onResponse(Call<Curso> call, Response<Curso> response) {
+                    if (response.isSuccessful() && response.body() != null) {
+                        populaCurso(response.body());
+                    } else {
+                        //erro
+                        Log.e("Response Courseact", "Erro onResponse");
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<Curso> call, Throwable t) {
-                Log.e("Failure Courseact", "Erro " + t.getLocalizedMessage());
-            }
-        });
+                @Override
+                public void onFailure(Call<Curso> call, Throwable t) {
+                    Log.e("Failure Courseact", "Erro " + t.getLocalizedMessage());
+                }
+            });
+        }
     }
 
     private void populaCurso(Curso curso){

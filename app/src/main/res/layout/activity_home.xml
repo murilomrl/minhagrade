@@ -19,17 +19,14 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
+                android:layout_weight="1">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
-                    android:layout_margin="30dp"
                     android:layout_alignParentTop="true"
-                    android:src="@drawable/minhagrade1" />
+                    android:src="@drawable/ic_minhagrade" />
             </RelativeLayout>
         </TableRow>
 

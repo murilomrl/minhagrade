@@ -128,8 +128,8 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         if(spinner.getAdapter() != null && spinner.getAdapter().getCount() > 0) {
             btnSubmit.setClickable(false);
-            Intent intent = new Intent(CourseActivity.this, HomeActivity.class);
-            String course = String.valueOf(spinner.getSelectedItem());
+//            Intent intent = new Intent(CourseActivity.this, HomeActivity.class);
+//            String course = String.valueOf(spinner.getSelectedItem());
 //        String periodo = String.valueOf(periodoSpinner.getSelectedItem());
 //        CienciaDaComputação cc = new CienciaDaComputação(this);
 //        cc.populaCurso();
@@ -186,8 +186,12 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
             databaseDisciplina.insere(new Disciplina(d.getNome(),0, periodos.get(d.getPeriodo() - 1).getNome()));
         }
 
+        Prefs.setString(this,"course", curso.getNome());
+        btnSubmit.setClickable(true);
+
         Intent intent = new Intent(CourseActivity.this, HomeActivity.class);
         ActivityOptionsCompat opts =  ActivityOptionsCompat.makeCustomAnimation(CourseActivity.this, R.anim.slide_in_left, R.anim.slide_out_left);
         ActivityCompat.startActivity(CourseActivity.this, intent, opts.toBundle());
+
     }
 }

@@ -114,7 +114,7 @@ public class ProgressActivity extends AppCompatActivity {
 //        pieChart.setDrawEntryLabels(false);
 //        pieChart.setEntryLabelTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         pieChart.getLegend().setEnabled(false);
-        
+
     }
 
     @Override

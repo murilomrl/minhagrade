@@ -80,7 +80,9 @@
     <com.github.mikephil.charting.charts.PieChart
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/piechart">
+        android:id="@+id/piechart"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp">
     </com.github.mikephil.charting.charts.PieChart>
 
 

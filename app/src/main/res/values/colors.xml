@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#3F51B5</color>
 
-    <color name="colorPieFazendo">#475AEA</color>
-    <color name="colorPieFeito">#304A9D</color>
+    <color name="colorPieFazendo">#5972FF</color>
+    <color name="colorPieFeito">#475BCC</color>
     <color name="colorPieNaoFeito">#99A7FF</color>
 
     <color name="colorFazendo">#FFFA81</color>

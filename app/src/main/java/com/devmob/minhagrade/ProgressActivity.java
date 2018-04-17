@@ -3,6 +3,7 @@ package com.devmob.minhagrade;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -19,6 +20,7 @@ import com.devmob.minhagrade.DB.DisciplinaDAO;
 import com.devmob.minhagrade.Model.Prefs;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.charts.ScatterChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -97,8 +99,9 @@ public class ProgressActivity extends AppCompatActivity {
         PieDataSet dataSet = new PieDataSet(entries,"");
         dataSet.setColors(colors);
         dataSet.setSliceSpace(2);
-        dataSet.setValueTextSize(12);
+        dataSet.setValueTextSize(13);
         dataSet.setValueFormatter(new PercentFormatter());
+//        dataSet.setValueTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
 
         PieData data = new PieData(dataSet);
         pieChart.setData(data);
@@ -107,6 +110,11 @@ public class ProgressActivity extends AppCompatActivity {
         pieChart.setEntryLabelColor(Color.BLACK);
         pieChart.setRotationEnabled(false);
         pieChart.getDescription().setEnabled(false);
+        pieChart.setTouchEnabled(false);
+//        pieChart.setDrawEntryLabels(false);
+//        pieChart.setEntryLabelTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        pieChart.getLegend().setEnabled(false);
+        
     }
 
     @Override

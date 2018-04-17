@@ -7,7 +7,7 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <!-- Fontes -->
-    <dimen name="font_size">16sp</dimen>
+    <dimen name="font_size">18sp</dimen>
     <dimen name="font_size_larger">19sp</dimen>
     <dimen name="title">25sp</dimen>
 

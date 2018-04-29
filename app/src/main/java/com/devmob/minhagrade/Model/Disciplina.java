@@ -15,17 +15,21 @@ public class Disciplina {
     private String periodoString;
     private int id;
 
+    private int creditos;
+
     public Disciplina(int id,String nome, int status, String periodoString) {
         this.id = id;
         this.nome = nome;
         this.status = status;
         this.periodoString = periodoString;
+//        this.creditos = creditos;
     }
 
     public Disciplina(String nome, int status, String periodoString) {
         this.nome = nome;
         this.status = status;
         this.periodoString = periodoString;
+//        this.creditos = creditos;
     }
 
     public int getId() {
@@ -69,6 +73,14 @@ public class Disciplina {
 
     public String toString(){
         return "Disciplina:"+nome+" Status:"+status+" Periodo:"+ periodoString +"\n";
+    }
+
+    public int getCreditos() {
+        return creditos;
+    }
+
+    public void setCreditos(int creditos) {
+        this.creditos = creditos;
     }
 
 

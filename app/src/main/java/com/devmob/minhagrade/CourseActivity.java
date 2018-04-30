@@ -189,8 +189,8 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
         Prefs.setString(this,"course", curso.getNome());
 
 //        Guarda no Prefs o número de creditos de eletivas
+        Log.d("ELETIVAS", String.valueOf(curso.getEletivas()));
         Prefs.setFloat(this,"eletivas",curso.getEletivas());
-
         btnSubmit.setClickable(true);
 
         Intent intent = new Intent(CourseActivity.this, HomeActivity.class);

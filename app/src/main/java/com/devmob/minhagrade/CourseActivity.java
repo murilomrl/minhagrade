@@ -116,7 +116,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
         btnSubmit.setOnClickListener(this);
 
         String course = Prefs.getString(this,"course");//"No name defined" is the default value.
-//        Log.d("CURSO", course);
+
         if(!course.isEmpty()){
             Intent intent = new Intent(CourseActivity.this, HomeActivity.class);
             intent.putExtra("MESSAGE", course);
@@ -187,6 +187,10 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         Prefs.setString(this,"course", curso.getNome());
+
+//        Guarda no Prefs o número de creditos de eletivas
+        Prefs.setFloat(this,"eletivas",curso.getEletivas());
+
         btnSubmit.setClickable(true);
 
         Intent intent = new Intent(CourseActivity.this, HomeActivity.class);

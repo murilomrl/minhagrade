@@ -20,12 +20,20 @@ public class Curso {
     private String _id;
     private String nome;
     private int periodos;
+    //    Total de créditos de eletivas
+    private Float eletivas;
     private ArrayList<Disciplina> disciplinas = new ArrayList<>();
 
-    public Curso(String nome) {
+    public Curso(String nome, Float eletivas) {
         this._id = "";
         this.nome = nome;
+        this.eletivas = eletivas;
     }
+
+//    public Curso(String nome) {
+//        this._id = "";
+//        this.nome = nome;
+//    }
 
     public String getId() {
         return _id;
@@ -39,22 +47,30 @@ public class Curso {
         return periodos;
     }
 
+    public Float getEletivas() {
+        return eletivas;
+    }
+
+    public void setEletivas(Float eletivas) {
+        this.eletivas = eletivas;
+    }
+
     public List<Disciplina> getDisciplinas(){
         return disciplinas;
     }
 
-    public static ArrayList<Curso> getCursos(Context context){
-        ArrayList<Curso> cursos = new ArrayList<Curso>();
-        String[] arrayCourse = context.getResources().getStringArray(R.array.cursos_array);
-        List<String> list = Arrays.asList(arrayCourse);
-        Collections.sort(list);
-
-        for (int i =0; i< list.size(); i++){
-            cursos.add(new Curso(list.get(i)));
-        }
-
-        return cursos;
-    }
+//    public static ArrayList<Curso> getCursos(Context context){
+//        ArrayList<Curso> cursos = new ArrayList<Curso>();
+//        String[] arrayCourse = context.getResources().getStringArray(R.array.cursos_array);
+//        List<String> list = Arrays.asList(arrayCourse);
+//        Collections.sort(list);
+//
+//        for (int i =0; i< list.size(); i++){
+//            cursos.add(new Curso(list.get(i)));
+//        }
+//
+//        return cursos;
+//    }
 
     public String toString(){
         return (new Gson()).toJson(this);

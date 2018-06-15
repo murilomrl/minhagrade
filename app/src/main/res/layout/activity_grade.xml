@@ -16,17 +16,6 @@
         android:orientation="vertical"
         android:id="@+id/linear_grade">
 
-        <TextView
-            android:id="@+id/grade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textSize="@dimen/title"
-            android:paddingBottom="10dp"
-            android:textStyle="bold"
-            android:text="@string/minha_grade"
-            android:textAlignment="center"/>
-
         <ListView
             android:id="@+id/gradeSem"
             android:layout_width="match_parent"

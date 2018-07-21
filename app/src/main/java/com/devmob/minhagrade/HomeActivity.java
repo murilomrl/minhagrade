@@ -65,7 +65,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 ActivityCompat.startActivity(this,intent,opts.toBundle());
                 break;
             case R.id.disciplinas:
-                intent = new Intent(this, DisciplinasActivity.class);
+                intent = new Intent(this, CurriculumActivity.class);
                 opts = ActivityOptionsCompat.makeCustomAnimation(this,R.anim.slide_in_left,R.anim.slide_out_left);
                 ActivityCompat.startActivity(this,intent,opts.toBundle());
                 break;

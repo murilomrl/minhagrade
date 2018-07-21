@@ -71,5 +71,9 @@
     <string name="texto_novo_curso">Parece que não temos ainda seu curso no nosso sistema, para inseri-lo precisamos que nos envie o nome do seu curso, disciplinas e seus períodos correspondentes.
 
     \n\nToque no ícone abaixo caso deseje nos enviar as informações do seu curso.</string>
+    <string name="title_activity_tab_periodos">TabPeriodosActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

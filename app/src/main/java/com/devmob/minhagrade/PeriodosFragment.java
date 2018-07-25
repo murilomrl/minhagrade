@@ -10,6 +10,12 @@ public class PeriodosFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_tab_periodos, container, false);
+
+//        Cria a View que vai ser usada no Fragment
+        View view = inflater.inflate(R.layout.fragment_periodos, container, false);
+
+
+//        Retorna a view para a activity
+        return view;
     }
 }

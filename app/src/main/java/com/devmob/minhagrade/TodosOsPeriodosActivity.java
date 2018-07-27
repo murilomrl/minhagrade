@@ -32,7 +32,7 @@ public class TodosOsPeriodosActivity extends AppCompatActivity implements OnItem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todos);
-        final Intent intent = getIntent();
+//        final Intent intent = getIntent();
         curso =  Prefs.getString(this, "course");
         TextView course = (TextView) findViewById(R.id.course);
         listView = (ListView) findViewById(R.id.listaPeriodo);

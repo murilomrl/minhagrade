@@ -1,0 +1,1094 @@
+{
+  "cursos": [
+    {
+      "nome": "Ciência da Computação",
+      "eletivas": 40,
+      "periodos": 9,
+      "disciplinas": [
+        {
+            "nome": "Fund da Computacao Digital",
+            "periodo": 1
+        },
+        {
+            "nome": "Sistemas de Informação",
+            "periodo": 1
+        },
+        {
+            "nome": "Computação I (CC)",
+            "periodo": 1
+        },
+        {
+            "nome": "Numeros Inteiros Criptografia",
+            "periodo": 1
+        },
+        {
+            "nome": "Calculo Infinitesimal I",
+            "periodo": 1
+        },
+        {
+            "nome": "Organização da Informação",
+            "periodo": 2
+        },
+        {
+            "nome": "Computacao II (CC)",
+            "periodo": 2
+        },
+        {
+            "nome": "Circuitos Logicos",
+            "periodo": 2
+        },
+        {
+            "nome": "Matematica Combinatoria",
+            "periodo": 2
+        },
+        {
+            "nome": "Cálculo Integ e Diferencial II",
+            "periodo": 2
+        },
+        {
+            "nome": "Mecânica, Oscilação e Ondas",
+            "periodo": 3
+        },
+        {
+            "nome": "Algebra Linear Algorítmica",
+            "periodo": 3
+        },
+        {
+            "nome": "Estrutura dos Dados",
+            "periodo": 3
+        },
+        {
+            "nome": "Linguagens Formais",
+            "periodo": 3
+        },
+        {
+            "nome": "Computadores e Programacao",
+            "periodo": 3
+        },
+        {
+            "nome": "Cálculo Int e Diferencial III",
+            "periodo": 3
+        },
+        {
+            "nome": "Eletromagnetismo e Ótica",
+            "periodo": 4
+        },
+        {
+            "nome": "Computação Concorrente",
+            "periodo": 4
+        },
+        {
+            "nome": "Cálculo Numérico (CC)",
+            "periodo": 4
+        },
+        {
+            "nome": "Algoritmos e Grafos",
+            "periodo": 4
+        },
+        {
+            "nome": "Cálculo Int e Diferencial IV",
+            "periodo": 4
+        },
+        {
+            "nome": "Logica",
+            "periodo": 5
+        },
+        {
+            "nome": "Computadores e Sociedade",
+            "periodo": 5
+        },
+        {
+            "nome": "Arquitetura de Computadores I",
+            "periodo": 5
+        },
+        {
+            "nome": "Compiladores I",
+            "periodo": 5
+        },
+        {
+            "nome": "Banco de Dados I",
+            "periodo": 5
+        },
+        {
+            "nome": "Fund da Engenharia de Software",
+            "periodo": 5
+        },
+        {
+            "nome": "Computacao Grafica I",
+            "periodo": 6
+        },
+        {
+            "nome": "Programacao Linear I",
+            "periodo": 6
+        },
+        {
+            "nome": "Inteligencia Artificial",
+            "periodo": 6
+        },
+        {
+            "nome": "Estatistica e Probabilidade",
+            "periodo": 6
+        },
+        {
+            "nome": "ELETIVA 1",
+            "periodo": 6
+        },
+        {
+            "nome": "Sistemas Operacionais I",
+            "periodo": 7
+        },
+        {
+            "nome": "Avaliacao e Desempenho",
+            "periodo": 7
+        },
+        {
+            "nome": "ELETIVA 2",
+            "periodo": 7
+        },
+        {
+            "nome": "ELETIVA 3",
+            "periodo": 7
+        },
+        {
+            "nome": "Teleprocessamento e Redes",
+            "periodo": 8
+        },
+        {
+            "nome": "ELETIVA 4",
+            "periodo": 8
+        },
+        {
+            "nome": "ELETIVA 5",
+            "periodo": 8
+        },
+        {
+            "nome": "ELETIVA 6",
+            "periodo": 8
+        },
+        {
+            "nome": "ELETIVA 7",
+            "periodo": 8
+        },
+        {
+            "nome": "ELETIVA 8",
+            "periodo": 9
+        },
+        {
+            "nome": "ELETIVA 9",
+            "periodo": 9
+        },
+        {
+            "nome": "ELETIVA 10",
+            "periodo": 9
+        }
+      ]
+    },
+    {
+      "nome": "Ciências Matemáticas e da Terra",
+      "periodos": 6,
+      "disciplinas": [
+        {
+            "nome": "Tóp Gerais Ciências da Terra",
+            "periodo": 1
+        },
+        {
+            "nome": "Inovações Científicas Tecnológicas e Artisticas I",
+            "periodo": 1
+        },
+        {
+            "nome": "Introducao à Fisica A.",
+            "periodo": 1
+        },
+        {
+            "nome": "Introducao à Fisica B",
+            "periodo": 1
+        },
+        {
+            "nome": "Computacao I",
+            "periodo": 1
+        },
+        {
+            "nome": "Calculo Difer e Integral I",
+            "periodo": 1
+        },
+        {
+            "nome": "Introdução ao Cálculo",
+            "periodo": 1
+        },
+        {
+            "nome": "Inovações Científicas Tecnológicas e Artisticas II",
+            "periodo": 2
+        },
+        {
+            "nome": "Fisica Experimental I",
+            "periodo": 2
+        },
+        {
+            "nome": "Fisica I",
+            "periodo": 2
+        },
+        {
+            "nome": "Calculo Diferen e Integral II",
+            "periodo": 2
+        },
+        {
+            "nome": "Atividades Academicas Optativas (Grupo1)",
+            "periodo": 2
+        },
+        {
+            "nome": "Atividades Academicas Optativas (Grupo2)",
+            "periodo": 2
+        },
+        {
+            "nome": "Inovações Científicas Tecnológicas e Artisticas III",
+            "periodo": 3
+        },
+        {
+            "nome": "Calculo Diferen e Integral III",
+            "periodo": 3
+        },
+        {
+            "nome": "Atividades Academicas de Livre Escolha",
+            "periodo": 3
+        },
+        {
+            "nome": "Atividades Academicas Optativas (Grupo1)",
+            "periodo": 3
+        },
+        {
+            "nome": "Atividades Academicas Optativas (Grupo2)",
+            "periodo": 3
+        },
+        {
+            "nome": "Fisica III",
+            "periodo": 4
+        },
+        {
+            "nome": "Atividades Academicas de Livre Escolha",
+            "periodo": 4
+        },
+        {
+            "nome": "Atividades Academicas Optativas (Grupo1)",
+            "periodo": 4
+        },
+        {
+            "nome": "Atividades Academicas Optativas (Grupo2)",
+            "periodo": 4
+        },
+        {
+            "nome": "Atividades Academicas Optativas (Grupo3)",
+            "periodo": 4
+        },
+        {
+            "nome": "Atividades Academicas de Livre Escolha",
+            "periodo": 5
+        },
+        {
+            "nome": "Trab Final em Ativ Extracurricular",
+            "periodo": 6
+        }
+      ]
+    },
+    {
+      "nome": "Administração",
+      "periodos": 9,
+      "disciplinas": [
+        {
+            "nome": "Fundamentos da Administracao",
+            "periodo": 1
+        },
+        {
+            "nome": "Informatica para Administracao",
+            "periodo": 1
+        },
+        {
+            "nome": "Sociologia das Organizacoes",
+            "periodo": 1
+        },
+        {
+            "nome": "Macroeconomia",
+            "periodo": 1
+        },
+        {
+            "nome": "Introducao ao Direito",
+            "periodo": 1
+        },
+        {
+            "nome": "Portugues Instrumental I",
+            "periodo": 1
+        },
+        {
+            "nome": "Matematica para Administracao",
+            "periodo": 1
+        },
+        {
+            "nome": "Teoria das Organizacoes",
+            "periodo": 2
+        },
+        {
+            "nome": "Matematica Financeira",
+            "periodo": 2
+        },
+        {
+            "nome": "Modelos Probabilisticos em Adm",
+            "periodo": 2
+        },
+        {
+            "nome": "Ciência Política",
+            "periodo": 2
+        },
+        {
+            "nome": "Microeconomia",
+            "periodo": 2
+        },
+        {
+            "nome": "Psicologia das Organizacoes",
+            "periodo": 2
+        },
+        {
+            "nome": "Modelos Deterministicos em Adm",
+            "periodo": 3
+        },
+        {
+            "nome": "Processo Decisorio",
+            "periodo": 3
+        },
+        {
+            "nome": "Analise de Investimentos",
+            "periodo": 3
+        },
+        {
+            "nome": "Introducao a Contabilidade",
+            "periodo": 3
+        },
+        {
+            "nome": "Direito do Trabalho",
+            "periodo": 3
+        },
+        {
+            "nome": "Estatistica para Administracao",
+            "periodo": 3
+        },
+        {
+            "nome": "Filosofia da Administracao",
+            "periodo": 4
+        },
+        {
+            "nome": "Metodologia da Pesquisa",
+            "periodo": 4
+        },
+        {
+            "nome": "Organizacao Sistemas e Metodos",
+            "periodo": 4
+        },
+        {
+            "nome": "Modelos de Regressao e Previs.",
+            "periodo": 4
+        },
+        {
+            "nome": "Contabilidade Gerencial",
+            "periodo": 4
+        },
+        {
+            "nome": "Direito Comercial",
+            "periodo": 4
+        },
+        {
+            "nome": "Fundamentos de Logistica",
+            "periodo": 5
+        },
+        {
+            "nome": "Analise de Marketing",
+            "periodo": 5
+        },
+        {
+            "nome": "Fundamentos Recursos Humanos",
+            "periodo": 5
+        },
+        {
+            "nome": "Administração Internacional",
+            "periodo": 5
+        },
+        {
+            "nome": "Administracao Estrategica",
+            "periodo": 5
+        },
+        {
+            "nome": "Gerencia Financeira",
+            "periodo": 5
+        },
+        {
+            "nome": "Sist de Informacoes Gerenciais",
+            "periodo": 6
+        },
+        {
+            "nome": "Modelagem e Simulacao Sistemas",
+            "periodo": 6
+        },
+        {
+            "nome": "Administracao da Producao",
+            "periodo": 6
+        },
+        {
+            "nome": "Politicas de Marketing",
+            "periodo": 6
+        },
+        {
+            "nome": "Politicas de Recursos Humanos",
+            "periodo": 6
+        },
+        {
+            "nome": "Adm de Compras e Materiais",
+            "periodo": 6
+        },
+        {
+            "nome": "Comunicacoes Administrativas",
+            "periodo": 7
+        },
+        {
+            "nome": "Estagio Supervisionado",
+            "periodo": 7
+        },
+        {
+            "nome": "Gerencia Tributaria",
+            "periodo": 7
+        },
+        {
+            "nome": "Seminario de Monografia",
+            "periodo": 8
+        },
+        {
+            "nome": "Etica da Administracao",
+            "periodo": 8
+        },
+        {
+            "nome": "Monografia",
+            "periodo": 9
+        }
+      ]
+    },
+    {
+      "nome": "Arquitetura e Urbanismo",
+      "periodos": 10,
+      "disciplinas": [
+        {
+            "nome": "Modelagem Sistemas Estruturais",
+            "periodo": 1
+        },
+        {
+            "nome": "Historia Arquitetura Artes I",
+            "periodo": 1
+        },
+        {
+            "nome": "Concepção Forma Arquitetônica I",
+            "periodo": 1
+        },
+        {
+            "nome": "Geometria Descritiva I",
+            "periodo": 1
+        },
+        {
+            "nome": "Desenho de Observação I",
+            "periodo": 1
+        },
+        {
+            "nome": "Desenho de Arquitetura",
+            "periodo": 1
+        },
+        {
+            "nome": "História das Teorias Urbanismo I",
+            "periodo": 1
+        },
+        {
+            "nome": "Isostática",
+            "periodo": 2
+        },
+        {
+            "nome": "Historia Arquitetura Arte II",
+            "periodo": 2
+        },
+        {
+            "nome": "Estudos Sociais",
+            "periodo": 2
+        },
+        {
+            "nome": "Concepção da Forma Arquitetônica II",
+            "periodo": 2
+        },
+        {
+            "nome": "Geometria Descritiva II",
+            "periodo": 2
+        },
+        {
+            "nome": "Desenho de Observação II",
+            "periodo": 2
+        },
+        {
+            "nome": "Topografia",
+            "periodo": 2
+        },
+        {
+            "nome": "História das Teorias do Urbanismo II",
+            "periodo": 2
+        },
+        {
+            "nome": "Resistência dos Materiais",
+            "periodo": 3
+        },
+        {
+            "nome": "História Arquitetura Arte III",
+            "periodo": 3
+        },
+        {
+            "nome": "Projeto Arquitetônico I",
+            "periodo": 3
+        },
+        {
+            "nome": "Perspectiva",
+            "periodo": 3
+        },
+        {
+            "nome": "Conforto Ambiental I",
+            "periodo": 3
+        },
+        {
+            "nome": "Análise Forma Urbana e da Paisagem I",
+            "periodo": 3
+        },
+        {
+            "nome": "História das Teorias do Urbanismo III",
+            "periodo": 3
+        },
+        {
+            "nome": "Concepção Estrutural",
+            "periodo": 4
+        },
+        {
+            "nome": "Teoria da Arquitetura I",
+            "periodo": 4
+        },
+        {
+            "nome": "Projeto Arquitetônico II",
+            "periodo": 4
+        },
+        {
+            "nome": "Gráfica Digital",
+            "periodo": 4
+        },
+        {
+            "nome": "Processos Construtivos I",
+            "periodo": 4
+        },
+        {
+            "nome": "Saneamento Predial",
+            "periodo": 4
+        },
+        {
+            "nome": "Projeto Paisagístico I",
+            "periodo": 4
+        },
+        {
+            "nome": "Atelier Integrado I",
+            "periodo": 4
+        },
+        {
+            "nome": "Estruturas de Concreto Armado I",
+            "periodo": 5
+        },
+        {
+            "nome": "Historia Arquitetura Arte IV",
+            "periodo": 5
+        },
+        {
+            "nome": "Arquitetura no Brasil I",
+            "periodo": 5
+        },
+        {
+            "nome": "Projeto Arquitetônico III",
+            "periodo": 5
+        },
+        {
+            "nome": "Conforto Ambiental II",
+            "periodo": 5
+        },
+        {
+            "nome": "Processos Construtivos II",
+            "periodo": 5
+        },
+        {
+            "nome": "Estruturas de Concreto Armado II",
+            "periodo": 6
+        },
+        {
+            "nome": "História Arquitetura e Artes V",
+            "periodo": 6
+        },
+        {
+            "nome": "Arquitetura no Brasil II",
+            "periodo": 6
+        },
+        {
+            "nome": "Projeto Arquitetônico IV",
+            "periodo": 6
+        },
+        {
+            "nome": "Projeto de Interiores",
+            "periodo": 6
+        },
+        {
+            "nome": "Processos Construtivos III",
+            "periodo": 6
+        },
+        {
+            "nome": "Planejamento Urbano e Regional",
+            "periodo": 6
+        },
+        {
+            "nome": "Análise Forma Urbana e da Paisagem II",
+            "periodo": 6
+        },
+        {
+            "nome": "Estruturas de Aço e Madeira",
+            "periodo": 7
+        },
+        {
+            "nome": "Teoria da Arquitetura II",
+            "periodo": 7
+        },
+        {
+            "nome": "Arquitetura no Brasil III",
+            "periodo": 7
+        },
+        {
+            "nome": "Saneamento Urbano",
+            "periodo": 7
+        },
+        {
+            "nome": "Projeto Urbano",
+            "periodo": 7
+        },
+        {
+            "nome": "Urbanismo e Meio Ambiente",
+            "periodo": 7
+        },
+        {
+            "nome": "Sistemas Estruturais",
+            "periodo": 8
+        },
+        {
+            "nome": "Teoria da Arquitetura III",
+            "periodo": 8
+        },
+        {
+            "nome": "Conserv. Rest. Patrim Cultural",
+            "periodo": 8
+        },
+        {
+            "nome": "Projeto Paisagístico II",
+            "periodo": 8
+        },
+        {
+            "nome": "Atelier Integrado II",
+            "periodo": 8
+        },
+        {
+            "nome": "Gestão de Processo de Projeto",
+            "periodo": 9
+        },
+        {
+            "nome": "Ética e Exercício Profissional",
+            "periodo": 9
+        },
+        {
+            "nome": "Orçamento e Gerenciamento Obra",
+            "periodo": 9
+        },
+        {
+            "nome": "Trabalho Final de Graduação - 1",
+            "periodo": 9
+        },
+        {
+            "nome": "Trabalho Final de Graduação - 2",
+            "periodo": 10
+        },
+        {
+            "nome": "ELETIVA 1",
+            "periodo": 10
+        },
+        {
+            "nome": "ELETIVA 2",
+            "periodo": 10
+        },
+        {
+            "nome": "ELETIVA 3",
+            "periodo": 10
+        },
+        {
+            "nome": "ELETIVA 4",
+            "periodo": 10
+        },
+        {
+            "nome": "ELETIVA 5",
+            "periodo": 10
+        }
+      ]
+    },
+    {
+      "nome": "Meteorologia",
+      "periodos": 8,
+      "disciplinas": [
+        {
+            "nome": "Física Experimental I",
+            "periodo": 1
+        },
+        {
+            "nome": "Física I",
+            "periodo": 1
+        },
+        {
+            "nome": "Introd Ciências Atmosféricas",
+            "periodo": 1
+        },
+        {
+            "nome": "Observação Atmosférica",
+            "periodo": 1
+        },
+        {
+            "nome": "Cálculo Difer e Integral I",
+            "periodo": 1
+        },
+        {
+            "nome": "ELETIVA 1",
+            "periodo": 1
+        },
+        {
+            "nome": "Física Experimental II",
+            "periodo": 2
+        },
+        {
+            "nome": "Física II",
+            "periodo": 2
+        },
+        {
+            "nome": "Climatologia",
+            "periodo": 2
+        },
+        {
+            "nome": "Metodos Estat Aplic Meteor I",
+            "periodo": 2
+        },
+        {
+            "nome": "Computação I",
+            "periodo": 2
+        },
+        {
+            "nome": "Cálculo Difer e Integral II",
+            "periodo": 2
+        },
+        {
+            "nome": "Física III",
+            "periodo": 3
+        },
+        {
+            "nome": "Física Experimental III",
+            "periodo": 3
+        },
+        {
+            "nome": "Metodos Estat Aplic Meteor II",
+            "periodo": 3
+        },
+        {
+            "nome": "Meteorologia Tropical A",
+            "periodo": 3
+        },
+        {
+            "nome": "Estágio Supervisionado I",
+            "periodo": 3
+        },
+        {
+            "nome": "Atividades Complementares",
+            "periodo": 3
+        },
+        {
+            "nome": "Cálculo Diferen e Integral III",
+            "periodo": 3
+        },
+        {
+            "nome": "Algebra Linear II",
+            "periodo": 3
+        },
+        {
+            "nome": "Física IV",
+            "periodo": 4
+        },
+        {
+            "nome": "Termodinamica",
+            "periodo": 4
+        },
+        {
+            "nome": "Instrumentos Meteorologicos",
+            "periodo": 4
+        },
+        {
+            "nome": "Inic à Pesq Ciênc Atmosféricas",
+            "periodo": 4
+        },
+        {
+            "nome": "Poluição do Ar",
+            "periodo": 4
+        },
+        {
+            "nome": "Cálculo Diferen e Integral IV",
+            "periodo": 4
+        },
+        {
+            "nome": "Hidrodinamica",
+            "periodo": 5
+        },
+        {
+            "nome": "Termodinamica da Atmosfera",
+            "periodo": 5
+        },
+        {
+            "nome": "Metod Num em Meteorologia",
+            "periodo": 5
+        },
+        {
+            "nome": "Radiação Solar e Terrestre",
+            "periodo": 5
+        },
+        {
+            "nome": "Climatologia Regional",
+            "periodo": 5
+        },
+        {
+            "nome": "Estágio Supervisionado II",
+            "periodo": 5
+        },
+        {
+            "nome": "Interação Oceano Atmosfera",
+            "periodo": 6
+        },
+        {
+            "nome": "Meteorologia Sinótica I",
+            "periodo": 6
+        },
+        {
+            "nome": "Meteorologia Dinamica I",
+            "periodo": 6
+        },
+        {
+            "nome": "Meteorologia Por Satelite",
+            "periodo": 6
+        },
+        {
+            "nome": "Variabil e Mudanças Climaticas",
+            "periodo": 6
+        },
+        {
+            "nome": "Estágio Supervisionado III",
+            "periodo": 6
+        },
+        {
+            "nome": "ELETIVA 2",
+            "periodo": 6
+        },
+        {
+            "nome": "Meteorologia Sinótica II",
+            "periodo": 7
+        },
+        {
+            "nome": "Meteorologia Dinamica II",
+            "periodo": 7
+        },
+        {
+            "nome": "Modelagem de Tempo e Clima",
+            "periodo": 7
+        },
+        {
+            "nome": "Micrometeorologia",
+            "periodo": 7
+        },
+        {
+            "nome": "Hidrometeorologia",
+            "periodo": 7
+        },
+        {
+            "nome": "Fisica das Nuves Precipitação",
+            "periodo": 7
+        },
+        {
+            "nome": "Trabalho de Conclusão de Curso",
+            "periodo": 7
+        },
+        {
+            "nome": "ELETIVA 3",
+            "periodo": 7
+        },
+        {
+            "nome": "Meteorologia de Mesoescala",
+            "periodo": 8
+        },
+        {
+            "nome": "Física do Clima",
+            "periodo": 8
+        },
+        {
+            "nome": "Agrometeorologia",
+            "periodo": 8
+        },
+        {
+            "nome": "Meteorologia Por Radar",
+            "periodo": 8
+        },
+        {
+            "nome": "ELETIVA 4",
+            "periodo": 8
+        },
+        {
+            "nome": "ELETIVA 5",
+            "periodo": 8
+        }
+      ]
+    },
+    {
+      "nome": "Fisioterapia",
+      "periodos": 10,
+      "eletivas": 0,
+      "disciplinas": [
+        {
+            "nome": "Metodologia Científica",
+            "periodo": 2
+        },
+        {
+            "nome": "Cinesiologia FT",
+            "periodo": 2
+        },
+        {
+            "nome": "Sistema Neurolocomotor",
+            "periodo": 2
+        },
+        {
+            "nome": "Informação em Saúde",
+            "periodo": 2
+        },
+        {
+            "nome": "Fundamentos de Física e Biofísica",
+            "periodo": 2
+        },
+        {
+            "nome": "Bases Biológicas dos Sistemas",
+            "periodo": 3
+        },
+        {
+            "nome": "Semiologia Fisioterapêutica",
+            "periodo": 3
+        },
+        {
+            "nome": "Fundamentos do exercício Terapêutico",
+            "periodo": 3
+        },
+        {
+            "nome": "Bioestatística FT",
+            "periodo": 3
+        },
+        {
+            "nome": "Psicologia Geral",
+            "periodo": 4
+        },
+        {
+            "nome": "Terapia Manual",
+            "periodo": 4
+        },
+        {
+            "nome": "Farmacologia",
+            "periodo": 4
+        },
+        {
+            "nome": "Saúde Coletiva",
+            "periodo": 4
+        },
+        {
+            "nome": "Métodos Cinesioterapêuticos",
+            "periodo": 4
+        },
+        {
+            "nome": "Agentes Biofísicos Terapêuticos",
+            "periodo": 4
+        },
+        {
+            "nome": "Fisioterapia Respiratória",
+            "periodo": 5
+        },
+        {
+            "nome": "Fisioterapia Neurofuncional I",
+            "periodo": 5
+        },
+        {
+            "nome": "Fisioterapia Cardiovascular",
+            "periodo": 5
+        },
+        {
+            "nome": "Fisioterapia nas Disfunções Musculoesqueléticas",
+            "periodo": 5
+        },
+        {
+            "nome": "Saúde na primeira infância",
+            "periodo": 5
+        },
+        {
+            "nome": "Fisioterapia em Terapia Intensiva",
+            "periodo": 6
+        },
+        {
+            "nome": "Fisioterapia Traumato-Ortopedia Funcional",
+            "periodo": 6
+        },
+        {
+            "nome": "Saúde da Criança e do Adolescente",
+            "periodo": 6
+        },
+        {
+            "nome": "Fisioterapia Neurofuncional II",
+            "periodo": 6
+        },
+        {
+            "nome": "Ética Profissional e Cidadania",
+            "periodo": 6
+        },
+        {
+            "nome": "Estágio Supervisionado I",
+            "periodo": 7
+        },
+        {
+            "nome": "Estágio Supervisionado II",
+            "periodo": 8
+        },
+        {
+            "nome": "Fisioterapia na Saúde da Mulher",
+            "periodo": 9
+        },
+        {
+            "nome": "Fisioterapia Dermatofuncional",
+            "periodo": 9
+        },
+        {
+            "nome": "Estágio Supervisionado III \u2013 F",
+            "periodo": 9
+        },
+        {
+            "nome": "Fisioterapia na Saúde do Idoso",
+            "periodo": 10
+        },
+        {
+            "nome": "Fisioterapia na Atenção Primária à Saúde",
+            "periodo": 10
+        },
+        {
+            "nome": "Estágio Supervisionado IV \u2013 F",
+            "periodo": 10
+        }
+      ]
+    }
+  ]
+}

@@ -36,10 +36,10 @@ public class SplashScreenActivity extends AppCompatActivity implements Animation
     public void onAnimationEnd(Animation animation) {
         Intent intent;
         if (Prefs.getString(this,"course").isEmpty()) {
-            intent = new Intent(SplashScreenActivity.this, CourseActivity.class);
+            intent = new Intent(SplashScreenActivity.this, NewCourseActivity.class);
         }
         else {
-            intent = new Intent(SplashScreenActivity.this, HomeActivity.class);
+            intent = new Intent(SplashScreenActivity.this, NewCourseActivity.class);
         }
         ActivityOptionsCompat opts = ActivityOptionsCompat.makeCustomAnimation(SplashScreenActivity.this,R.anim.alpha,R.anim.reverse_alpha);
         ActivityCompat.startActivity(this,intent,opts.toBundle());

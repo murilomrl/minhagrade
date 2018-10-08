@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1096180642614",
+    "firebase_url": "https://minhagrade-4dc19.firebaseio.com",
+    "project_id": "minhagrade-4dc19",
+    "storage_bucket": "minhagrade-4dc19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096180642614:android:0fb4a92a9f6e3f49",
+        "android_client_info": {
+          "package_name": "com.devmob.minhagrade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096180642614-tn871cmhe069t4sgnrda23jn2vpvdco3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY6-qsT5zvMTiVaXuKExk59-gtKiuBA9Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

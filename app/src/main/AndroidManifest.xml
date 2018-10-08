@@ -76,7 +76,11 @@
             android:name=".CurriculumActivity"
             android:label="Currículo"
             android:parentActivityName=".HomeActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NewCourseActivity"
+            android:label="@string/title_activity_new_couse"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

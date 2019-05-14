@@ -1,6 +1,7 @@
 package com.devmob.minhagrade;
 
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AlertDialog;
@@ -18,12 +19,18 @@ import android.widget.Toast;
 
 //import com.devmob.minhagrade.Lixo.Cursos;
 
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.AWSStartupHandler;
+import com.amazonaws.mobile.client.AWSStartupResult;
+import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.devmob.minhagrade.Adapter.CursoAdapter;
 import com.devmob.minhagrade.Adapter.PeriodoAdapter;
 import com.devmob.minhagrade.DB.CienciaDaComputação;
 import com.devmob.minhagrade.DB.DisciplinaDAO;
 import com.devmob.minhagrade.DB.PeriodoDAO;
 import com.devmob.minhagrade.Model.Curso;
+import com.devmob.minhagrade.Model.CursosDO;
 import com.devmob.minhagrade.Model.Disciplina;
 import com.devmob.minhagrade.Model.Periodo;
 import com.devmob.minhagrade.Model.Prefs;
@@ -49,6 +56,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
     private TextView naoAchouLink;
     private CursoAdapter cursoAdapter;
     private AlertDialog dialog;
+    DynamoDBMapper dynamoDBMapper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,8 +71,38 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
                 .setCancelable(false)
                 .create();
         dialog.show();
+        int SDK_INT = android.os.Build.VERSION.SDK_INT;
+        if (SDK_INT > 8)
+        {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                    .permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            //your codes here
 
-        final Retrofit retrofit = new Retrofit.Builder()
+        }
+        // AWSMobileClient enables AWS user credentials to access your table
+        AWSMobileClient.getInstance().initialize(this, new AWSStartupHandler() {
+
+            @Override
+            public void onComplete(AWSStartupResult awsStartupResult) {
+
+                // Add code to instantiate a AmazonDynamoDBClient
+                AmazonDynamoDBClient dynamoDBClient = new AmazonDynamoDBClient(AWSMobileClient.getInstance().getCredentialsProvider());
+                dynamoDBMapper = DynamoDBMapper.builder()
+                        .dynamoDBClient(dynamoDBClient)
+                        .awsConfiguration(
+                                AWSMobileClient.getInstance().getConfiguration())
+                        .build();
+                CursosDO cursosItems = dynamoDBMapper.load(
+                        CursosDO.class,
+                        "5aca8b7b734d1d55c317aeca");
+
+                // Item read
+                Log.d("teste", cursosItems.toString());
+                }
+        }).execute();
+
+        /*final Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -121,7 +159,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
             Intent intent = new Intent(CourseActivity.this, HomeActivity.class);
             intent.putExtra("MESSAGE", course);
             startActivity(intent);
-        }
+        }*/
     }
 
     @Override
@@ -169,6 +207,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
             });
         }
     }
+
 
     private void populaCurso(Curso curso){
         PeriodoDAO database = new PeriodoDAO(this);

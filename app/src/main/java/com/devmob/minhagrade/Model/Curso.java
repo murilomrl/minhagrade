@@ -1,7 +1,11 @@
 package com.devmob.minhagrade.Model;
 
 import android.content.Context;
+import android.util.Log;
 
+import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBAttribute;
+import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
+import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBTable;
 import com.devmob.minhagrade.R;
 import com.google.gson.Gson;
 
@@ -14,7 +18,7 @@ import java.util.List;
 /**
  * Created by DevMob on 17/05/2017.
  */
-
+@DynamoDBTable(tableName = "curso")
 public class Curso {
 
     private String _id;
@@ -22,7 +26,7 @@ public class Curso {
     private int periodos;
     //    Total de créditos de eletivas
     private Float eletivas;
-    private ArrayList<Disciplina> disciplinas = new ArrayList<>();
+    private List<Disciplina> disciplinas = new ArrayList<>();
 
     public Curso(String nome, Float eletivas) {
         this._id = "";
@@ -35,14 +39,17 @@ public class Curso {
 //        this.nome = nome;
 //    }
 
+    @DynamoDBAttribute(attributeName = "id")
     public String getId() {
         return _id;
     }
 
+    @DynamoDBAttribute(attributeName = "nome")
     public String getNome() {
         return nome;
     }
 
+    @DynamoDBAttribute(attributeName = "periodos")
     public int getPeriodos(){
         return periodos;
     }
@@ -55,22 +62,10 @@ public class Curso {
         this.eletivas = eletivas;
     }
 
+    @DynamoDBAttribute(attributeName = "disciplinas")
     public List<Disciplina> getDisciplinas(){
         return disciplinas;
     }
-
-//    public static ArrayList<Curso> getCursos(Context context){
-//        ArrayList<Curso> cursos = new ArrayList<Curso>();
-//        String[] arrayCourse = context.getResources().getStringArray(R.array.cursos_array);
-//        List<String> list = Arrays.asList(arrayCourse);
-//        Collections.sort(list);
-//
-//        for (int i =0; i< list.size(); i++){
-//            cursos.add(new Curso(list.get(i)));
-//        }
-//
-//        return cursos;
-//    }
 
     public String toString(){
         return (new Gson()).toJson(this);

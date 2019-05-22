@@ -4,11 +4,12 @@ import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBAttribut
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBHashKey;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMarshalling;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBTable;
-import java.util.ArrayList;
+
 import java.util.List;
+import java.util.Map;
 
 /**
- * Created by DevMob on 17/05/2017.
+ * Created by Murilo on 14/05/2019.
  */
 @DynamoDBTable(tableName = "curso")
 public class CursosDO {
@@ -16,7 +17,7 @@ public class CursosDO {
     private String _id;
     private String nome;
     private int periodos;
-    private List<Discipline> disciplinas = new ArrayList<>();
+    private List<Map<Integer, String>> disciplinas;
 
     @DynamoDBHashKey(attributeName = "id")
     @DynamoDBAttribute(attributeName = "id")
@@ -48,11 +49,11 @@ public class CursosDO {
 
     @DynamoDBMarshalling(marshallerClass = DisciplineMarshaller.class)
     @DynamoDBAttribute(attributeName = "disciplinas")
-    public List<Discipline> getDisciplinas() {
+    public List<Map<Integer, String>> getDisciplinas() {
         return disciplinas;
     }
 
-    public void setDisciplinas(final List<Discipline> disciplinas){
+    public void setDisciplinas(final List<Map<Integer,String>> disciplinas){
         this.disciplinas = disciplinas;
     }
 }

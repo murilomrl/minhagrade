@@ -1,5 +1,6 @@
 package com.devmob.minhagrade;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v4.app.ActivityCompat;
@@ -19,10 +20,15 @@ import android.widget.Toast;
 
 //import com.devmob.minhagrade.Lixo.Cursos;
 
+import com.amazonaws.auth.AWSCredentialsProvider;
+import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.AWSStartupHandler;
 import com.amazonaws.mobile.client.AWSStartupResult;
+import com.amazonaws.mobileconnectors.apigateway.ApiClientFactory;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
+import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBScanExpression;
+import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.devmob.minhagrade.Adapter.CursoAdapter;
 import com.devmob.minhagrade.Adapter.PeriodoAdapter;
@@ -35,11 +41,14 @@ import com.devmob.minhagrade.Model.Disciplina;
 import com.devmob.minhagrade.Model.Periodo;
 import com.devmob.minhagrade.Model.Prefs;
 import com.devmob.minhagrade.support.API;
+import com.minhagrade.clientsdk.MinhagradeClient;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+
+import javax.xml.transform.Result;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -71,37 +80,17 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
                 .setCancelable(false)
                 .create();
         dialog.show();
-        int SDK_INT = android.os.Build.VERSION.SDK_INT;
-        if (SDK_INT > 8)
-        {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-                    .permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-            //your codes here
-
-        }
-        // AWSMobileClient enables AWS user credentials to access your table
-        AWSMobileClient.getInstance().initialize(this, new AWSStartupHandler() {
-
-            @Override
-            public void onComplete(AWSStartupResult awsStartupResult) {
-
-                // Add code to instantiate a AmazonDynamoDBClient
-                AmazonDynamoDBClient dynamoDBClient = new AmazonDynamoDBClient(AWSMobileClient.getInstance().getCredentialsProvider());
-                dynamoDBMapper = DynamoDBMapper.builder()
-                        .dynamoDBClient(dynamoDBClient)
-                        .awsConfiguration(
-                                AWSMobileClient.getInstance().getConfiguration())
-                        .build();
-                CursosDO cursosItems = dynamoDBMapper.load(
-                        CursosDO.class,
-                        "5aca8b7b734d1d55c317aeca");
-
-                // Item read
-                Log.d("teste", cursosItems.toString());
-                }
-        }).execute();
-
+        Context context = this;
+        AWSCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
+                context,          // activity context
+                "us-east-1:22b24252-b883-404d-9e44-b3a8d886867a", // Cognito identity pool id
+                Regions.US_EAST_1 // region of Cognito identity pool
+        );
+        ApiClientFactory factory = new ApiClientFactory()
+                .credentialsProvider(credentialsProvider);
+        final MinhagradeClient client = factory.build(MinhagradeClient.class);
+        Result output = (Result) client.rootPost();
+        Log.d("output", output.toString());
         /*final Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

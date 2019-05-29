@@ -14,11 +14,11 @@ import retrofit2.http.Path;
 
 public interface API {
 
-    String BASE_URL = "http://minhagradeufrj.herokuapp.com";
+    String BASE_URL = "https://xa1os24d84.execute-api.us-east-1.amazonaws.com/";
 
-    @GET("/cursos")
+    @GET("/prod/cursos/")
     Call<List<Curso>> getCourses();
 
-    @GET("/cursos/{id}")
-    Call<Curso> getCourse(@Path("id") String id);
+    @GET("/prod/cursos/{path}")
+    Call<Curso> getCourse(@Path("path") String path);
 }

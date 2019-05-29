@@ -70,6 +70,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
                 .build();
         final API service = retrofit.create(API.class);
         Call<List<Curso>> call = service.getCourses();
+        Log.d("BASE_URL: ", String.valueOf(call.request()));
         call.enqueue(new Callback<List<Curso>>() {
             @Override
             public void onResponse(Call<List<Curso>> call, Response<List<Curso>> response) {
@@ -150,7 +151,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             final API service = retrofit.create(API.class);
-            Call<Curso> call = service.getCourse(((Curso) spinner.getSelectedItem()).getId());
+            Call<Curso> call = service.getCourse(((Curso) spinner.getSelectedItem()).getPath());
             call.enqueue(new Callback<Curso>() {
                 @Override
                 public void onResponse(Call<Curso> call, Response<Curso> response) {
@@ -174,6 +175,7 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
         PeriodoDAO database = new PeriodoDAO(this);
         DisciplinaDAO databaseDisciplina = new DisciplinaDAO(this);
         List<Periodo> periodos;
+        Log.d("PERIODOS: ", String.valueOf(curso.getPeriodos()));
 
         for (int i = 1; i <= curso.getPeriodos(); i++){
             Periodo periodo = new Periodo(i + "º período",curso.getNome());

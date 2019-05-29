@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.devmob.minhagrade.R;
 import com.google.gson.Gson;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,16 +20,25 @@ import java.util.List;
 public class Curso {
 
     private String _id;
+    @SerializedName("name")
+    @Expose
     private String nome;
+    @SerializedName("path")
+    @Expose
+    private String path;
+    @SerializedName("periodos")
+    @Expose
     private int periodos;
     //    Total de créditos de eletivas
+    @SerializedName("eletivas")
+    @Expose
     private Float eletivas;
     private ArrayList<Disciplina> disciplinas = new ArrayList<>();
 
-    public Curso(String nome, Float eletivas) {
+    public Curso(String nome, String path) {
         this._id = "";
         this.nome = nome;
-        this.eletivas = eletivas;
+        this.path = path;
     }
 
 //    public Curso(String nome) {
@@ -35,8 +46,8 @@ public class Curso {
 //        this.nome = nome;
 //    }
 
-    public String getId() {
-        return _id;
+    public String getPath() {
+        return path;
     }
 
     public String getNome() {
